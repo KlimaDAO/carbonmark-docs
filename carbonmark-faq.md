@@ -51,6 +51,6 @@ No. Unlike other carbon marketplaces, there are no transaction fees associated w
 
 #### What team is behind Carbonmark?
 
-Carbonmark has been developed by KlimaDAO as a means to enable greater levels of adoption and integration with the Digital Carbon Market.\
+Carbonmark has been developed by [KlimaDAO](https://klimadao.finance) as a means to enable greater levels of adoption and integration with the Digital Carbon Market.\
 \
 The KlimaDAO protocol will continue to develop best-in-class open-source base layer infrastructure for the carbon markets, while Carbonmark itself will be the entry point for the majority of stakeholders seeking to source, trade, and retire carbon.
