@@ -4,6 +4,7 @@
 * [Carbonmark FAQ](carbonmark-faq.md)
 * [Get Started](get-started/README.md)
   * [How to create and edit your Carbonmark profile](get-started/how-to-create-and-edit-your-carbonmark-profile.md)
+  * [How to get USDC or MATIC](get-started/how-to-get-usdc-or-matic.md)
   * [How to buy carbon credits](get-started/how-to-buy-carbon-credits.md)
   * [How to list carbon credits for sale](get-started/how-to-list-carbon-credits-for-sale.md)
 * [Retire carbon credits](retire-carbon-credits.md)
