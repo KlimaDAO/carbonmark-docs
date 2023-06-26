@@ -2,7 +2,7 @@
 
 Carbonmark is built on the Polygon PoS blockchain. In order to interact with Carbonmark, you will need MATIC, Polygon's native token, to pay for network fees known as gas. Additionally, transactions on Carbonmark are denominated in USDC.
 
-This page is full of resources to help you load your wallet with MATIC and USDC so you can buy, sell, list, or retire carbon offsets.
+This page is full of resources to help you load your wallet with MATIC and USDC so you can buy, sell, list, or retire carbon credits.
 
 ## Getting Started
 
