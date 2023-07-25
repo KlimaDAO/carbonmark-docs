@@ -7,7 +7,7 @@
   * [How to get USDC or MATIC](get-started/how-to-get-usdc-or-matic.md)
   * [How to buy carbon credits](get-started/how-to-buy-carbon-credits.md)
   * [How to list carbon credits for sale](get-started/how-to-list-carbon-credits-for-sale.md)
-* [Retire carbon credits](retire-carbon-credits.md)
+* [How to Retire Carbon](how-to-retire-carbon.md)
 * [Digital Carbon Retirement Verification](digital-carbon-retirement-verification.md)
 * [Resources](resources/README.md)
   * [The Fundamentals of Digital Carbon](https://www.youtube.com/watch?v=S\_AkDvrdIbs)

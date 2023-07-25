@@ -1,6 +1,6 @@
 # How to create and edit your Carbonmark profile
 
-#### 1. Navigate to [Carbonmark.com](https://www.carbonmark.com/)
+#### 1. Navigate to [Carbonmark](https://www.carbonmark.com/)
 
 #### 2. Click "PROFILE"
 
