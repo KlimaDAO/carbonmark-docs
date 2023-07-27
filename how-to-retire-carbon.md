@@ -56,6 +56,6 @@ If you select credit card, you will be redirected to a Stripe payment page to co
 
 <figure><img src=".gitbook/assets/Guide_ How to Retire Carbon on Carbonmark.com - Step 14.png" alt=""><figcaption></figcaption></figure>
 
-14\. When the transaction has completed, you will receive a Retirement Successful message with an option to view or transaction on Polygonscan and see your retirement receipt.
+14\. When the transaction has completed, you will receive a Retirement Successful message with an option to view transaction on Polygonscan and see your retirement receipt.
 
 <figure><img src=".gitbook/assets/Guide_ How to Retire Carbon on Carbonmark.com - Step 15.png" alt=""><figcaption></figcaption></figure>

@@ -9,47 +9,35 @@
 
 #### 1. Within the Marketplace, find a project you are interested in and click the project card to see the project details.
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F9831915860961eece74003763d521c6871f9e3ae-1400x794.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Buy Carbon Credits - Step 4.png" alt=""><figcaption></figcaption></figure>
 
 #### 2. On the project details page, find the Carbon Pool listing and click "BUY".
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F4af7e5f1da8b9c5e6ede60724e1b7781dc14047f-1188x472.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Buy Carbon Credits- Step 5.png" alt=""><figcaption></figcaption></figure>
 
-#### 3. During the beta phase of Carbonmark, we are leveraging the KlimaDAO retirement aggregator. At this point, you will therefore be directed to said retirement aggregator. The form will be pre-populated with the project you have selected. _Note that in future releases, the retirement aggregator functionality will be migrated to Carbonmark_.
+#### 3. On the Buy page, select the quantity of tonnes to purchase.
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2Fba9c1e729c5e99739d70c84f16143899bb22ba9b-1816x1356.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Buy Carbon Credits  - Step 6.png" alt=""><figcaption></figcaption></figure>
 
-#### 4. If you are not already logged in to the KlimaDAO app, you will need to LOGIN / CONNECT using the same login and wallet that you are using in Carbonmark.
+#### 4. Click "CONTINUE"
 
-#### 5. Once connected, enter the number of tonnes you would like to acquire.
+<figure><img src="../.gitbook/assets/Buy Carbon Credits  - Step 8.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2Fce5c69b06c1c24dcdf6e3f015e5a8a14e2e973e9-896x554.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
+{% hint style="info" %}
+**Need USDC?** See this guide to learn [How to get USDC](how-to-get-usdc-or-matic.md)
+{% endhint %}
 
-#### 6. Based on the quantity entered, the "Cost" and "You receive" fields will be populated. Use the "Payment method" drop down menu to select your desired payment method for your carbon credits (in this example, USDC is used).
+**5. Next confirm the transaction and give permission to the smart contract to transfer tokens on your behalf. Click "APPROVE" and then "NEXT" once the approve transaction completes.**
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2Fbe4afec19b66e80f2edd33113c5368759041037a-782x548.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
+**6. Now click "SUBMIT" to submit the transaction. Note that for both the APPROVE and SUBMIT steps you will need to interact with the wallet you used to login.**
 
-#### 7. Once you are satisfied with the form entries, click "APPROVE".
+<figure><img src="../.gitbook/assets/Buy Carbon Credits  - Step 9.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F9a4e2c332cd53c446ca9af180f057e4ffa7ef553-850x562.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
+#### 7. When the transaction has completed, you will receive a Purchase Successful message with an option to view transaction on Polygonscan and see your carbon Portfolio.
 
-#### 8. There are two approval steps to the transaction. First, you must give permission to the smart contract to transfer tokens on your behalf. Once that approval is complete, click "NEXT".
+<figure><img src="../.gitbook/assets/Buy Carbon Credits  - Step 10.jpeg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2Fe494ff17d7564bed7bb5a52a8b25acd51cda96bc-956x686.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
-
-#### 9. Finally, click "SUBMIT" to complete the transaction. Note that for both the APPROVE and SUBMIT steps you will need to interact with the wallet you used to login.
-
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F069968d95e49c5a25a4d3f6bb1c0dc7d5818237d-822x572.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
-
-#### 10. When the transaction has completed, you will receive a transaction complete success message and you can close the window.
-
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F0a2420134b3330e6fc4fd59baa6ef2f22cf80953-804x332.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
-
-#### 11. In the Balances section of the app, you should now see your redeemed carbon token. In this example, we bought 1 tonne of C3T-VCS-849-2017. Note that you may need to refresh the page to see the updated Balances section.
-
-<figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2Fea8baf8ee9268adc90f6ddf72aa3db3619cbecf8-790x874.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
-
-#### 12. Back in Carbonmark, return to your Portfolio page and you will see the carbon token(s) in your list. They are now available to RETIRE or SELL.
+#### 8. In your Carbonmark Portfolio page, you will see the carbon token(s) in your list. They are now available to RETIRE or SELL.
 
 <figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F154e7976e5572ff91fa5dc9ec9cb04d5d515a921-2014x1018.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
 
