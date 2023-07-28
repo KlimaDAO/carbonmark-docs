@@ -1,6 +1,6 @@
 # Understanding fees on Carbonmark
 
-It is **completely free** to purchase from a seller listing and pay with USDC. You can also create and manage your own listings at zero additional cost.
+It is **completely free** to purchase or retire carbon from a seller listing with USDC. You can also create and manage your own listings at zero additional cost.
 
 However, for other types of purchases, you may encounter **network fees** or **payment processing fees** from our partner technology providers. This document is intended to help you understand how these fees work, and where the money goes.
 
@@ -12,6 +12,7 @@ However, for other types of purchases, you may encounter **network fees** or **p
 | Credit card    | 0-26%*      | 20%                    | $0.02 - $0.50** |
 
 *\*Network fees depend on purchase type, not payment method.*
+
 *\*\*Gas fees increase during periods of high network congestion, but are typically only a few cents per transaction. When paying with USDC, you pay the gas in MATIC from your wallet. When paying with a credit card, the gas cost is estimated and added to the total.*
 
 As shown in the table above, when you pay with  payment processing partners (Stripe & Offsetra) charge a fee on top of the listed tonne price. This fee is used to facilitate the currency conversions necessary to aquire the carbon asset on Polygon's blockchain network.
@@ -26,9 +27,9 @@ As shown in the table above, when you pay with  payment processing partners (Str
 | Buy from NCT pool | 10.3% | +10% NCT pool fee for Toucan Protocol<br>+0.3% Asset swap fee for SushiSwap |
 | Retire from NCT pool | 11.3% | +10% NCT pool fee for Toucan Protocol<br>+0.3% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO |
 | Buy from UBO pool | 2.8% | +2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap |
-| Retire from UBO pool | 2.8% | +2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap |
+| Retire from UBO pool | 2.8% | +2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO |
 | Buy from NBO pool | 2.8% | +2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap |
-| Retire from NBO pool | 2.8% | +2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap |
+| Retire from NBO pool | 2.8% | +2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO |
 
 ## Seller listing prices vs pool prices
 Carbonmark compares prices across different sources in the Digital Carbon Market. Currently, we compare prices from two sources: *marketplace sellers*, and *carbon pools*.
