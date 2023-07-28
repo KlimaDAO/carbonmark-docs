@@ -11,18 +11,18 @@ However, for other types of purchases, you may encounter **network fees** or **p
 | USDC           | 0-26%*      | 0%                     | $0.02 - $0.50** |
 | Credit card    | 0-26%*      | 20%                    | $0.02 - $0.50** |
 
-*\*Network fees depend on purchase type, not payment method.*
+As shown in the table above, when you pay with a credit card, our payment processing partners (Stripe & Offsetra) charge a fee on top of the listed tonne price. This fee is used to facilitate the currency conversions necessary to acquire the carbon asset on Polygon's blockchain network.
+
+*\*Network fees depend on purchase type (see below)*
 
 *\*\*Gas fees increase during periods of high network congestion, but are typically only a few cents per transaction. When paying with USDC, you pay the gas in MATIC from your wallet. When paying with a credit card, the gas cost is estimated and added to the total.*
-
-As shown in the table above, when you pay with a credit card, our payment processing partners (Stripe & Offsetra) charge a fee on top of the listed tonne price. This fee is used to facilitate the currency conversions necessary to acquire the carbon asset on Polygon's blockchain network.
 
 ## Summary - by purchase type
 
 | Purchase type | Total network fee | Description |
 |---|---|---|
-| Buy from seller listing | 0% | No network fees. |
-| Retire from seller listing | 0% | No network fees. |
+| Buy from seller listing | 0% | No network fees |
+| Retire from seller listing | 0% | No network fees |
 | Buy from BCT pool | 25.6% | +25% BCT pool fee for Toucan Protocol<br>+0.6% asset swap fee for SushiSwap |
 | Retire from BCT pool | 26.6% | +25% BCT pool fee for Toucan Protocol<br>+0.6% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO |
 | Buy from NCT pool | 10.3% | +10% NCT pool fee for Toucan Protocol<br>+0.3% Asset swap fee for SushiSwap |
