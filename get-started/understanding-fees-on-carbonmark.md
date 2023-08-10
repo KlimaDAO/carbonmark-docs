@@ -14,6 +14,10 @@ _\*Network fees depend on purchase type (see below)_
 
 _\*\*Gas fees increase during periods of high network congestion, but are typically only a few cents per transaction. When paying with USDC, you pay the gas in MATIC from your wallet. When paying with a credit card, the gas cost is estimated and added to the total._
 
+{% hint style="info" %}
+**Need MATIC for gas fees or USDC?** See this guide on [How to get USDC or MATIC](how-to-get-usdc-or-matic.md).
+{% endhint %}
+
 ## Summary - by purchase type
 
 <table><thead><tr><th>Purchase type</th><th width="170.33333333333331">Total network fee</th><th>Description</th></tr></thead><tbody><tr><td>Buy from seller listing</td><td>0%</td><td>No network fees</td></tr><tr><td>Retire from seller listing</td><td>0%</td><td>No network fees</td></tr><tr><td>Buy from BCT pool</td><td>25.6%</td><td>+25% BCT pool fee for Toucan Protocol<br>+0.6% asset swap fee for SushiSwap</td></tr><tr><td>Retire from BCT pool</td><td>26.6%</td><td>+25% BCT pool fee for Toucan Protocol<br>+0.6% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO</td></tr><tr><td>Buy from NCT pool</td><td>10.3%</td><td>+10% NCT pool fee for Toucan Protocol<br>+0.3% Asset swap fee for SushiSwap</td></tr><tr><td>Retire from NCT pool</td><td>11.3%</td><td>+10% NCT pool fee for Toucan Protocol<br>+0.3% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO</td></tr><tr><td>Buy from UBO pool</td><td>2.8%</td><td>+2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap</td></tr><tr><td>Retire from UBO pool</td><td>3.8%</td><td>+2.5% UBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO</td></tr><tr><td>Buy from NBO pool</td><td>2.8%</td><td>+2.5% NBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap</td></tr><tr><td>Retire from NBO pool</td><td>3.8%</td><td>+2.5% NBO pool fee for C3<br>+0.3% Asset swap fee for SushiSwap<br>+1% Retirement service fee for KlimaDAO</td></tr></tbody></table>
