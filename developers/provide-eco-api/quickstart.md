@@ -1,6 +1,6 @@
 # Quickstart
 
-To get started using Carbonmark Offset API powered by Provide Payments, you must make create an account and organization.
+To get started using the ECO API powered by Provide Payments, you must make create an account and organization.
 
 ## Shuttle
 
