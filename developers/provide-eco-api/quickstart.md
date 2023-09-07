@@ -18,4 +18,4 @@ To get started using the ECO API powered by Provide Payments, you must make crea
 
 ## Postman
 
-Alternatively, you can also perform programmatic onboarding of credentials following [this example](https://github.com/provideplatform/eco-api-resources/blob/main/postman/ECO%20API%20-%20User%20signup.postman\_collection.json).
+Alternatively, you can also perform programmatic onboarding of credentials with [this Postman collection](https://github.com/provideplatform/eco-api-resources/blob/main/postman/Carbonmark%20API%20-%20Provide%20Payments%20User%20signup.postman\_collection.json).
