@@ -17,7 +17,11 @@
   * [Quickstart](developers/provide-eco-api/quickstart.md)
   * [API Pricing and Billing](developers/provide-eco-api/api-pricing-and-billing.md)
   * [Provide ECO API Demo](developers/provide-eco-api/provide-eco-api-demo.md)
-* [Carbonmark REST API](developers/carbonmark-rest-api.md)
+* [Carbonmark REST API](developers/carbonmark-rest-api/README.md)
+  * [Find carbon projects by country](developers/carbonmark-rest-api/find-carbon-projects-by-country.md)
+  * [Find carbon projects by vintage](developers/carbonmark-rest-api/find-carbon-projects-by-vintage.md)
+  * [Find carbon projects by methodology category](developers/carbonmark-rest-api/find-carbon-projects-by-methodology-category.md)
+  * [Find carbon projects by project name or description](developers/carbonmark-rest-api/find-carbon-projects-by-project-name-or-description.md)
 
 ***
 
