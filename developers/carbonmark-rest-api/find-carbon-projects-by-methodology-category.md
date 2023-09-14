@@ -3,10 +3,16 @@
 You can search for carbon projects listed on Carbonmark by methodology category.
 
 {% hint style="info" %}
+Each API endpoint will link to its reference documentation where you can create sample requests in other programming languages as well as enter the parameters you desire.
+{% endhint %}
+
+The [Categories endpoint](https://api.carbonmark.com/#/paths/categories/get) provides a list of all methodology categories used to delineate every project in the marketplace.&#x20;
+
+{% hint style="info" %}
 Note: a carbon project may belong to one or more methodology categories.
 {% endhint %}
 
-The [Categories endpoint](https://api.carbonmark.com/#/paths/categories/get) provides a list of all methodology categories used to delineate every project in the marketplace. Here's a sample of a request:
+Here's a sample of a request:
 
 {% code title="Request" %}
 ```bash

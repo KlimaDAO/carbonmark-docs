@@ -2,6 +2,10 @@
 
 You can search for carbon projects listed on Carbonmark by country.
 
+{% hint style="info" %}
+Each API endpoint will link to its reference documentation where you can create sample requests in other programming languages as well as enter the parameters you desire.
+{% endhint %}
+
 First, retrieve an array containing the countries that carbon projects originate from by calling the [Countries endpoint](https://api.carbonmark.com/#/paths/countries/get). Here's a sample of a request:
 
 {% code title="Request" %}

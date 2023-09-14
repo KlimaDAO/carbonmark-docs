@@ -2,6 +2,10 @@
 
 You can search for carbon projects listed on Carbonmark by vintage.
 
+{% hint style="info" %}
+Each API endpoint will link to its reference documentation where you can create sample requests in other programming languages as well as enter the parameters you desire.
+{% endhint %}
+
 First, retrieve an array of the vintages of available carbon projects by calling the [Vintages endpoint](https://api.carbonmark.com/#/paths/vintages/get). Here's a sample of a request:
 
 {% code title="Request" %}

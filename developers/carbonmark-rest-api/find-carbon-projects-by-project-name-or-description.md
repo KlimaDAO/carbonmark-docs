@@ -2,6 +2,10 @@
 
 You can search for carbon project names and descriptions for a string of text. This can be useful if you're looking for a specific project by name or want to find projects which contain specific keywords in their description.
 
+{% hint style="info" %}
+Each API endpoint will link to its reference documentation where you can create sample requests in other programming languages as well as enter the parameters you desire.
+{% endhint %}
+
 The [List Projects](https://api.carbonmark.com/#/paths/projects/get) endpoint allows you to retrieve an array of carbon projects filtered by category, country, vintage, project names, and project descriptions. In this example, we'll search for carbon projects containing the string `REDD+`(encoded for the URL as `REDD%2B`):
 
 {% code title="Request" %}
