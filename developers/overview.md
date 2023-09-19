@@ -2,7 +2,7 @@
 
 **Looking to explore digital carbon market data?** Get started with [Carbonmark REST API](carbonmark-rest-api/).
 
-**Are you looking to retire carbon now and pay by invoice within 30 days?** Get started with [Provide ECO API](overview.md#provide-eco-api).
+**Are you looking to retire carbon now and pay by invoice within 30 days?** Get started with [Provide ECO API](provide-eco-api/).
 
 ## Provide ECO API
 
@@ -11,6 +11,8 @@ Provide ECO API enables developers to tap into instant, fractionalized, auditabl
 [quickstart.md](provide-eco-api/quickstart.md "mention")
 
 [provide-eco-api-demo.md](provide-eco-api/provide-eco-api-demo.md "mention")
+
+[Sample NodeJS scripts](https://github.com/provideplatform/eco-api-resources/tree/main/sample\_apps/node-js-sample-script)
 
 ## Carbonmark REST API
 

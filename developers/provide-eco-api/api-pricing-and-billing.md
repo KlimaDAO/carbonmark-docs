@@ -1,5 +1,7 @@
 # API Pricing and Billing
 
+### [**For the most up-to-date pricing and billing information, see here.**](https://github.com/provideplatform/eco-api-resources/blob/main/billing\_setup/eco-api-billing.md)
+
 ## Pricing models
 
 Provide ECO API offers two pricing models:
