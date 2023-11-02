@@ -15,6 +15,12 @@
 
 <figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2F9e71f72f1d17213f268e278377fc3d9b4e708392-1396x640.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
 
+{% hint style="info" %}
+**What does expiration mean?**
+
+Listings on Carbonmark have a default 90-day expiration date or lifespan from the date of creation. Once this period ends, a listing becomes expired and is no longer available for purchase. Listers can opt to change their expiration date before a listing expires.
+{% endhint %}
+
 #### 5. A "Create a Listing" window will appear, in which the "Select Project" field will be pre-selected. Enter the total amount of tonnes you would like to sell. Your available quantity to list will be shown. You must list at least 1 tonne of carbon.
 
 <figure><img src="https://www.carbonmark.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fdk34t4vc%2Fproduction%2Fe85e57a2f836c62de45a1f8a8826f7ae087d12ec-990x706.png&#x26;w=3840&#x26;q=75" alt=""><figcaption></figcaption></figure>
