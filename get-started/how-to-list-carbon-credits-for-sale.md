@@ -5,10 +5,10 @@
 * #### You must have a [fully completed Profile](https://www.carbonmark.com/blog/how-to-create-and-edit-your-profile).
 * #### You must have carbon tokens (for example, TCO2's or C3T's) in your wallet. See the [How to buy carbon credits](https://www.carbonmark.com/blog/how-to-buy-carbon-credits) article for more details.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 _**Do listings expire?**_
 
-**Yes, Listings on Carbonmark have a default 90-day expiration date** or lifespan from the date of creation. Once this period ends, a listing becomes expired and is no longer available for purchase. Sellers can opt to edit their listing before a listing expires.
+**Yes, Listings on Carbonmark have a default 90-day expiration date** or lifespan from the date of creation. Once this period ends, a listing becomes expired and is no longer available for purchase. Sellers can opt to [edit their listing](how-to-edit-or-delete-a-listing.md) before a listing expires.
 {% endhint %}
 
 #### 2. A listing can be created from your [Profile](https://www.carbonmark.com/users/login) or [Portfolio](https://www.carbonmark.com/portfolio) page. This guide will focus on navigating to these places from the marketplace.
@@ -51,7 +51,9 @@ _**Do listings expire?**_
 
 #### NEXT, you then need to SUBMIT the listing transaction in the next step.
 
-#### 8. Click "SUBMIT". Depending on your login method and wallet used, you will need to interact with the wallet to accept the transaction.
+#### 8. **Confirm the details of your transaction once again before proceeding. Click "SUBMIT".**&#x20;
+
+**Depending on your login method and wallet used, you will need to interact with the wallet to accept the transaction.**
 
 <div data-full-width="true">
 
@@ -59,7 +61,7 @@ _**Do listings expire?**_
 
 </div>
 
-#### 9. Once the transaction is submitted and approved, you will receive a Success message. Click "Profile page" to return to your profile and see the listing.
+#### 9. Once the transaction is submitted and confirmed, you will receive a Success message. Click "Profile page" to return to your profile and see the listing.
 
 <div data-full-width="true">
 
@@ -68,7 +70,7 @@ _**Do listings expire?**_
 </div>
 
 {% hint style="success" %}
-**Success!** Your carbon credit tokens are now listed on Carbonmark and available for purchase by other users.
+**Success!** Your carbon credit tokens are now listed on Carbonmark and available for purchase by other users. _You can_ [_edit or delete your listing_](how-to-edit-or-delete-a-listing.md) _at any time._
 
 \
 When a buyer purchases your listing, the USDC is sent to your wallet. The sale will appear in the Activity feed of your profile.
@@ -113,3 +115,9 @@ However, due to technical complexities in the background, your listing might not
 {% hint style="info" %}
 If you're unable to resolve your issue, do not hesitate to use our Live Chat support or reach out to us via [Discord](https://discord.com/invite/klimadao) or our [Contact](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk) form.
 {% endhint %}
+
+**What is an expired or invalid listing?**
+
+_Expired Listings:_ Listings on Carbonmark have a default 90-day expiration date or lifespan from the date of creation. Once this period ends, a listing becomes expired and is no longer available for purchase. Sellers can opt to [edit their listing](how-to-edit-or-delete-a-listing.md) before a listing expires.
+
+_Invalid Listings:_ Invalid listings are those that can't be fulfilled. This could happen if the seller no longer possesses the digital carbon credit tokens listed in the offer.

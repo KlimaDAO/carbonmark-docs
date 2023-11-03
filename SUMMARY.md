@@ -7,6 +7,7 @@
   * [How to get USDC or MATIC](get-started/how-to-get-usdc-or-matic.md)
   * [How to buy carbon credits](get-started/how-to-buy-carbon-credits.md)
   * [How to list carbon credits for sale](get-started/how-to-list-carbon-credits-for-sale.md)
+  * [How to edit or delete a listing](get-started/how-to-edit-or-delete-a-listing.md)
   * [Understanding fees on Carbonmark](get-started/understanding-fees-on-carbonmark.md)
 * [How to Retire Carbon](how-to-retire-carbon.md)
 
