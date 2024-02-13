@@ -2,7 +2,7 @@
 
 **Looking to explore digital carbon market data?** Get started with [Carbonmark REST API](carbonmark-rest-api/).
 
-**Are you looking to retire carbon now and pay by invoice within 30 days?** Get started with our [Retirement API](retirement-api-quickstart.md). _(**This is a feature preview and the Retirement API is currently in alpha.)**_
+**Are you looking to retire carbon now and pay by invoice within 30 days?** Try our [Retirement API](retirement-api-quickstart.md). _(This is a feature preview and the Retirement API is currently in alpha.)_
 
 ## Carbonmark Retirement API
 
