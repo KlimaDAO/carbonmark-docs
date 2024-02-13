@@ -24,5 +24,3 @@ Fastify schemas are co-located with the respective route handlers, except for th
 
 You can find the code repository for the Carbonmark REST API in the KlimaDAO monorepo - [each version number can be found under tags](https://github.com/KlimaDAO/klimadao/tags).
 
-<table data-full-width="false"><thead><tr><th>Version</th><th>Link</th></tr></thead><tbody><tr><td>V1.1</td><td><a href="https://github.com/KlimaDAO/klimadao/tree/carbonmark-api/v1.1.0">Link to repo</a></td></tr><tr><td>V1</td><td><a href="https://github.com/KlimaDAO/klimadao/releases/tag/carbonmark-api%2Fv1">Link to repo</a></td></tr></tbody></table>
-

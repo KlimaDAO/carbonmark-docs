@@ -2,21 +2,20 @@
 
 **Looking to explore digital carbon market data?** Get started with [Carbonmark REST API](carbonmark-rest-api/).
 
-**Are you looking to retire carbon now and pay by invoice within 30 days?** Get started with [Provide ECO API](provide-eco-api/).
+**Are you looking to retire carbon now and pay by invoice within 30 days?** Get started with our [Retirement API](retirement-api-quickstart.md).
 
-## Provide ECO API
+## Carbonmark Retirement API
 
-Provide ECO API enables developers to tap into instant, fractionalized, auditable digital carbon retirements with convenient billing and invoicing options - no need to interact with the blockchain or for users to hold digital assets.&#x20;
+Our Retirement API enables developers to tap into instant, fractionalized, auditable digital carbon retirements with convenient billing and invoicing options - no need to interact with the blockchain or for users to hold digital assets.&#x20;
 
-[quickstart.md](provide-eco-api/quickstart.md "mention")
-
-[provide-eco-api-demo.md](provide-eco-api/provide-eco-api-demo.md "mention")
-
-[Sample NodeJS scripts](https://github.com/provideplatform/eco-api-resources/tree/main/sample\_apps/node-js-sample-script)
+{% content-ref url="retirement-api-quickstart.md" %}
+[retirement-api-quickstart.md](retirement-api-quickstart.md)
+{% endcontent-ref %}
 
 ## Carbonmark REST API
 
 You can find the latest API Reference docs of the Carbonmark REST API at [api.carbonmark.com/](https://api.carbonmark.com/#/). You can use the Carbonmark REST API to view assets, prices, supply, activity and more.
 
-[carbonmark-rest-api](carbonmark-rest-api/ "mention")
-
+{% content-ref url="carbonmark-rest-api/" %}
+[carbonmark-rest-api](carbonmark-rest-api/)
+{% endcontent-ref %}
