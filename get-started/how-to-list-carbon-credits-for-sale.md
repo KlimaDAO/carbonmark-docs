@@ -1,5 +1,7 @@
 # How to list carbon credits for sale
 
+If you want to sell carbon credits on Carbonmark, you must first create a listing for those carbon credits. This will allow your carbon credits to be listed on Carbonmark’s marketplace instantly, where they can be bought by any market participant for the price you specified.
+
 #### 1. To list and sell carbon credits on Carbonmark there are two prerequisites:
 
 * #### You must have a [fully completed Profile](https://www.carbonmark.com/blog/how-to-create-and-edit-your-profile).
@@ -118,6 +120,6 @@ If you're unable to resolve your issue, do not hesitate to use our Live Chat sup
 
 **What is an expired or invalid listing?**
 
-_Expired Listings:_ Listings on Carbonmark have a default 90-day expiration date or lifespan from the date of creation. Once this period ends, a listing becomes expired and is no longer available for purchase. Sellers can opt to [edit their listing](how-to-edit-or-delete-a-listing.md) before a listing expires.
+_**Expired Listings:**_ Listings on Carbonmark have a default 90-day expiration date or lifespan from the date of creation. Once this period ends, a listing becomes expired and is no longer available for purchase. Sellers can opt to [edit their listing](how-to-edit-or-delete-a-listing.md) before a listing expires.
 
-_Invalid Listings:_ Invalid listings are those that can't be fulfilled. This could happen if the seller no longer possesses the digital carbon credit tokens listed in the offer.
+_**Invalid Listings:**_ Invalid listings are those that can't be fulfilled. This could happen if the seller no longer possesses the digital carbon credit tokens listed in the offer.

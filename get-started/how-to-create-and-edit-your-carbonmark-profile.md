@@ -1,5 +1,9 @@
 # How to create and edit your Carbonmark profile
 
+Your [Profile](https://www.carbonmark.com/users/login) lists your user name and profile picture, your past activities on Carbonmark, information about you or your organization, various statistics such as carbon tonnes listed and sold, and active listings. Think of it as your primary dashboard that lets you track your experience on Carbonmark from the very first carbon credit you have ever traded to your most recent activities.
+
+The following steps will guide you through creating your Profile:
+
 #### 1. Navigate to [Carbonmark](https://www.carbonmark.com/)
 
 #### 2. Click "PROFILE"

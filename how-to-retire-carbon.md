@@ -1,6 +1,6 @@
 # How to Retire Carbon
 
-
+The following steps will guide you through retiring carbon via Carbonmark:
 
 1\. Navigate to [Carbonmark](https://www.carbonmark.com/projects)
 
