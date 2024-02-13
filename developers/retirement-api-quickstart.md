@@ -1,8 +1,14 @@
 ---
-description: initiate carbon retirements via a REST endpoint
+description: >-
+  [Alpha | Feature Preview] Retirement API - initiate carbon retirements via a
+  REST endpoint
 ---
 
 # Retirement API Quickstart
+
+{% hint style="warning" %}
+**Note: This is a feature preview and the Retirement API is currently in alpha.** These endpoints and parameters are in active development and are likely to change.
+{% endhint %}
 
 Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
 
@@ -10,7 +16,7 @@ Carbonmark's Retirement API offers developers a path to initiate carbon retireme
 
 Create a [Carbonmark](https://carbonmark.com) account, request access to the developer dashboard, then generate a new API Secret.
 
-{% hint style="warning" %}
+{% hint style="danger" %}
 The API Secret is sensitive and can be used to create costly retirements on your behalf. \
 **Be careful not to expose the API Secret or commit it to your repository.**
 {% endhint %}
