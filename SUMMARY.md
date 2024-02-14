@@ -23,9 +23,5 @@
 
 ***
 
-* [Digital Carbon Retirement Verification](digital-carbon-retirement-verification.md)
 * [Resources](resources/README.md)
-  * [The Fundamentals of Digital Carbon](https://www.youtube.com/watch?v=S\_AkDvrdIbs)
-  * [Leveraging Digital Carbon](https://www.youtube.com/watch?v=XWlFGlseBUE)
-  * [Carbonmark Demo](https://www.youtube.com/watch?v=pEScJmsbraQ)
-* [Legal](legal.md)
+  * [Legal](resources/legal.md)

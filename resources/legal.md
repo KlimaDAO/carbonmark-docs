@@ -1,7 +1,5 @@
 # Legal
 
-_**Note:** Carbonmark is currently available in beta version. 3rd party contract audits have not been completed yet._
-
 ## [Carbonmark Terms of Use](https://www.carbonmark.com/blog/terms-of-use)
 
 ## Disclaimer:
