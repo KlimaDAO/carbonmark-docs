@@ -4,7 +4,7 @@ description: >-
   REST endpoint
 ---
 
-# Retirement API Quickstart
+# Retire Carbon
 
 {% hint style="warning" %}
 **Note: This is a feature preview and the Retirement API is currently in alpha.** These endpoints and parameters are in active development and are likely to change.
@@ -12,9 +12,21 @@ description: >-
 
 Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
 
+{% hint style="success" %}
+In this guide you will learn to:
+
+* Get access to the Carbonmark developer dashboard and get your API Secret
+* Find a project to retire
+* Identify the listing details
+* Create an order
+* Confirm carbon credit retirement
+{% endhint %}
+
 ### 1. Get authenticated
 
-Create a [Carbonmark](https://carbonmark.com) account, request access to the developer dashboard, then generate a new API Secret.
+Create a [Carbonmark](https://carbonmark.com) account.
+
+[**Request access to the developer dashboard to generate your API Secret before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
 
 {% hint style="danger" %}
 The API Secret is sensitive and can be used to create costly retirements on your behalf. \
@@ -27,7 +39,9 @@ Use [carbonmark.com](http://carbonmark.com) or [`api.carbonmark.com/projects`](h
 
 You can also check out our various guides to discovering carbon projects via our REST API.
 
-[carbonmark-rest-api](carbonmark-rest-api/ "mention")
+{% content-ref url="explore-carbon-projects/" %}
+[explore-carbon-projects](explore-carbon-projects/)
+{% endcontent-ref %}
 
 ### 3. Identify the listing details
 

@@ -1,27 +1,19 @@
 # Table of contents
 
-* [Overview](README.md)
-* [Carbonmark FAQ](carbonmark-faq.md)
-* [Get Started](get-started/README.md)
-  * [How to create and edit your Carbonmark profile](get-started/how-to-create-and-edit-your-carbonmark-profile.md)
-  * [How to get USDC or MATIC](get-started/how-to-get-usdc-or-matic.md)
-  * [How to buy carbon credits](get-started/how-to-buy-carbon-credits.md)
-  * [How to list carbon credits for sale](get-started/how-to-list-carbon-credits-for-sale.md)
-  * [How to edit or delete a listing](get-started/how-to-edit-or-delete-a-listing.md)
-  * [Understanding fees on Carbonmark](get-started/understanding-fees-on-carbonmark.md)
-* [How to Retire Carbon](how-to-retire-carbon.md)
+* [Introduction to Carbonmark API](README.md)
 
-## Developers
+## REST API Developers <a href="#developers" id="developers"></a>
 
-* [Overview](developers/overview.md)
-* [Retirement API Quickstart](developers/retirement-api-quickstart.md)
-* [Carbonmark REST API](developers/carbonmark-rest-api/README.md)
-  * [Find carbon projects by country](developers/carbonmark-rest-api/find-carbon-projects-by-country.md)
-  * [Find carbon projects by vintage](developers/carbonmark-rest-api/find-carbon-projects-by-vintage.md)
-  * [Find carbon projects by methodology category](developers/carbonmark-rest-api/find-carbon-projects-by-methodology-category.md)
-  * [Find carbon projects by project name or description](developers/carbonmark-rest-api/find-carbon-projects-by-project-name-or-description.md)
+* [Quickstart](developers/quickstart.md)
+* [Retire Carbon](developers/retire-carbon.md)
+* [Explore Carbon Projects](developers/explore-carbon-projects/README.md)
+  * [Find carbon projects by country](developers/explore-carbon-projects/find-carbon-projects-by-country.md)
+  * [Find carbon projects by vintage](developers/explore-carbon-projects/find-carbon-projects-by-vintage.md)
+  * [Find carbon projects by methodology category](developers/explore-carbon-projects/find-carbon-projects-by-methodology-category.md)
+  * [Find carbon projects by project name or description](developers/explore-carbon-projects/find-carbon-projects-by-project-name-or-description.md)
 
 ***
 
 * [Resources](resources/README.md)
   * [Legal](resources/legal.md)
+* [Contact us](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
