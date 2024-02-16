@@ -17,4 +17,4 @@
 * [Resources](resources/README.md)
   * [Legal](resources/legal.md)
 * [Contact us](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
-* [Book a demo](https://meetings-eu1.hubspot.com/meetings/liam-ellul)
+* [Book a demo](https://meetings-eu1.hubspot.com/meetings/liamellul/api-demo)

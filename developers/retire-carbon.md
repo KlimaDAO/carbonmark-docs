@@ -110,5 +110,5 @@ The cost of the order will be added to your monthly invoice.
 
 One of our solution specialists would be happy to answer any questions you have.
 
-* [Book an API demo](https://meetings-eu1.hubspot.com/meetings/liam-ellul)
+* [Book an API demo](https://meetings-eu1.hubspot.com/meetings/liamellul/api-demo)
 * [Contact us](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
