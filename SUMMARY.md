@@ -2,7 +2,7 @@
 
 * [Introduction to Carbonmark API](README.md)
 
-## REST API Developers <a href="#developers" id="developers"></a>
+## Getting Started <a href="#developers" id="developers"></a>
 
 * [Quickstart](developers/quickstart.md)
 * [Retire Carbon](developers/retire-carbon.md)
