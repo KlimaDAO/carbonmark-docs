@@ -1,7 +1,5 @@
 ---
-description: >-
-  [Alpha | Feature Preview] Retirement API - initiate carbon retirements via a
-  REST endpoint
+description: Initiate carbon retirements via a REST endpoint
 ---
 
 # Retire Carbon
@@ -104,10 +102,8 @@ When the transaction is finalized and our system has marked the order status as 
 
 `carbonmark.com/retirements/{beneficiaryAddress}/{number}`
 
-For example:
+For example: [https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33](https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33)
 
-[https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33](https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33)
-
-The order should appear in your developer dashboard as well.
+The order will appear in your developer dashboard as well.
 
 The cost of the order will be added to your monthly invoice.

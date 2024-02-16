@@ -1,20 +1,33 @@
 ---
-description: >-
-  Learn to explore carbon market data, acquire credits, and retire carbon via
-  Carbonmark API
+description: Explore carbon market data, select credits, and retire carbon programatically
 ---
 
 # Introduction to Carbonmark API
 
-Are you a developer? Get access and get started with the quickstart guide below.
+## About Carbonmark
+
+Carbonmark is a peer-to-peer platform for listing, selling and retiring carbon credits. The **Carbonmark Application Programming Interface (API)** allows you you access the growing supply of verified credits on the platform and automate the procurement process.&#x20;
+
+### Some benefits of using the Carbonmark API include:
+
+* Real-time quoting and pricing.
+* Instant transaction settlement complete with certificate.
+* Ability to offset fractional quantities, e.g. 0.8 tCO2 or 1.6 tCO2.
+* No need to carry inventory. Simply route orders through the API and receive an invoice at end of month.&#x20;
+
+
+
+## Getting started with Carbonmark API
+
+Get access and complete your first retirement with the QuickStart guide below.
 
 {% content-ref url="developers/quickstart.md" %}
 [quickstart.md](developers/quickstart.md)
 {% endcontent-ref %}
 
-**Looking to explore digital carbon market data?** Get started [exploring carbon projects via REST API](developers/explore-carbon-projects/).
+**Looking to explore carbon market data?** Get started [exploring carbon projects via REST API](developers/explore-carbon-projects/).
 
-**Retire carbon now and pay by invoice within 15 days.** Try our [Retirement API](developers/retire-carbon.md). _(This is a feature preview and the Retirement API is currently in alpha.)_
+**Retire carbon now t**ry our [Retirement API](developers/retire-carbon.md).
 
 ## Carbonmark API Reference Documentation
 
@@ -33,13 +46,3 @@ Fastify schemas are co-located with the respective route handlers, except for th
 ## Code
 
 You can find the code repository for the Carbonmark REST API in the this monorepo - [each version number can be found under tags](https://github.com/KlimaDAO/klimadao/tags).
-
-## About Carbonmark
-
-Carbonmark is the Universal Carbon Marketplace – an open-source, open carbon credit market for every organization in the world seeking to acquire, trade, or retire carbon seamlessly.&#x20;
-
-With a user-friendly marketplace, diverse credit options, and competitive pricing, Carbonmark prioritizes user experience and offers instant settlement and valuable data insights. Carbonmark offers project developers and carbon asset holders streamlined access to the Digital Carbon Market. Sellers can easily list their carbon assets with specific prices in an open marketplace alongside existing liquidity pools, ensuring fair and competitive pricing for both buyers and sellers.
-
-Launched with zero fees for both buyers and sellers, Carbonmark has been developed as a means to enable greater access to the opportunities of the Digital Carbon Market. Our mission is to build the largest, most accessible carbon marketplace, providing the digital infrastructure the Voluntary Carbon Market needs to fulfill its role in helping the world achieve net-zero carbon emissions over the coming decades.
-
-{% embed url="https://carbonmark.com" %}
