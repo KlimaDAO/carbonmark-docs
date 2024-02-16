@@ -25,10 +25,6 @@ Get access and complete your first retirement with the QuickStart guide below.
 [quickstart.md](developers/quickstart.md)
 {% endcontent-ref %}
 
-**Looking to explore carbon market data?** Get started [exploring carbon projects via REST API](developers/explore-carbon-projects/).
-
-**Retire carbon now t**ry our [Retirement API](developers/retire-carbon.md).
-
 ## Carbonmark API Reference Documentation
 
 You can find the latest API Reference docs of the Carbonmark REST API at [api.carbonmark.com/](https://api.carbonmark.com/#/).&#x20;
