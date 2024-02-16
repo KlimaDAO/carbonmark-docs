@@ -1,21 +1,21 @@
 ---
-description: Explore carbon market data, select credits, and retire carbon programatically
+description: Explore carbon market data, select and retire carbon programatically.
 ---
 
 # Introduction to Carbonmark API
 
-## About Carbonmark
+**Carbonmark** is a peer-to-peer platform for listing, selling and retiring carbon credits.&#x20;
 
-Carbonmark is a peer-to-peer platform for listing, selling and retiring carbon credits. The **Carbonmark Application Programming Interface (API)** allows you you access the growing supply of verified credits on the platform and automate the procurement process.&#x20;
+The **Carbonmark Application Programming Interface (API)** allows you to programatically access the growing supply of verified credits on the platform, automating the procurement process for your application.
 
-### Some benefits of using the Carbonmark API include:
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Benefits of using the Carbonmark API include:
 
 * Real-time quoting and pricing.
 * Instant transaction settlement complete with certificate.
 * Ability to offset fractional quantities, e.g. 0.8 tCO2 or 1.6 tCO2.
 * No need to carry inventory. Simply route orders through the API and receive an invoice at end of month.&#x20;
-
-
 
 ## Getting started with Carbonmark API
 

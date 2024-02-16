@@ -22,8 +22,6 @@ In this guide you will learn to:
 
 ### 1. Get authenticated
 
-Create a [Carbonmark](https://carbonmark.com) account.
-
 [**Request access to the developer dashboard to generate your API Secret before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
 
 {% hint style="danger" %}
