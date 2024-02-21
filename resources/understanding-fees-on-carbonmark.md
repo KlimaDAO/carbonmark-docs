@@ -1,18 +1,18 @@
 # Understanding fees on Carbonmark
 
-It is **completely free** to purchase or retire carbon from a seller listing with USDC. You can also create and manage your own listings at zero additional cost.
+It is **completely free** to purchase or retire carbon from a seller listing with USDC.e. You can also create and manage your own listings at zero additional cost.
 
 However, for other types of purchases, you may encounter **network fees** or **payment processing fees** from our partner technology providers. This document is intended to help you understand how these fees work, and where the money goes.
 
 ## Summary - by payment method
 
-<table><thead><tr><th>Payment Method</th><th>Network fee</th><th width="220">Payment processing fee</th><th>Gas fee</th></tr></thead><tbody><tr><td>USDC</td><td>0-26%*</td><td>0%</td><td>$0.02 - $0.50**</td></tr><tr><td>Credit card</td><td>0-26%*</td><td>20%</td><td>$0.02 - $0.50**</td></tr></tbody></table>
+<table><thead><tr><th>Payment Method</th><th>Network fee</th><th width="220">Payment processing fee</th><th>Gas fee</th></tr></thead><tbody><tr><td>USDC.e</td><td>0-26%*</td><td>0%</td><td>$0.02 - $0.50**</td></tr><tr><td>Credit card</td><td>0-26%*</td><td>20%</td><td>$0.02 - $0.50**</td></tr></tbody></table>
 
 As shown in the table above, when you pay with a credit card, our payment processing partners (Stripe & Offsetra) charge a fee on top of the listed tonne price. This fee is used to facilitate the currency conversions necessary to acquire the carbon asset on Polygon's blockchain network.
 
 _\*Network fees depend on purchase type (see below)_
 
-_\*\*Gas fees increase during periods of high network congestion, but are typically only a few cents per transaction. When paying with USDC, you pay the gas in MATIC from your wallet. When paying with a credit card, the gas cost is estimated and added to the total._
+_\*\*Gas fees increase during periods of high network congestion, but are typically only a few cents per transaction. When paying with USDC.e, you pay the gas in MATIC from your wallet. When paying with a credit card, the gas cost is estimated and added to the total._
 
 ## Summary - by purchase type
 
