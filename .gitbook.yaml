@@ -1,0 +1,4 @@
+root: ./
+
+redirects:
+  get-started/understanding-fees-on-carbonmark: resources/understanding-fees-on-carbonmark.md
