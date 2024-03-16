@@ -181,7 +181,7 @@ The actual retirement transaction will be initiated instantly by our system, and
 
 It typically takes between 0.5 and 3 seconds for the retirement to be complete — this includes Order creation, transaction broadcast and confirmation on the blockchain, and final retirement certificate generation.
 
-**Since we are creating an order for a carbon pool, we will need to include the required parameters:** `pool`, `credit_token_address`, and `quantity_tonnes`.
+**Since we are creating an order for a carbon pool, we will need to include the required parameters:** `pool`, `projectTokenAddress`, and `quantity_tonnes`.
 
 ```typescript
 const response = await fetch("https://api.carbonmark.com/orders", {
