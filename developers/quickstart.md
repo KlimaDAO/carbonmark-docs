@@ -2,12 +2,16 @@
 
 ## Retire carbon credits
 
-Our Retirement API endpoint enables developers to acquire and retire carbon credits with convenient billing and invoicing options.&#x20;
+Our API enables developers to acquire and retire carbon credits with convenient billing and invoicing options.&#x20;
 
-#### [**Request access to the developer dashboard, generate your API secret and begin using the Carbonmark API.** ](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
+#### [**Request access to the developer dashboard, generate your API Key and begin using the Carbonmark API.** ](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
 
-{% content-ref url="retire-carbon.md" %}
-[retire-carbon.md](retire-carbon.md)
+{% content-ref url="retire-carbon/" %}
+[retire-carbon](retire-carbon/)
+{% endcontent-ref %}
+
+{% content-ref url="retire-carbon/postman-quickstart-guide.md" %}
+[postman-quickstart-guide.md](retire-carbon/postman-quickstart-guide.md)
 {% endcontent-ref %}
 
 ## Explore projects and market data

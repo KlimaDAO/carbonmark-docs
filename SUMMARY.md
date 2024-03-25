@@ -5,7 +5,8 @@
 ## Getting Started <a href="#developers" id="developers"></a>
 
 * [Quickstart](developers/quickstart.md)
-* [Retire Carbon](developers/retire-carbon.md)
+* [Retire Carbon](developers/retire-carbon/README.md)
+  * [Postman Quickstart Guide](developers/retire-carbon/postman-quickstart-guide.md)
 * [Explore Carbon Projects](developers/explore-carbon-projects/README.md)
   * [Find carbon projects by country](developers/explore-carbon-projects/find-carbon-projects-by-country.md)
   * [Find carbon projects by vintage](developers/explore-carbon-projects/find-carbon-projects-by-vintage.md)

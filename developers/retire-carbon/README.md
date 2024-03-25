@@ -11,9 +11,9 @@ description: Initiate carbon retirements via a REST endpoint
 Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
 
 {% hint style="success" %}
-In this guide you will learn to:
+In this guide, you will learn to:
 
-* Get access to the Carbonmark developer dashboard and get your API Secret
+* Get access to the Carbonmark developer dashboard and get your API Key
 * Find a project to retire
 * Identify the listing details
 * Create an order
@@ -32,11 +32,11 @@ Seller listing prices are controlled by the seller. Carbon Pool pricing is dynam
 
 ### 1. Get authenticated
 
-[**Request access to the developer dashboard to generate your API Secret before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
+[**Request access to the developer dashboard to generate your API Key before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
 
 {% hint style="danger" %}
-The API Secret is sensitive and can be used to create costly retirements on your behalf. \
-**Be careful not to expose the API Secret or commit it to your repository.**
+The API Key is sensitive and can be used to create costly retirements on your behalf. \
+**Be careful not to expose the API Key or commit it to your repository.**
 {% endhint %}
 
 ### 2. Find a project to retire
@@ -45,8 +45,8 @@ Use [carbonmark.com](http://carbonmark.com) or [`api.carbonmark.com/projects`](h
 
 You can also check out our various guides to discovering carbon projects via our REST API.
 
-{% content-ref url="explore-carbon-projects/" %}
-[explore-carbon-projects](explore-carbon-projects/)
+{% content-ref url="../explore-carbon-projects/" %}
+[explore-carbon-projects](../explore-carbon-projects/)
 {% endcontent-ref %}
 
 ### 3. Identify the listing details
@@ -81,18 +81,15 @@ Retrieve the `listing_id` for direct seller listings from `api.carbonmark.com/pr
 
 ### 4. Create an Order
 
-The actual retirement transaction will be initiated instantly by our system, and broadcast to a blockchain network so the underlying credit is permanently retired and taken out of circulation.
-
-It typically takes between 0.5 and 3 seconds for the retirement to be complete — this includes Order creation, transaction broadcast and confirmation on the blockchain, and final retirement certificate generation.
+Create an order to retire carbon using [`api.carbonmark.com/orders`](https://api.carbonmark.com/#/paths/orders/post)
 
 **Since we are creating an order for a seller listing, we will need to include the required parameters:** `listing_id` and `quantity_tonnes`.
 
-```typescript
-const response = await fetch("https://api.carbonmark.com/orders", {
+<pre class="language-typescript"><code class="lang-typescript">const response = await fetch("https://api.carbonmark.com/orders", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.CARBONMARK_API_SECRET}`,
+    Authorization: `Bearer ${process.env.CARBONMARK_API_KEY}`,
   },
   body: JSON.stringify({
     listing_id:
@@ -101,10 +98,43 @@ const response = await fetch("https://api.carbonmark.com/orders", {
   }),
 });
 
-const { id, url, status, transaction } = await response.json();
+<strong>const { id, status, transaction_hash, polygonscan_url, view_retirement_url  } = await response.json();
+</strong></code></pre>
+
+You should receive a response containing your order details including order `id` and `status` of your order which will allow you to confirm your order has been `SUBMITTED` and will be completed shortly.
+
+{% hint style="info" %}
+The actual retirement transaction will be initiated instantly by our system, and broadcast to a blockchain network so the underlying credit is permanently retired and taken out of circulation.
+
+It typically takes between 0.5 and 3 seconds for the retirement to be complete — this includes Order creation, transaction broadcast and confirmation on the blockchain, and final retirement certificate generation.
+{% endhint %}
+
+### 5. Confirm your order is complete and view your retirement receipt
+
+To verify your order has been completed, we will send a request to [https://api.carbonmark.com\
+/orders/{id}](https://api.carbonmark.com/#/paths/orders-id/get)&#x20;
+
+```javascript
+const orderId = "your-order-id-here"; // replace with your actual order ID
+
+const response = await fetch(`https://api.carbonmark.com/orders/${orderId}`, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.CARBONMARK_API_KEY}`,
+  },
+});
+
+const { id, status, transaction_hash, polygonscan_url, view_retirement_url  } = await response.json();
 ```
 
-### View retirement receipt
+Once your order `status` is `COMPLETED`, your order is complete and the carbon credit has been retired.
+
+You can follow the `polygonscan_url` or `view_retirement_url` URLs in the response for further confirmation that your retirement order transaction is complete.\
+\
+Alternatively, you can navigate back to [Carbonmark Developer Dashboard](https://developers.carbonmark.com/dashboard/usage) and see the entry and the order status.
+
+#### View retirement receipt
 
 When the transaction is finalized and our system has marked the order status as “complete”, the provided URL should take you to the shareable retirement receipt.
 
@@ -120,11 +150,11 @@ The cost of the order will be added to your monthly invoice.
 
 ### 1. Get authenticated
 
-[**Request access to the developer dashboard to generate your API Secret before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
+[**Request access to the developer dashboard to generate your API Key before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
 
 {% hint style="danger" %}
-The API Secret is sensitive and can be used to create costly retirements on your behalf. \
-**Be careful not to expose the API Secret or commit it to your repository.**
+The API Key is sensitive and can be used to create costly retirements on your behalf. \
+**Be careful not to expose the API Key or commit it to your repository.**
 {% endhint %}
 
 ### 2. Find a project to retire
@@ -135,8 +165,8 @@ Use [carbonmark.com](http://carbonmark.com) or [`api.carbonmark.com/projects`](h
 
 You can also check out our various guides to discovering carbon projects via our REST API.
 
-{% content-ref url="explore-carbon-projects/" %}
-[explore-carbon-projects](explore-carbon-projects/)
+{% content-ref url="../explore-carbon-projects/" %}
+[explore-carbon-projects](../explore-carbon-projects/)
 {% endcontent-ref %}
 
 ### 3. Identify the listing details
@@ -177,9 +207,7 @@ Retrieve the `pool` and `credit_token_address` for projects in liquidity pools f
 
 ### 4. Create an Order
 
-The actual retirement transaction will be initiated instantly by our system, and broadcast to a blockchain network so the underlying credit is permanently retired and taken out of circulation.
-
-It typically takes between 0.5 and 3 seconds for the retirement to be complete — this includes Order creation, transaction broadcast and confirmation on the blockchain, and final retirement certificate generation.
+Create an order to retire carbon using [`api.carbonmark.com/orders`](https://api.carbonmark.com/#/paths/orders/post)
 
 **Since we are creating an order for a carbon pool, we will need to include the required parameters:** `pool`, `projectTokenAddress`, and `quantity_tonnes`.
 
@@ -188,7 +216,7 @@ const response = await fetch("https://api.carbonmark.com/orders", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.CARBONMARK_API_SECRET}`,
+    Authorization: `Bearer ${process.env.CARBONMARK_API_KEY}`,
   },
   body: JSON.stringify({
     pool: "nct",
@@ -196,11 +224,43 @@ const response = await fetch("https://api.carbonmark.com/orders", {
     quantity_tonnes: 1.5,
   }),
 });
-
-const { id, url, status, transaction } = await response.json();
+const { id, status, transaction_hash, polygonscan_url, view_retirement_url  } = await response.json();
 ```
 
-### View retirement receipt
+You should receive a response containing your order details including order `id` and `status` of your order which will allow you to confirm your order has been `SUBMITTED` and will be completed shortly.
+
+{% hint style="info" %}
+The actual retirement transaction will be initiated instantly by our system, and broadcast to a blockchain network so the underlying credit is permanently retired and taken out of circulation.
+
+It typically takes between 0.5 and 3 seconds for the retirement to be complete — this includes Order creation, transaction broadcast and confirmation on the blockchain, and final retirement certificate generation.
+{% endhint %}
+
+### 5. Confirm your order is complete and view your retirement receipt
+
+To verify your order has been completed, we will send a request to [https://api.carbonmark.com\
+/orders/{id}](https://api.carbonmark.com/#/paths/orders-id/get)&#x20;
+
+```javascript
+const orderId = "your-order-id-here"; // replace with your actual order ID
+
+const response = await fetch(`https://api.carbonmark.com/orders/${orderId}`, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${process.env.CARBONMARK_API_KEY}`,
+  },
+});
+
+const { id, status, transaction_hash, polygonscan_url, view_retirement_url  } = await response.json();
+```
+
+Once your order `status` is `COMPLETED`, your order is complete and the carbon credit has been retired.
+
+You can follow the `polygonscan_url` or `view_retirement_url` URLs in the response for further confirmation that your retirement order transaction is complete.\
+\
+Alternatively, you can navigate back to [Carbonmark Developer Dashboard](https://developers.carbonmark.com/dashboard/usage) and see the entry and the order status.
+
+#### View retirement receipt
 
 When the transaction is finalized and our system has marked the order status as “complete”, the provided URL should take you to the shareable retirement receipt.
 
