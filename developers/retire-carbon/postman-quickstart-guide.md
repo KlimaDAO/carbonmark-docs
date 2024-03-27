@@ -8,7 +8,9 @@ description: Learn how to use Postman to retire carbon via REST API
 **Note: This is a feature preview and the Retirement API is currently in alpha.** These endpoints and parameters are in active development and are likely to change.
 {% endhint %}
 
-Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
+Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. [Postman](https://www.postman.com/product/what-is-postman/) is a software tool that helps developers design, build, test and manage APIs. \
+\
+Follow the guide below to get started retiring carbon using Postman:
 
 {% hint style="success" %}
 In this guide, you will learn to:
@@ -40,9 +42,13 @@ The API Key is sensitive and can be used to create costly retirements on your be
 
 ### 2. Import Carbonmark REST API into Postman
 
-1. Open Postman and click the Import button. Paste this link to import Carbonmark API: [`https://api.carbonmark.com/openapi.json`](https://api.carbonmark.com/openapi.json) \
-   \
-   Select Postman Collection and click Import. _You may want to review your import settings. We recommend using 'Example' as the Parameter generation._
+Either, [download Postman](https://www.postman.com/downloads/) or sign into the [Postman web application](https://postman.com).
+
+Open Postman and click the Import button. Paste this link to import Carbonmark API: [`https://api.carbonmark.com/openapi.json`](https://api.carbonmark.com/openapi.json) \
+\
+Select Postman Collection and click Import. _You may want to review your import settings. We recommend using 'Example' as the Parameter generation._&#x20;
+
+_Depending on whether you select to inherit authorization in your import settings, you may need to set your API key in the request authorization tab and not the collection authorization tab._
 
 ### 3. Configure your API request
 
