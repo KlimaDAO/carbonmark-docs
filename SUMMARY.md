@@ -18,6 +18,5 @@
 * [API Reference](https://api.carbonmark.com/)
 * [Resources](resources/README.md)
   * [Legal](resources/legal.md)
-  * [Understanding fees on Carbonmark](resources/understanding-fees-on-carbonmark.md)
 * [Contact us](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
 * [🗓️ Book a demo](https://meetings-eu1.hubspot.com/meetings/liamellul/api-demo)
