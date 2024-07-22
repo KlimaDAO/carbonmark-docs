@@ -6,7 +6,7 @@ description: Explore carbon market data, select and retire carbon programaticall
 
 ## About
 
-**Carbonmark** is a peer-to-peer platform for listing, selling and retiring carbon credits.&#x20;
+**Carbonmark** is the interoperable climate platform for listing, selling and retiring carbon credits.
 
 The **Carbonmark Application Programming Interface (API)** allows you to programatically access the growing supply of verified credits on the platform, automating the procurement process for your application.
 
@@ -32,15 +32,7 @@ Get access and complete your first retirement with the QuickStart guide below.
 You can find the latest API Reference docs of the Carbonmark REST API at [api.carbonmark.com/](https://api.carbonmark.com/#/).&#x20;
 
 {% hint style="info" %}
-The root `api.carbonmark.com` domain is always running the latest version of the code on the `main` branch of [the monorepo](https://github.com/KlimaDAO/klimadao/tree/main/carbonmark-api).\
+The root`api.carbonmark.com` domain is always running the latest version of the API.\
 \
-As mentioned above, any breaking changes and hotfixes will be tagged with a version number in the monorepo.
+Any breaking changes and hot fixes will be tagged with a version number.
 {% endhint %}
-
-These are generated from an OpenAPI JSON spec that is auto-generated from our Fastify schemas. The raw JSON spec is not kept in source control-- it can be accessed at [api.carbonmark.com/openapi.json](https://api.carbonmark.com/openapi.json).
-
-Fastify schemas are co-located with the respective route handlers, except for the root OpenAPI config, which is located in [src/plugins/open-api.ts](https://github.com/KlimaDAO/klimadao/blob/staging/carbonmark-api/src/plugins/open-api.ts). For more info, see the @fastify/swagger plugin docs.
-
-## Code
-
-You can find the code repository for the Carbonmark REST API in the this monorepo - [each version number can be found under tags](https://github.com/KlimaDAO/klimadao/tags).
