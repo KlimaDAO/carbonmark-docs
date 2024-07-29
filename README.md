@@ -10,7 +10,7 @@ description: Explore carbon market data, select and retire carbon programaticall
 
 The **Carbonmark Application Programming Interface (API)** allows you to programatically access the growing supply of verified credits on the platform, automating the procurement process for your application.
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Benefits of Carbonmark API include
 

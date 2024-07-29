@@ -12,6 +12,9 @@
   * [Find carbon projects by vintage](developers/explore-carbon-projects/find-carbon-projects-by-vintage.md)
   * [Find carbon projects by methodology category](developers/explore-carbon-projects/find-carbon-projects-by-methodology-category.md)
   * [Find carbon projects by project name or description](developers/explore-carbon-projects/find-carbon-projects-by-project-name-or-description.md)
+* [Transfer Credits to/from Carbonmark](developers/transfer-credits-to-from-carbonmark/README.md)
+  * [ICR: Import Credits to Carbonmark](developers/transfer-credits-to-from-carbonmark/icr-import-credits-to-carbonmark.md)
+  * [ICR: Export Credits to ICR](developers/transfer-credits-to-from-carbonmark/icr-export-credits-to-icr.md)
 
 ***
 
