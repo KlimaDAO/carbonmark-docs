@@ -15,6 +15,7 @@
 * [Transfer Credits to/from Carbonmark](developers/transfer-credits-to-from-carbonmark/README.md)
   * [ICR: Import Credits to Carbonmark](developers/transfer-credits-to-from-carbonmark/icr-import-credits-to-carbonmark.md)
   * [ICR: Export Credits to ICR](developers/transfer-credits-to-from-carbonmark/icr-export-credits-to-icr.md)
+  * [Puro Bridge Integration Guide](developers/transfer-credits-to-from-carbonmark/puro-bridge-integration-guide.md)
 
 ***
 

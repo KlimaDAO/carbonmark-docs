@@ -3,8 +3,8 @@
 This section provides details for how to transfer carbon credits both to and from Carbonmark for the following registries:
 
 * [International Carbon Registry](https://www.carbonregistry.com/) (ICR)
+* [puro.earth](https://puro.earth/)
 * [EcoRegistry](https://www.ecoregistry.io/) (coming soon)
-* [puro.earth](https://puro.earth/) (coming soon)
 
 ### One-way Bridged Credits
 
