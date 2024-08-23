@@ -270,7 +270,7 @@ Alternatively, you can navigate back to the [Carbonmark Developer Dashboard](htt
 
 When the transaction is finalized and our system has marked the order status as “complete”, the provided URL should take you to the shareable retirement receipt.
 
-`carbonmark.com/retirements/{beneficiaryAddress}/{number}`
+`https://carbonmark.com/retirements/{beneficiaryAddress}/{number}`
 
 For example: [https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33](https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33)
 
