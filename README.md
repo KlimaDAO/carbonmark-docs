@@ -23,8 +23,8 @@ The **Carbonmark Application Programming Interface (API)** allows you to program
 
 Get access and complete your first retirement with the QuickStart guide below.
 
-{% content-ref url="developers/quickstart.md" %}
-[quickstart.md](developers/quickstart.md)
+{% content-ref url="carbonmark-api/quickstart.md" %}
+[quickstart.md](carbonmark-api/quickstart.md)
 {% endcontent-ref %}
 
 ## Carbonmark API Reference Documentation
