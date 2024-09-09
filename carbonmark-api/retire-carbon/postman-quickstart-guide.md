@@ -5,7 +5,7 @@ description: Learn how to use Postman to retire carbon via REST API
 # Postman Quickstart Guide
 
 {% hint style="warning" %}
-**Note: This is a feature preview and the Retirement API is currently in alpha.** These endpoints and parameters are in active development and are likely to change.
+T**he Retirement API is currently in beta.** These endpoints and parameters are in active development and are likely to change.
 {% endhint %}
 
 Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. [Postman](https://www.postman.com/product/what-is-postman/) is a software tool that helps developers design, build, test and manage APIs. \

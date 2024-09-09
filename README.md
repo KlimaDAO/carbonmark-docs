@@ -26,13 +26,3 @@ Get access and complete your first retirement with the QuickStart guide below.
 {% content-ref url="carbonmark-api/quickstart.md" %}
 [quickstart.md](carbonmark-api/quickstart.md)
 {% endcontent-ref %}
-
-## Carbonmark API Reference Documentation
-
-You can find the latest API Reference docs of the Carbonmark REST API at [api.carbonmark.com/](https://api.carbonmark.com/#/).&#x20;
-
-{% hint style="info" %}
-The root`api.carbonmark.com` domain is always running the latest version of the API.\
-\
-Any breaking changes and hot fixes will be tagged with a version number.
-{% endhint %}

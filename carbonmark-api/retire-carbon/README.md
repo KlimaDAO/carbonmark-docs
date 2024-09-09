@@ -5,7 +5,13 @@ description: Initiate carbon retirements via a REST endpoint
 # Retire Carbon
 
 {% hint style="warning" %}
-**Note: This is a feature preview and the Retirement API is currently in beta.** The endpoints and parameters are in active development and are likely to change.
+**The Retirement API is currently in beta.** The endpoints and parameters are in active development and are likely to change.
+{% endhint %}
+
+{% hint style="warning" %}
+In the code examples below we use [api.carbonmark.com](http://api.carbonmark.com/) as the base URL, however, when consuming our API, **be sure to prefix the API URL with a version number**. For example, the base URL of version 1 would be `v1.api.carbonmark.com`.
+
+Any changes that we make to an API version are guaranteed to be backwards compatible. However, if you omit the version prefix ([`api.carbonmark.com`](http://api.carbonmark.com)) **your application will be exposed to breaking changes** because [api.carbonmark.com](http://api.carbonmark.com) is always routed to the latest major version.
 {% endhint %}
 
 Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
