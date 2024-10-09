@@ -12,7 +12,7 @@ Please note that ongoing updates will be made to this documentation as updates a
 
 Puro.earth certifies suppliers based on the [Puro Standard](https://puro.earth/puro-standard-carbon-removal-credits). Removal is independently verified and CO2 Removal Certificates (CORCs) are issued through the [Puro Registry](https://registry.puro.earth/carbon-sequestration/retirements). CORCs require at least 100 years of permanence.
 
-### Toucan Puro Bridge V1
+### Toucan Puro Bridge v1
 
 You **must have a Puro account** in order to use the bridge. A Puro platform membership gives access to the Puro Registry and allows you to purchase CORCs directly from suppliers. This membership costs €900 ([learn more](https://puro.earth/fees)) and will expand your permitted activities.
 
@@ -50,7 +50,7 @@ For Puro account holders who **have not yet** on-ramped any assets to Toucan’s
 
 > **To:** tech-support@puro.earth&#x20;
 >
-> **CC:** nora@toucan.earth
+> **CC:** support@toucan.earth
 >
 > **Subject:** On-ramp assets to Toucan’s Sales Channel and initiate request to set up Trader account
 >
@@ -80,7 +80,7 @@ For Puro account holders **who have already** on-ramped assets to Toucan’s Sal
 
 > **To:** tech-support@puro.earth&#x20;
 >
-> **CC:** nora@toucan.earth
+> **CC:** support@toucan.earth
 >
 > **Subject:** On-ramp assets to Toucan’s Sales Channel
 >
