@@ -14,17 +14,14 @@ A carbon project may belong to one or more methodology categories.
 
 Here's a sample of a request:
 
-{% code title="Request" %}
 ```bash
 curl --request GET \
   --url https://api.carbonmark.com/categories \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 You'll receive a JSON response containing an array with category ids like this:
 
-{% code title="JSON Response" %}
 ```json
 [
   {
@@ -50,23 +47,20 @@ You'll receive a JSON response containing an array with category ids like this:
   },
 ]
 ```
-{% endcode %}
 
 Select your methodology category. Next, we'll call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with our desired query parameters.&#x20;
 
 In this example, we'll search for carbon projects in the Forestry methodology category from Indonesia:
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url 'https://api.carbonmark.com/carbonProjects?country=Indonesia&category=Forestry' \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response you receive will contain a list of all carbon projects that fit your query parameters. Below we've listed an example response:
 
-{% code title="JSON Response" %}
+{% code overflow="wrap" %}
 ```json
 [
   {
@@ -158,21 +152,19 @@ The response you receive will contain a list of all carbon projects that fit you
 ```
 {% endcode %}
 
-**The information from this response such as "key" and "projectID" may be enough for your needs.**
+The information from this response such as "key" and "projectID" may be enough for your needs.
 
 You can retrieve the full details of a carbon project by its using the project key; [`api.carbonmark.com/carbonProjects/{id}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get). For example:
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url https://api.carbonmark.com/carbonProjects/VCS-674 \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response will contain the full carbon project details:
 
-{% code title="JSON Response" %}
+{% code overflow="wrap" %}
 ```json
 {
   "key": "VCS-674",

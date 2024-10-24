@@ -52,21 +52,31 @@ Note that you can create a `sandbox key` for testing purposes.\
 Keys are generated once and not exposed in the Developer Dashboard so you must copy them to be utilized.
 {% endhint %}
 
-### 2. Find a project to retire
+### 2. Find a project or index product to retire
 
-Use [`carbonmark.com`](http://carbonmark.com) or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project you’d like to retire. The `/carbonProjects` endpoints allows you to retrieve an array of carbon projects filtered by desired query parameters and returns project metadata and the best price. The Retirement API is compatible with any credit that has a visible price. Make note of the "`key/projectID`" (for example, **VCS-191**) of the project you are interested in.
+Use the [`carbonmark.com`](https://www.carbonmark.com/projects?hasAssetPriceType=listing) marketplace or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project or [`api.carbonmark.com/products`](https://api.carbonmark.com/#/paths/products/get) to identify an index product you’d like to retire. The Retirement API is compatible with any credit that has a visible price.
 
-You can also check out our various guides to discovering carbon projects via our REST API.
+The `/carbonProjects` endpoint allows you to retrieve an array of carbon projects filtered by desired query parameters and returns project metadata and prices. Make note of the "`key`" (for example, **VCS-191**) of the project you are interested in.
+
+The `/products` endpoint allows you to retrieve an array of carbon index products filtered by desired query parameters and returns products metadata and prices. Make note of the "`id`" (for example, **mco2**) of the product you are interested in.
+
+You can also check out our various guides to discovering carbon projects or index products via our REST API.
 
 {% content-ref url="../explore-carbon-projects/" %}
 [explore-carbon-projects](../explore-carbon-projects/)
 {% endcontent-ref %}
 
+{% content-ref url="../explore-index-products/" %}
+[explore-index-products](../explore-index-products/)
+{% endcontent-ref %}
+
 ### 3. Identify the listing details
 
-Listing details for project(s) can be returned for an array of project key / project ID and other query parameters. For example, `api.carbonmark.com/prices?projectsIds={project key}&projectsIds={project key}`. See [`/prices`](https://api.carbonmark.com/#/paths/prices/get) endpoint for details.\
+Listing details for a project or product can be returned for an array of ID's and other query parameters. For example, `api.carbonmark.com/prices?projectsIds={project key}&projectsIds={project key}`. Or `api.carbonmark.com/prices?productIds={productID}` . See [`/prices`](https://api.carbonmark.com/#/paths/prices/get) endpoint for details.\
 \
 Note that a [`/prices`](https://api.carbonmark.com/#/paths/prices/get) response may include type "**listing**" (i.e. seller listing) or "**carbon\_pool**" or "**product**" depending on the query parameters used.
+
+#### Project JSON example
 
 {% code overflow="wrap" %}
 ```typescript
@@ -123,6 +133,34 @@ Note that a [`/prices`](https://api.carbonmark.com/#/paths/prices/get) response 
   }
 ```
 {% endcode %}
+
+#### Product JSON example
+
+```json
+// api.carbonmark.com/prices?productIds=mco2
+// sample JSON response
+[
+  {
+    "sourceId": "product-137-mco2",
+    "type": "product",
+    "purchasePrice": 0.568542,
+    "baseUnitPrice": 0.43734,
+    "supply": 71567.890008707,
+    "minFillAmount": 0.001,
+    "product": {
+      "id": "mco2",
+      "token": {
+        "id": "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+        "address": "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+        "name": "Moss Earth : MCO2",
+        "isExAnte": false,
+        "symbol": "MCO2",
+        "tokenId": null
+      }
+    }
+  }
+]
+```
 
 ### 4. Create a retirement quote
 

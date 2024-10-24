@@ -8,17 +8,14 @@ Each API endpoint will link to its reference documentation where you can create 
 
 First, retrieve an array of the vintages of available carbon projects by calling the [`/vintages`](https://api.carbonmark.com/#/paths/vintages/get) endpoint. Here's a sample of a request:
 
-{% code title="Request" %}
 ```shell
 curl --request GET \
   --url https://api.carbonmark.com/vintages \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 You'll receive a JSON response containing an array with available vintages like this:
 
-{% code title="JSON Response" %}
 ```json
 [
   "2006",
@@ -38,23 +35,19 @@ You'll receive a JSON response containing an array with available vintages like 
   "2020"
 ]
 ```
-{% endcode %}
 
 Select your desired vintage(s). Next, we'll call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with our desired query parameters.
 
 In this example, we'll search for projects with a 2020 vintage. Here's the example request:
 
-{% code title="Request" %}
 ```bash
 curl --request GET \
   --url 'https://api.carbonmark.com/carbonProjects?vintage=2020' \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response you receive will contain a list of all carbon projects that fit your query parameters. Below is our example response for two projects:
 
-{% code title="JSON Response" %}
 ```json
 [
   {
@@ -149,23 +142,19 @@ The response you receive will contain a list of all carbon projects that fit you
       "13"
 ]
 ```
-{% endcode %}
 
-**The information from this response such as "key" and "projectID" may be enough for your needs.**
+The information from this response such as "key" and "projectID" may be enough for your needs.
 
 You can retrieve the full details of a carbon project by its using the project key; [`api.carbonmark.com/carbonProjects/{id}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get). For example:
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url https://api.carbonmark.com/carbonProjects/VCS-1418 \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response will contain the full carbon project details:
 
-{% code title="JSON Response" %}
 ```json
 {
   "key": "VCS-1418",
@@ -216,4 +205,3 @@ The response will contain the full carbon project details:
   "listings": []
 }
 ```
-{% endcode %}

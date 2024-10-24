@@ -11,6 +11,8 @@
   * [Find carbon projects by vintage](carbonmark-api/explore-carbon-projects/find-carbon-projects-by-vintage.md)
   * [Find carbon projects by methodology category](carbonmark-api/explore-carbon-projects/find-carbon-projects-by-methodology-category.md)
   * [Find carbon projects by project name or description](carbonmark-api/explore-carbon-projects/find-carbon-projects-by-project-name-or-description.md)
+* [Explore Index Products](carbonmark-api/explore-index-products/README.md)
+  * [Find index products](carbonmark-api/explore-index-products/find-index-products.md)
 * [Retire Carbon](carbonmark-api/retire-carbon/README.md)
   * [Postman Quickstart Guide](carbonmark-api/retire-carbon/postman-quickstart-guide.md)
 * [API Reference](https://api.carbonmark.com/)

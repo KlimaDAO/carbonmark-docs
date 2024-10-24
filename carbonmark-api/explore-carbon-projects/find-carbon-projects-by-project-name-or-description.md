@@ -8,17 +8,15 @@ Each API endpoint will link to its reference documentation where you can create 
 
 The [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint allows you to retrieve an array of carbon projects filtered by various query parameters, including text based searches. In this example, we'll search for carbon projects containing the string `REDD+` (encoded for the URL as `REDD%2B`):
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url 'https://api.carbonmark.com/carbonProjects?search=REDD%2B' \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response you receive will contain a list of all carbon projects that fit your query parameters. For example:
 
-{% code title="JSON Response" %}
+{% code overflow="wrap" %}
 ```json
 [
   {
@@ -213,17 +211,15 @@ The response you receive will contain a list of all carbon projects that fit you
 
 You can retrieve the full details of a carbon project by its using the project key; [`api.carbonmark.com/carbonProjects/{id}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get). For example:
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url https://api.carbonmark.com/carbonProjects/VCS-1052 \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response will contain the full carbon project details:
 
-{% code title="JSON Response" %}
+{% code overflow="wrap" %}
 ```json
 {
   "key": "VCS-1052",

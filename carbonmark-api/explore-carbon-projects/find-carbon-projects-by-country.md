@@ -8,17 +8,14 @@ Each API endpoint will link to its reference documentation where you can create 
 
 First, retrieve an array containing the countries that carbon projects originate from by calling the [`/Countries`](https://api.carbonmark.com/#/paths/countries/get) endpoint. Here's a sample of a request:
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url https://api.carbonmark.com/countries \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 You'll receive a JSON response containing an array with country ids that looks like this:
 
-{% code title="JSON Response" %}
 ```json
 [
   {
@@ -42,23 +39,19 @@ You'll receive a JSON response containing an array with country ids that looks l
   {
 ]
 ```
-{% endcode %}
 
 From these countries, select your choice of country. Next, we'll call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with our desired query parameters. The endpoint allows you to retrieve an array of carbon projects filtered by category, country, vintage, project names, and project descriptions.&#x20;
 
 In this example, we'll search for renewable energy carbon projects originating from India with a 2012 vintage. Here's the example request:
 
-{% code title="Request" %}
 ```sh
 curl --request GET \
   --url 'https://api.carbonmark.com/carbonProjects?country=India&category=Renewable+Energy&vintage=2012' \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response you may receive will contain a list of all carbon projects that match your query parameters. Below we've listed an example of two of the carbon projects from the response:
 
-{% code title="JSON Response" %}
 ```json
 [
   {
@@ -160,23 +153,19 @@ The response you may receive will contain a list of all carbon projects that mat
   }
 ]
 ```
-{% endcode %}
 
-**The information from this response such as "key" and "projectID" may be enough for your needs.**
+The information from this response such as "key" and "projectID" may be enough for your needs.
 
 You can retrieve the full details of a carbon project by its using the project key; [`api.carbonmark.com/carbonProjects/{id}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get). For example:
 
-{% code title="Request" %}
 ```shell
 curl --request GET \
   --url https://api.carbonmark.com/carbonProjects/VCS-274 \
   --header 'Accept: application/json'
 ```
-{% endcode %}
 
 The response will contain the full carbon project details:
 
-{% code title="JSON Response" %}
 ```json
 {
   "key": "VCS-274",
@@ -232,4 +221,3 @@ The response will contain the full carbon project details:
   "listings": []
 }
 ```
-{% endcode %}
