@@ -15,6 +15,7 @@
   * [Find index products](carbonmark-api/explore-index-products/find-index-products.md)
 * [Retire Carbon](carbonmark-api/retire-carbon/README.md)
   * [Postman Quickstart Guide](carbonmark-api/retire-carbon/postman-quickstart-guide.md)
+* [API Checkout Service (beta)](carbonmark-api/api-checkout-service-beta.md)
 * [API Reference](https://api.carbonmark.com/)
 
 ## Transfer Credits
