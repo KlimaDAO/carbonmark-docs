@@ -24,4 +24,4 @@ This is the **fastest path** for developers who want to provide their users acce
 
 The **Carbonmark API Checkout Service** is currently a beta product (limited release) and not in general availability.&#x20;
 
-If you are interested in the Checkout Service and would like to learn more about how it could be integrated with your application, please reach out to our team to [**schedule a meeting / demo**](https://meetings-eu1.hubspot.com/liamellul/request-demo?uuid=2aa084bd-abc9-4bc2-b682-c2238171c102). Alternatively you can send us inquiries and questions through our [**contact**](https://share-eu1.hsforms.com/1RWJWvyrHT1C\_an4cZOHH3gfhhlr) form.&#x20;
+If you are interested in the Checkout Service and would like to learn more about how it could be integrated with your application, please reach out to our team to [**schedule a meeting / demo**](https://www.carbonmark.com/book-a-demo). Alternatively you can send us inquiries and questions through our [**contact**](https://www.carbonmark.com/contact-us) form.&#x20;

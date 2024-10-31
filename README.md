@@ -27,7 +27,7 @@ The **Carbonmark API** allows you to programatically access the growing supply o
 
 Get access and complete your first retirement with the **Quickstart guide** below.
 
-To discuss how you can maximize your climate impact and see the Carbonmark API in action, [**book a meeting/demo**](https://meetings-eu1.hubspot.com/liamellul/request-demo?uuid=2aa084bd-abc9-4bc2-b682-c2238171c102) with our team.
+To discuss how you can maximize your climate impact and see the Carbonmark API in action, [**book a meeting/demo**](https://www.carbonmark.com/book-a-demo) with our team.
 
 {% content-ref url="carbonmark-api/quickstart.md" %}
 [quickstart.md](carbonmark-api/quickstart.md)

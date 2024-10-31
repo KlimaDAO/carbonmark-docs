@@ -61,5 +61,5 @@ If you have previously installed the Carbonmark app on your organization you wil
 
 ## Find Your ICR Credits in Carbonmark
 
-* Navigate to your [`Carbonmark Carbon Portfolio`](https://www.carbonmark.com/portfolio) page  and connect with your Carbonmark account.&#x20;
+* Navigate to your [`Carbonmark Carbon Portfolio`](https://app.carbonmark.com/portfolio) page  and connect with your Carbonmark account.&#x20;
 * Your ICR credits should now appear in your portfolio.

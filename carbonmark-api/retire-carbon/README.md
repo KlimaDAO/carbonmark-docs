@@ -54,7 +54,7 @@ Keys are generated once and not exposed in the Developer Dashboard so you must c
 
 ### 2. Find a project or index product to retire
 
-Use the [`carbonmark.com`](https://www.carbonmark.com/projects?hasAssetPriceType=listing) marketplace or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project or [`api.carbonmark.com/products`](https://api.carbonmark.com/#/paths/products/get) to identify an index product you’d like to retire. The Retirement API is compatible with any credit that has a visible price.
+Use the [`carbonmark.com`](https://app.carbonmark.com/projects) marketplace or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project or [`api.carbonmark.com/products`](https://api.carbonmark.com/#/paths/products/get) to identify an index product you’d like to retire. The Retirement API is compatible with any credit that has a visible price.
 
 The `/carbonProjects` endpoint allows you to retrieve an array of carbon projects filtered by desired query parameters and returns project metadata and prices. Make note of the "`key`" (for example, **VCS-191**) of the project you are interested in.
 
@@ -314,9 +314,9 @@ Alternatively, you can navigate back to the [Carbonmark Developer Dashboard](htt
 
 When the transaction is finalized and our system has marked the order status as “complete”, the provided URL should take you to the shareable retirement receipt.
 
-`https://carbonmark.com/retirements/{beneficiaryAddress}/{number}`
+`https://app.carbonmark.com/retirements/{beneficiaryAddress}/{number}`
 
-For example: [https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33](https://www.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33)
+For example: [https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33](https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33)
 
 The order will appear in your developer dashboard as well.
 
@@ -326,5 +326,5 @@ The cost of the order will be added to your monthly invoice.
 
 One of our solution specialists would be happy to answer any questions you have.
 
-* [Book an API demo](https://meetings-eu1.hubspot.com/meetings/liamellul/api-demo)
-* [Contact us](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
+* [Book an API demo](https://www.carbonmark.com/book-a-demo)
+* [Contact us](https://www.carbonmark.com/contact-us)
