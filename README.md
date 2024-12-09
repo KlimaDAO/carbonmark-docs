@@ -18,9 +18,10 @@ The **Carbonmark API** allows you to programatically access the growing supply o
 
 * Discover, purchase, and retire carbon credits with ease, supported by advanced reporting and a user-friendly dashboard.
 * Real-time quoting and pricing.
-* Instant transaction settlement complete with certificate.
-* Ability to offset fractional quantities, e.g. 0.8 tCO2 or 1.6 tCO2.
+* Instant transaction settlement complete with retirement certificate.
+* Ability to offset fractional quantities, e.g. as low as 0.001 tCO2.
 * No need to carry inventory. Simply route orders through the API and receive an invoice at end of month.&#x20;
+* Create development test API keys for free.
 * Enhance your sustainability efforts with transparent, efficient, actionable carbon management tools.
 
 ## Getting started with Carbonmark API

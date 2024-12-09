@@ -5,16 +5,12 @@ description: Initiate carbon retirements via a REST endpoint
 # Retire Carbon
 
 {% hint style="warning" %}
-**The Retirement API is currently in beta.** The endpoints and parameters are in active development and are likely to change.
-{% endhint %}
-
-{% hint style="warning" %}
 In the code examples below we use [api.carbonmark.com](http://api.carbonmark.com/) as the base URL, however, when consuming our API, **be sure to prefix the API URL with a version number**. For example, the base URL of version 1 would be `v1.api.carbonmark.com`.
 
 Any changes that we make to an API version are guaranteed to be backwards compatible. However, if you omit the version prefix ([`api.carbonmark.com`](http://api.carbonmark.com)) **your application will be exposed to breaking changes** because [api.carbonmark.com](http://api.carbonmark.com) is always routed to the latest major version.
 {% endhint %}
 
-Carbonmark's Retirement API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
+Carbonmark's API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
 
 {% hint style="success" %}
 In this guide, you will learn to:
@@ -37,11 +33,12 @@ Seller listing prices are controlled by the seller. Carbon Pool pricing is dynam
 
 ## Retire Carbon Steps
 
-### 1. Get authenticated
+### 1. Dashboard access and create an API key
 
-[**Request access to the developer dashboard to generate your API Key before proceeding.**](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
-
-Once the API services agreement is signed and access is confirmed by email from our onboarding team, you can create API keys from our [`Developer Dashboard`](https://developers.carbonmark.com/auth). Click [`Don't have an account? Sign up`](https://developers.carbonmark.com/auth#auth-sign-in) to create an account using the whitelisted email address provided.
+* Create an account or login with your existing Carbonmark account on our [Developer Dashboard](https://developers.carbonmark.com/auth).
+* Once logged in, visit the [Keys](https://developers.carbonmark.com/dashboard/keys) page to generate an API key.
+* You can create **`Test API`** key's for free in a Sandbox environment. These can be used to test the API endpoints and for development access.
+* When you are ready to access paid **`Production API`** key's, [contact our Solutions team](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) to be white-listed and complete onboarding.
 
 {% hint style="danger" %}
 The API Key is sensitive and can be used to create costly retirements on your behalf. \
