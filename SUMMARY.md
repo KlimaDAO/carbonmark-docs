@@ -25,9 +25,13 @@
   * [ICR: Export Credits to ICR](transfer-credits/transfer-credits-to-from-carbonmark/icr-export-credits-to-icr.md)
   * [Puro Bridge Integration Guide](transfer-credits/transfer-credits-to-from-carbonmark/puro-bridge-integration-guide.md)
 
+## Carbonmark Direct
+
+* [Direct Credit Issuance](carbonmark-direct/direct-credit-issuance.md)
+
 ## Resources
 
-* [Contact us](https://share-eu1.hsforms.com/1\_VneTUObQZmJm4kNcRuEoQg3axk)
+* [Contact us](https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk)
 * [Book a demo](https://meetings-eu1.hubspot.com/meetings/liamellul/api-demo)
 * [Terms of Use](https://www.carbonmark.com/blog/terms-of-use)
 * [Privacy Policy](https://www.carbonmark.com/blog/privacy-policy)
