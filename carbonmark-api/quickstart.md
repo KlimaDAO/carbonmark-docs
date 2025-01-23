@@ -10,7 +10,7 @@ Our API enables developers to programatically acquire and retire carbon credits 
 
 ## Getting started
 
-1. Create an account or login with your existing Carbonmark account on our [Developer Dashboard](https://developers.carbonmark.com/auth).
+1. Create an account or login with your existing Carbonmark account on our [Developer Dashboard](https://developers.carbonmark.com/login).
 2. Once logged in, visit the [Keys](https://developers.carbonmark.com/dashboard/keys) page to generate an API key.
 3. You can create **`Test API`** key's for free in a Sandbox environment. These can be used to test the API endpoints and for development access.
 4. When you are ready to access paid **`Production API`** key's, [contact our Solutions team](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) to be white-listed and complete onboarding.

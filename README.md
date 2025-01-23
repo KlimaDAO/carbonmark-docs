@@ -24,6 +24,14 @@ The **Carbonmark API** allows you to programatically access the growing supply o
 * Create development test API keys for free.
 * Enhance your sustainability efforts with transparent, efficient, actionable carbon management tools.
 
+## Carbonmark's API integration success stories to learn from
+
+Discover how [Ascend Bit Corp](https://www.ascendbit.com/) is driving change with Carbonmark’s API integration, empowering millions to take action for a greener planet. In our [latest blog post, _“Go Carbon Neutral”_](https://www.carbonmark.com/post/go-carbon-neutral-how-ascend-bit-corp-integrated-payment-gateway-solution-empowers-over-27-millio), we explore how their payment gateway solution enables over 27 million payment app users to offset their daily carbon footprint seamlessly.&#x20;
+
+* Learn how consumer-focused apps like TrueMoney can incorporate sustainability features to enhance user experience, foster customer loyalty, and unlock new revenue streams.&#x20;
+* See how blockchain technology makes carbon offsetting part of everyday transactions.&#x20;
+* Dive into this real-world success story and gain actionable insights to inspire your journey toward a sustainable future.
+
 ## Getting started with Carbonmark API
 
 Get access and complete your first retirement with the **Quickstart guide** below.
