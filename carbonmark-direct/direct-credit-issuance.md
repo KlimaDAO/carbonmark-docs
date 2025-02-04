@@ -49,3 +49,10 @@ Overall, the flow of activities is as follows:&#x20;
 
 <figure><img src="../.gitbook/assets/CreditIssuance_2.png" alt=""><figcaption></figcaption></figure>
 
+## Smart contracts verified as secure and robust&#x20;
+
+At Carbonmark, the security and reliability of our platform are our highest priorities. We are committed to providing a safe and transparent experience for our partners. That's why we partnered with Hashlock to perform a security audit. \
+\
+Hashlock audited the solidity code within the Carbonmark project, the scope of work included a comprehensive review of the smart contracts (CreditToken.sol, CreditTokenFactory.sol, Deploy.sol, Errors.sol and Validate.sol smart contracts). They tested the smart contracts to check for their security and efficiency.&#x20;
+
+After Hashlock’s Audit, the team found the smart contracts to be “Secure.” The [audit report](https://hashlock.com/audits/carbonmark) confirms that Carbonmark’s smart contracts meet top industry security standards.
