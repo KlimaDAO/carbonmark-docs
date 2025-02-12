@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Carbonmark Direct** provide a pathway for innovative carbon projects that employ methodologies that may not be supported by existing carbon registries to utilize Carbonmark’s blockchain-based infrastructure for credit issuance, retirement, and lifecycle tracking. We thus provide an option for carbon project developers to issue directly to our platform.&#x20;
+**Carbonmark Direct** provides a pathway for innovative carbon projects that employ methodologies that may not be supported by existing carbon registries to utilize Carbonmark’s blockchain-based infrastructure for credit issuance, retirement, and lifecycle tracking. We thus provide an option for carbon project developers to issue directly to our platform.&#x20;
 
 Carbonmark wallets are utilized to manage an inventory of issued credits. These credits will be represented natively by a balance of “CMARK” tokens recorded on an immutable public blockchain and conveniently managed, sold, or retired by users of the Carbonmark platform.
 
