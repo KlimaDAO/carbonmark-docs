@@ -6,7 +6,7 @@ Our API enables developers to programatically acquire and retire carbon credits 
 
 ## Latest stable version
 
-[https://v16.api.carbonmark.com](https://v15.api.carbonmark.com)
+[https://v16.api.carbonmark.com](https://v16.api.carbonmark.com)
 
 ## Getting started
 
