@@ -2,64 +2,63 @@
 
 ## Connect to ICR
 
-* Navigate to [https://icr.carbonmark.com/](https://icr.carbonmark.com/).
-* Click  `Import credits to Carbonmark` button.
-* `Select Network`; the default setting is Polygon, which will be the network used for transferring credits.
-* Click `Connect to ICR` button and login with your ICR account credentials.
+1. Navigate to [https://app.carbonmark.com/portfolio](https://app.carbonmark.com/portfolio) and log in to your Carbonmark account.
+2. Click the `IMPORT CARBON CREDITS` button.
+3. `Select International Carbon Registry` and click `NEXT.`
+4. Click the `CONNECT TO ICR` button.
 
 {% hint style="info" %}
 If you are not already logged in to your ICR account, you will be prompted to login with your username and password.
 {% endhint %}
 
-* A prompt will ask if you want to install Carbonmark. This action will install the Carbonmark app on your ICR organization, along with the necessary permissions.
+5. A prompt will ask if you want to install Carbonmark. This action will install the Carbonmark app on your ICR organization, along with the necessary permissions.
 
-<div align="center">
+<div align="center"><figure><img src="../../.gitbook/assets/Screen Shot 2024-07-23 at 9.40.36 AM.png" alt="" width="303"><figcaption></figcaption></figure></div>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2024-07-23 at 9.40.36 AM.png" alt="" width="303"><figcaption></figcaption></figure>
-
-</div>
-
-* Accept the necessary permissions for the Carbonmark app and click `Install`.  \
-  \
-  These permissions **do not** give Carbonmark the permission to unilaterally transfer credits on your behalf from your ICR account. You will still need to approve requested credit transfers to your Carbonmark account from your ICR organization .
+6. Accept the necessary permissions for the Carbonmark app and click `Install`.  \
+   \
+   These permissions **do not** give Carbonmark the permission to unilaterally transfer credits on your behalf from your ICR account. You will still need to approve requested credit transfers to your Carbonmark account from your ICR organization .
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2024-07-23 at 9.43.57 AM.png" alt="" width="373"><figcaption></figcaption></figure>
 
-* If installation is successful you will be redirected back to [https://icr.carbonmark.com/import](https://icr.carbonmark.com/import).
+7. If installation is successful, you will see this message: `Successfully connected to ICR, you may now close this window`. Close the window and go back to [https://app.carbonmark.com/portfolio](https://app.carbonmark.com/portfolio).
 
 {% hint style="info" %}
-If you have previously installed the Carbonmark app on your organization you will be prompted again to install the Carbonmark app when revisiting [https://icr.carbonmark.com/](https://icr.carbonmark.com/). Click install to connect to ICR and ignore the notification that the app is already installed.
+If you have previously installed the Carbonmark app on your organization, you will be prompted again to install the Carbonmark app when revisiting [https://app.carbonmark.com/portfolio](https://app.carbonmark.com/portfolio) and executing the steps above. Click `Install` to connect to ICR and ignore the notification that the app is already installed.
 {% endhint %}
 
-## Request Credit Transfer from ICR Organization
+## Request Credit Transfer from ICR
 
-* Back on the **Import ICR Credits to Carbonmark** screen, click`Browse ICR Inventory` button. You will be able to see all of your organization's ICR credits and respective amounts here.
-* Select the project for which you would like to transfer credits. If the selection is successful you will see the `Project ID` field auto-fill (for example):
+1. Once the Carbonmark app has been installed on your organization, go to [https://app.carbonmark.com/portfolio](https://app.carbonmark.com/portfolio), select `IMPORT CARBON CREDITS` first, then `International Carbon Registry`, and finally click `NEXT`.&#x20;
+2. You will now see the `Import credits` screen. You will be able to access all of your organization's ICR credits and their respective amounts as seen on the screenshot below.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/icrimport.png" alt=""><figcaption></figcaption></figure>
 
-* Copy in your **Carbonmark login account address** into `Destination Carbonmark Account Address`.
+3. Select the asset for which you would like to issue a transfer request.&#x20;
+4. Enter a `Quantity` to determine how many credits of the selected type you want to import to Carbonmark.
+5. Click `TRANSFER CREDITS`.
+6. A popup will inform you that the transfer has been requested successfully. Click the link contained in that message to be taken directly to your organization's ICR inventory.&#x20;
+7. All requests will appear in your organization's inventory page, including past accepted and declined requests. Unconfirmed transfers will show an `Accept` button as highlighted on the screenshot below.
+
+<figure><img src="../../.gitbook/assets/icrbuttons.png" alt=""><figcaption></figcaption></figure>
+
+6. Click the mentioned `Accept` button.
+7. You will see a message which asks you once more to `Accept` the transfer. Once you click the button, the request will be fulfilled and the credits will be sent to the address highlighted on the screenshot below (which should be your Carbonmark Wallet address).&#x20;
 
 {% hint style="danger" %}
-**IMPORTANT**: Although you will still need to review the proposed transfer within your ICR organization to finalize, **if credits are sent to the incorrect Carbonmark account address** those credits are <mark style="color:red;">**irretrievable**</mark>.  \
-\
-<mark style="color:red;">**PLEASE**</mark> <mark style="color:red;"></mark><mark style="color:red;">double check the account address</mark> you enter to confirm you have control of that account address.
+**IMPORTANT**: **If credits are sent to an incorrect Carbonmark Wallet address**, those credits are <mark style="color:red;">**irretrievable**</mark>.&#x20;
+
+While the correct address should be selected automatically by our systems, <mark style="color:red;">**PLEASE**</mark> <mark style="color:red;">**double check the account address**</mark> shown to you to confirm you have control of that account address. When in doubt, issue a request for a small amount first to confirm the connection. The smallest amount you can request is 0.001 credits.
 {% endhint %}
 
-* Enter `Quantity` of credits to transfer.
-* Click `Continue` button.
-* If the request is successful a popup modal will display informing that the transfer has been successfully requested. Click the link in the popup modal which will take you directly to your organization's ICR inventory.&#x20;
-* If you complete the request at a later time, navigate to your ICR's organization's `Inventory` page.
+<figure><img src="../../.gitbook/assets/icraddress.png" alt=""><figcaption><p>The Carbonmark Wallet address associated with your Carbonmark account.</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2024-07-23 at 10.05.09 AM.png" alt=""><figcaption></figcaption></figure>
+### Completing Open Requests
 
-* All requests will appear in your organization's inventory page, including past accepted and declined requests. Unconfirmed transfers will have an `Accept` button to the far right of the transfer indicated by the red arrow (all the below transfers have already been accepted or declined and thus have no confirmation button).
+You can complete open requests **at any later date** by navigating to your ICR's organization's `Inventory` page as seen on the screenshot below.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2024-07-23 at 10.46.47 AM.png" alt=""><figcaption></figcaption></figure>
-
-* Click `Accept` to finalize the transfer.
+<figure><img src="../../.gitbook/assets/icrinventory.png" alt=""><figcaption></figcaption></figure>
 
 ## Find Your ICR Credits in Carbonmark
 
-* Navigate to your [`Carbonmark Carbon Portfolio`](https://app.carbonmark.com/portfolio) page  and connect with your Carbonmark account.&#x20;
-* Your ICR credits should now appear in your portfolio.
+Once a transfer request on ICR's app has been completed, go back to [https://app.carbonmark.com/portfolio](https://app.carbonmark.com/portfolio). The transfer of your assets usually takes a few seconds, but depending on network load it might take a few minutes. Once the transfer is completed, your credits will appear in your portfolio. Try refreshing the page if they do not show up.
