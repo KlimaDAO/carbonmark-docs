@@ -2,7 +2,7 @@
 
 ## Connect to ICR
 
-1. Navigate to [https://app.carbonmark.com/portfolio](https://app.carbonmark.com/portfolio) and log in to your Carbonmark account.
+1. Navigate to your [**Portfolio**](https://app.carbonmark.com/portfolio) page and log in to your Carbonmark account.
 2. Click the `IMPORT CARBON CREDITS` button.
 3. `Select International Carbon Registry` and click `NEXT.`
 4. Click the `CONNECT TO ICR` button.
