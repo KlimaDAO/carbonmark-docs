@@ -32,7 +32,7 @@
 
 ## Resources
 
-* [Contact us](https://share-eu1.hsforms.com/1_VneTUObQZmJm4kNcRuEoQg3axk)
+* [Contact us](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr)
 * [Book a demo](https://meetings-eu1.hubspot.com/meetings/liamellul/api-demo)
 * [Terms of Use](https://www.carbonmark.com/blog/terms-of-use)
 * [Privacy Policy](https://www.carbonmark.com/blog/privacy-policy)
