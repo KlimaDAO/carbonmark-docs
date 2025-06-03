@@ -53,15 +53,13 @@ Quality of life features and endpoint refactoring have also been included. Migra
 
 ### Migration Path
 
+* **CarbonProjects endpoint**
+  * The [`/carbonProjects`](https://v17.api.carbonmark.com/#/paths/carbonProjects/get) endpoint is now paginated. The list of projects is now in the **items** attribute of the response.
 * **Retirement API**
   * No breaking changes were made to the retirement API (`/quotes` and `/orders` endpoints).
 * **Retirement endpoints**
   * If you were using the **GET** `/retirements/:hash` and **GET** `/retirements/:hash/provenance` you should now use the new endpoints:
-    * **GET `/retirements/:beneficiaryAddress/:retirementIndex`**&#x20;
+    * **GET** `/retirements/:beneficiaryAddress/:retirementIndex`&#x20;
     * **GET** `/retirements/:beneficiaryAddress/:retirementIndex/provenance`
-  * If you only have the transaction hash you can fetch the beneficiaryAddress and the retirementIndex by using the **GET /retirements** endpoint
+  * If you only have the transaction hash you can fetch the beneficiaryAddress and the retirementIndex by using the **GET** `/retirements` endpoint
     * Example: [https://v17.api.carbonmark.com/retirements?hash=0x7b63b79d25c76b6f179360ebd5f9f3c2435d3fdf2dda7e1d3ab43cf4f90e4a04](https://v17.api.carbonmark.com/retirements?hash=0x7b63b79d25c76b6f179360ebd5f9f3c2435d3fdf2dda7e1d3ab43cf4f90e4a04)
-
-### References
-
-* The Token model: [https://v17.api.carbonmark.com/#/schemas/Token](https://v17.api.carbonmark.com/#/schemas/Token)
