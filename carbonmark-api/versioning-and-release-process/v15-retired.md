@@ -1,4 +1,10 @@
-# v15
+# v15 (retired)
+
+### Status
+
+`Retired` April 29th, 2025
+
+No longer supported.
 
 ### Release notes
 
