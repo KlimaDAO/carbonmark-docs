@@ -20,6 +20,10 @@
 * [API Checkout Service (beta)](carbonmark-api/api-checkout-service-beta.md)
 * [API Reference](https://api.carbonmark.com/)
 
+## Carbonmark Direct
+
+* [Direct Credit Issuance](carbonmark-direct/direct-credit-issuance.md)
+
 ## Transfer Credits
 
 * [Transfer Credits to/from Carbonmark](transfer-credits/transfer-credits-to-from-carbonmark/README.md)
@@ -27,9 +31,10 @@
   * [ICR: Export Credits to ICR](transfer-credits/transfer-credits-to-from-carbonmark/icr-export-credits-to-icr.md)
   * [Puro Bridge Integration Guide](transfer-credits/transfer-credits-to-from-carbonmark/puro-bridge-integration-guide.md)
 
-## Carbonmark Direct
+## OFFRAMP TO BANK
 
-* [Direct Credit Issuance](carbonmark-direct/direct-credit-issuance.md)
+* [Onboarding](offramp-to-bank/onboarding.md)
+* [Using Deposit Address](offramp-to-bank/using-deposit-address.md)
 
 ## Resources
 
