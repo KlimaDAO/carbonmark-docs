@@ -2,7 +2,7 @@
 
 ## Overview
 
-Once you have completed the [onboarding.md](onboarding.md "mention") process, you will have received a unique **Deposit Address** (0x...1234) that is exclusively linked to your Bridge customer ID and bank payment route. You can use that Deposit Address to facilitate the USDC --> Fiat offramp from the [Carbonmark app](https://forms.zohopublic.com/carbonmark/form/OfframptoBankRequest/formperma/l1l1dm5JWpRBREjJGrBJyiUjPVn2C9QwJogKMCFkJYQ).
+Once you have completed the [onboarding.md](onboarding.md "mention") process, you will have received a unique **Deposit Address** (0x...1234) that is exclusively linked to your Bridge customer ID and bank payment route. You can use that Deposit Address to facilitate the USDC --> Fiat offramp from the **Carbonmark** app.
 
 {% hint style="warning" %}
 If you have questions at any time during this process, please reach out to Carbonmark for support.
