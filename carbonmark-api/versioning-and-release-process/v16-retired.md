@@ -1,10 +1,10 @@
-# v16 (deprecated & supported)
+# v16 (retired)
 
 ### Status
 
-`Deprecated` June 4, 2025
+`Retired` September 4th, 2025
 
-Supported until September 4, 2025.
+No longer supported.
 
 ### Summary
 

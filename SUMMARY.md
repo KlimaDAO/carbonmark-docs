@@ -5,7 +5,7 @@
 * [Introduction to Carbonmark API](README.md)
 * [Versioning & Release Process](carbonmark-api/versioning-and-release-process/README.md)
   * [v17 (latest stable)](carbonmark-api/versioning-and-release-process/v17-latest-stable.md)
-  * [v16 (deprecated & supported)](carbonmark-api/versioning-and-release-process/v16-deprecated-and-supported.md)
+  * [v16 (retired)](carbonmark-api/versioning-and-release-process/v16-retired.md)
   * [v15 (retired)](carbonmark-api/versioning-and-release-process/v15-retired.md)
 * [Quickstart](carbonmark-api/quickstart.md)
 * [Explore Carbon Projects](carbonmark-api/explore-carbon-projects/README.md)

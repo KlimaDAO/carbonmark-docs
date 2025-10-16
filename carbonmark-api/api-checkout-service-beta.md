@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
----
-
 # API Checkout Service (beta)
 
 The Checkout Service is a REST API that can be used to create unique payment links (powered by Stripe). These payment links allow your users to buy and retire carbon credits by entering their payment details.
