@@ -1,8 +1,8 @@
-# v17 (latest stable)
+# v17 (deprecated)
 
 ### Status
 
-<mark style="color:red;">`Live`</mark> June 4, 2025
+<mark style="color:red;">`Deprecated`</mark>  March 8, 2026
 
 ### Summary
 
@@ -51,21 +51,21 @@ v17 is primarily focused on improving the stability and performance of order pro
 
 **GET** `/retirements/:beneficiaryAddress/:retirementIndex`
 
-* Get retirement details for a completed retirement order. This replaces the endpoint that was present in previous versions (see [Endpoints removed](v17-latest-stable.md#endpoints-removed) below)
+* Get retirement details for a completed retirement order. This replaces the endpoint that was present in previous versions (see [Endpoints removed](v17-deprecated.md#endpoints-removed) below)
 
 **GET** `/retirements/:beneficiaryAddress/:retirementIndex/provenance`
 
-* Get the credit provenance history leading up to a completed retirement. This replaces the `/provenance` endpoint that was present in previous versions (see [Endpoints removed](v17-latest-stable.md#endpoints-removed) below)
+* Get the credit provenance history leading up to a completed retirement. This replaces the `/provenance` endpoint that was present in previous versions (see [Endpoints removed](v17-deprecated.md#endpoints-removed) below)
 
 #### **Endpoints removed**
 
 **GET** `/retirements/:hash`
 
-* \[⚠️BREAKING CHANGE] This endpoint was removed because a transaction hash may now include more than one retirement. It has been replaced by `/retirements/:beneficiaryAddress/:retirementIndex`. See [Endpoints added ](v17-latest-stable.md#endpoints-added)for more info. See [migration path](v17-latest-stable.md#migration-path) for alternatives.
+* \[⚠️BREAKING CHANGE] This endpoint was removed because a transaction hash may now include more than one retirement. It has been replaced by `/retirements/:beneficiaryAddress/:retirementIndex`. See [Endpoints added ](v17-deprecated.md#endpoints-added)for more info. See [migration path](v17-deprecated.md#migration-path) for alternatives.
 
 **GET** `/retirements/:hash/provenance`
 
-* \[⚠️BREAKING CHANGE] This endpoint was removed because a transaction hash may now include more than one retirement. It has been replaced by `/retirements/:beneficiaryAddress/:retirementIndex`. See [Endpoints added ](v17-latest-stable.md#endpoints-added)for more info. See [migration path](v17-latest-stable.md#migration-path) for alternatives.
+* \[⚠️BREAKING CHANGE] This endpoint was removed because a transaction hash may now include more than one retirement. It has been replaced by `/retirements/:beneficiaryAddress/:retirementIndex`. See [Endpoints added ](v17-deprecated.md#endpoints-added)for more info. See [migration path](v17-deprecated.md#migration-path) for alternatives.
 
 ### Migration Path
 
