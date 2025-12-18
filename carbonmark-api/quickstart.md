@@ -6,7 +6,7 @@ Our API enables developers to programatically acquire and retire carbon credits 
 
 ## Latest stable version
 
-[https://v17.api.carbonmark.com](https://v17.api.carbonmark.com)
+[https://v18.api.carbonmark.com](https://v18.api.carbonmark.com)
 
 ## Getting started
 
@@ -33,8 +33,4 @@ You can use the Carbonmark REST API to view assets, prices, supply, and other va
 
 {% content-ref url="explore-carbon-projects/" %}
 [explore-carbon-projects](explore-carbon-projects/)
-{% endcontent-ref %}
-
-{% content-ref url="explore-index-products/" %}
-[explore-index-products](explore-index-products/)
 {% endcontent-ref %}

@@ -7,7 +7,7 @@ description: Initiate carbon retirements via a REST endpoint
 {% hint style="warning" %}
 In the code examples below we use [api.carbonmark.com](http://api.carbonmark.com/) as the base URL, however, when consuming our API, **be sure to prefix the API URL with a version number**. For example, the base URL of version 1 would be `v1.api.carbonmark.com`.
 
-Any changes that we make to an API version are guaranteed to be backwards compatible. However, if you omit the version prefix ([`api.carbonmark.com`](http://api.carbonmark.com)) **your application will be exposed to breaking changes** because [api.carbonmark.com](http://api.carbonmark.com) is always routed to the latest major version.
+See [versioning-and-release-process](../versioning-and-release-process/ "mention") for details on latest stable and supported versions. Note that if you omit the version prefix ([https://v18.api.carbonmark.com](https://v18.api.carbonmark.com)) **your application will be exposed to breaking changes** because [api.carbonmark.com](http://api.carbonmark.com) is always routed to the latest major version.
 {% endhint %}
 
 Carbonmark's API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
@@ -21,14 +21,6 @@ In this guide, you will learn to:
 * Create a quote
 * Create an order
 * Confirm carbon credit retirement
-{% endhint %}
-
-{% hint style="info" %}
-**What is the difference between retiring carbon from a seller listing and retiring carbon from a pool?**
-
-Listings can be from an individual or organization seller (i.e. Seller Listing) or from a Carbon Pool. A project may therefore have multiple listings at different price points.
-
-Seller listing prices are controlled by the seller. Carbon Pool pricing is dynamic and can incur slippage.
 {% endhint %}
 
 ## Retire Carbon Steps
@@ -51,7 +43,7 @@ Keys are generated once and not exposed in the Developer Dashboard so you must c
 
 ### 2. Find a project or index product to retire
 
-Use the [`carbonmark.com`](https://app.carbonmark.com/projects) marketplace or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project or [`api.carbonmark.com/products`](https://api.carbonmark.com/#/paths/products/get) to identify an index product you’d like to retire. The Retirement API is compatible with any credit that has a visible price.
+Use the [`carbonmark.com`](https://app.carbonmark.com/projects) marketplace or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project. The Retirement API is compatible with any credit that has a visible price.
 
 The `/carbonProjects` endpoint allows you to retrieve an array of carbon projects filtered by desired query parameters and returns project metadata and prices. Make note of the "`key`" (for example, **VCS-191**) of the project you are interested in.
 
@@ -63,13 +55,9 @@ You can also check out our various guides to discovering carbon projects or inde
 [explore-carbon-projects](../explore-carbon-projects/)
 {% endcontent-ref %}
 
-{% content-ref url="../explore-index-products/" %}
-[explore-index-products](../explore-index-products/)
-{% endcontent-ref %}
-
 ### 3. Identify the listing details
 
-Listing details for a project or product can be returned for an array of ID's and other query parameters. For example, `api.carbonmark.com/prices?projectsIds={project key}&projectsIds={project key}`. Or `api.carbonmark.com/prices?productIds={productID}` . See [`/prices`](https://api.carbonmark.com/#/paths/prices/get) endpoint for details.\
+Listing details for a project or product can be returned for an array of ID's and other query parameters. For example, `api.carbonmark.com/prices?projectsIds={project key}&projectsIds={project key}`. See [`/prices`](https://api.carbonmark.com/#/paths/prices/get) endpoint for details.\
 \
 Note that a [`/prices`](https://api.carbonmark.com/#/paths/prices/get) response may include type "**listing**" (i.e. seller listing) or "**carbon\_pool**" or "**product**" depending on the query parameters used.
 
