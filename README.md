@@ -6,42 +6,67 @@ description: >-
 
 # Introduction to Carbonmark API
 
-## About
+## Carbonmark API
 
-**Carbonmark** is your gateway to the voluntary carbon market, simplifying access, procurement, and the retirement of verified carbon credits. Our platform makes environmental asset management more accessible, efficient, and secure.
+Use the Carbonmark API to discover carbon credit inventory, retrieve pricing, and retire credits programmatically.
 
-With **Carbonmark’s API**, you can embed high-integrity carbon projects directly into your application, enabling automated offsetting and expanding your climate-focused offerings. Whether you're building a consumer app, fintech product, or sustainability dashboard, our API helps you source verified carbon credits automatically and scale your environmental impact with ease.
-
-Enhance your sustainability efforts with a transparent, efficient, and actionable carbon credit API!
-
-
+Carbonmark is designed for teams building carbon functionality into software products, internal tools, and customer workflows. You can use the API to embed carbon credit discovery and retirement directly into your application without managing credit inventory yourself.
 
 <figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
-## Benefits of Carbonmark API for seamless carbon offsetting
+## What you can do
 
-* Advanced reporting and a user-friendly dashboard to discover, purchase, and retire carbon credits with ease.
-* Real-time quoting and pricing.
-* Instant transaction settlement with publicly available retirement certificates.
-* Ability to offset fractional quantities (as low as 0.001 tCO₂).
-* No need to carry inventory—simply route orders through the API and receive an invoice at the end of the month.
-* Access to development test API keys is free.
+With the Carbonmark API, you can:
 
-## Carbonmark's API integration success stories
+* Discover available carbon credit inventory
+* Retrieve real-time pricing and quotes
+* Retire carbon credits programmatically
+* Offset fractional quantities starting at 0.001 tCO₂
+* Access public retirement records and certificates
+* Test your integration for free using sandbox API keys
 
-Discover how [Ascend Bit Corp](https://www.ascendbit.com/) is driving change with Carbonmark’s API integration, empowering millions of users to participate in climate action. In our [blog post, _“Go Carbon Neutral,”_](https://www.carbonmark.com/post/go-carbon-neutral-how-ascend-bit-corp-integrated-payment-gateway-solution-empowers-over-27-millio) we highlight how their payment gateway solution enables over 27 million payment app users to offset their daily carbon footprint through our carbon offsetting API in just a few clicks.&#x20;
+## Common use cases
 
-* Learn how consumer-focused apps like TrueMoney incorporate sustainability features to enhance user experience, foster customer loyalty, and unlock new revenue streams.&#x20;
-* See how blockchain technology makes carbon offsetting part of everyday transactions.&#x20;
-* Dive into this real-world success story and gain actionable insights for your sustainability journey.
+The API is commonly used to:
+
+* Add carbon retirement to checkout or transaction flows
+* Power sustainability features in fintech or consumer apps
+* Support internal climate, procurement, or reporting workflows
+* Integrate carbon retirement into platforms, marketplaces, or enterprise systems
+
+## How it works
+
+Carbonmark provides API access to market data and retirement workflows so your application can:
+
+{% stepper %}
+{% step %}
+### Identify available credits or products
+{% endstep %}
+
+{% step %}
+### Retrieve pricing in real time
+{% endstep %}
+
+{% step %}
+### Submit a retirement transaction
+{% endstep %}
+
+{% step %}
+### Receive confirmation and retirement documentation
+{% endstep %}
+{% endstepper %}
+
+You do not need to pre-purchase or hold inventory to get starte&#x64;**.**
 
 ## Getting started
 
-Ready to integrate carbon offsetting into your platform? Access our **Quickstart guide** below to complete your first retirement.
+To complete your first integration:
 
-To explore how programmatic carbon offsetting can elevate your sustainability strategy and see the Carbonmark API in action, [**book a meeting/demo**](https://www.carbonmark.com/book-a-demo) with our team.
-
-Visit our website [**carbonmark.com**](https://www.carbonmark.com/) to learn more about our solutions for buyers, sellers and software developers.&#x20;
+1. Create an account or login with your existing Carbonmark account on our [Developer Dashboard](https://developers.carbonmark.com/login).
+2. Generate a free sandbox API key
+3. Follow the Quickstart guide to complete your first test retirement
+4. Review the API reference for available endpoints
+5. [Contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) when you are ready for production access to be white-listed and complete onboarding
 
 {% content-ref url="carbonmark-api/quickstart.md" %}
 [quickstart.md](carbonmark-api/quickstart.md)
