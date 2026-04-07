@@ -60,7 +60,7 @@ To complete your first integration:
 
 1. Create an account or sign in with your existing Carbonmark account in the [Developer Dashboard](https://developers.carbonmark.com/login).
 2. Generate a free sandbox API key
-3. Follow the Quickstart guide to complete your first test retirement
+3. Follow the [Quickstart](carbonmark-api/quickstart.md) guide to complete your first test retirement
 4. Review the API reference for available endpoints
 5. [Contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) when you are ready for production access and onboarding
 
