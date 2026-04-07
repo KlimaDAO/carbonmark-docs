@@ -1,16 +1,12 @@
 ---
 description: >-
-  Access real-time carbon market data and programmatically retire carbon credits
-  via our carbon offsetting API.
+  Discover carbon credit inventory, retrieve pricing, and retire credits
+  programmatically.
 ---
 
 # Introduction to Carbonmark API
 
-## Carbonmark API
-
-Use the Carbonmark API to discover carbon credit inventory, retrieve pricing, and retire credits programmatically.
-
-Carbonmark is designed for teams building carbon functionality into software products, internal tools, and customer workflows. You can use the API to embed carbon credit discovery and retirement directly into your application without managing credit inventory yourself.
+Carbonmark is designed for teams adding carbon credit purchasing and retirement to software products, internal tools, and customer workflows. Use the API to embed carbon credit discovery and retirement directly into your application without needing to manage credit inventory yourself.
 
 <figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
@@ -30,13 +26,13 @@ With the Carbonmark API, you can:
 The API is commonly used to:
 
 * Add carbon retirement to checkout or transaction flows
-* Power sustainability features in fintech or consumer apps
+* Add carbon features to fintech or consumer applications
 * Support internal climate, procurement, or reporting workflows
 * Integrate carbon retirement into platforms, marketplaces, or enterprise systems
 
 ## How it works
 
-Carbonmark provides API access to market data and retirement workflows so your application can:
+The typical integration flow is:
 
 {% stepper %}
 {% step %}
@@ -62,11 +58,11 @@ You do not need to pre-purchase or hold inventory to get starte&#x64;**.**
 
 To complete your first integration:
 
-1. Create an account or login with your existing Carbonmark account on our [Developer Dashboard](https://developers.carbonmark.com/login).
+1. Create an account or sign in with your existing Carbonmark account in the [Developer Dashboard](https://developers.carbonmark.com/login).
 2. Generate a free sandbox API key
 3. Follow the Quickstart guide to complete your first test retirement
 4. Review the API reference for available endpoints
-5. [Contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) when you are ready for production access to be white-listed and complete onboarding
+5. [Contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) when you are ready for production access and onboarding
 
 {% content-ref url="carbonmark-api/quickstart.md" %}
 [quickstart.md](carbonmark-api/quickstart.md)
