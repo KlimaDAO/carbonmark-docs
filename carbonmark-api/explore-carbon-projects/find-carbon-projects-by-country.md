@@ -6,11 +6,11 @@ description: >-
 
 # Find carbon projects by country
 
-This page shows the basic workflow. For full parameter definitions and response schemas, see the API reference for each endpoint.
+This page shows the basic workflow. For full parameter definitions and response schemas, see the [API reference](https://api.carbonmark.com/) for each endpoint.
 
 ### Step 1: Retrieve available countries
 
-Call the `/countries` endpoint to return the list of valid country values you can use when filtering carbon projects.
+Call the [`/countries`](https://api.carbonmark.com/#/paths/countries/get) endpoint to return the list of valid country values you can use when filtering carbon projects.
 
 ```bash
 curl --request GET \
@@ -18,7 +18,7 @@ curl --request GET \
   --header 'Accept: application/json'
 ```
 
-Example response:
+Example response (trimmed for readability):
 
 ```json
 [
@@ -33,7 +33,7 @@ Example response:
 
 ### Step 2: Filter projects by country
 
-Once you have a valid country value, pass it to the `/carbonProjects` endpoint.
+Once you have a valid country value, pass it to the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint.
 
 You can also combine `country` with other supported filters such as:
 
@@ -52,29 +52,57 @@ curl -G https://api.carbonmark.com/carbonProjects \
   --header 'Accept: application/json'
 ```
 
-Example response:
+Example response (trimmed for readability):
 
 ```json
 [
   {
-    "key": "VCS-1160",
-    "projectID": "1160",
-    "name": "6.5 MW Cogeneration Project in Akbarpur, Punjab",
+    "key": "VCS-498",
+    "projectID": "498",
+    "name": "Grid-Connected Wind Electricity Generation Project In Tamil Nadu, India",
     "country": "India",
+    "region": "Asia",
     "registry": "VCS",
-    "vintages": ["2012", "2013", "2014"],
-    "price": "1.3441532",
-    "hasSupply": true
+    "methodologies": [
+      {
+        "id": "AMS-ID",
+        "category": "Renewable Energy",
+        "name": "Grid connected renewable electricity generation"
+      }
+    ],
+    "vintages": ["2012"],
+    "price": "0.91",
+    "hasSupply": true,
+    "stats": {
+      "totalBridged": 26236,
+      "totalRetired": 300.0021,
+      "totalSupply": 25922.899
+    },
+    "url": "https://registry.verra.org/app/projectDetail/VCS/498"
   },
   {
-    "key": "VCS-1293",
-    "projectID": "1293",
-    "name": "Suzlon 10.4 MW Wind Power Project",
+    "key": "VCS-1578",
+    "projectID": "1578",
+    "name": "15 MW Solar Photovoltaic Power Project At Gujarat",
     "country": "India",
+    "region": "Asia",
     "registry": "VCS",
-    "vintages": ["2011", "2012"],
-    "price": "1.449392",
-    "hasSupply": true
+    "methodologies": [
+      {
+        "id": "AMS-ID",
+        "category": "Renewable Energy",
+        "name": "Grid connected renewable electricity generation"
+      }
+    ],
+    "vintages": ["2012"],
+    "price": "0.91",
+    "hasSupply": true,
+    "stats": {
+      "totalBridged": 1936,
+      "totalRetired": 1300,
+      "totalSupply": 636
+    },
+    "url": "https://registry.verra.org/app/projectDetail/VCS/1578"
   }
 ]
 ```
@@ -91,18 +119,33 @@ curl --request GET \
   --header 'Accept: application/json'
 ```
 
-Example response:
+Example response (trimmed for readability):
 
 ```json
 {
   "key": "VCS-274",
   "projectID": "274",
+  "name": "Hanuman Ganga Hydro (4.95 MW) Plant At Uttarakhand",
   "country": "India",
+  "region": "Asia",
   "registry": "VCS",
-  "name": "Hanuman Ganga Hydro (4.95 MW) Plant at Uttarakhand",
-  "price": "1.3429052",
-  "hasSupply": true,
-  "vintages": ["2010", "2011", "2012", "2013", "2014", "2015"]
+  "methodologies": [
+    {
+      "id": "AMS-ID",
+      "category": "Renewable Energy",
+      "name": "Grid connected renewable electricity generation"
+    }
+  ],
+  "vintages": [],
+  "price": "0",
+  "hasSupply": false,
+  "stats": {
+    "totalBridged": 39492,
+    "totalRetired": 2.0021,
+    "totalSupply": 0
+  },
+  "sustainableDevelopmentGoals": ["7", "8", "9", "13"],
+  "url": "https://registry.verra.org/app/projectDetail/VCS/274"
 }
 ```
 
