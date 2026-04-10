@@ -1,22 +1,28 @@
+---
+description: >-
+  Use the Carbonmark API to retrieve available vintages and return carbon
+  projects that match a selected vintage.
+---
+
 # Find carbon projects by vintage
 
-You can search for carbon projects listed on Carbonmark by vintage.
+Use the Carbonmark API to retrieve available vintages and return carbon projects that match a selected vintage.
 
-{% hint style="info" %}
-Each API endpoint will link to its reference documentation where you can create sample requests in other programming languages as well as enter the parameters you desire.
-{% endhint %}
+This page shows the basic workflow. For full parameter definitions and response schemas, see the [API reference](https://api.carbonmark.com/) for each endpoint.
 
-First, retrieve an array of the vintages of available carbon projects by calling the [`/vintages`](https://api.carbonmark.com/#/paths/vintages/get) endpoint. Here's a sample of a request:
+### Step 1: Retrieve available vintages
 
-```shell
+Call the [`/vintages`](https://api.carbonmark.com/#/paths/vintages/get) endpoint to return the list of valid vintage values you can use when filtering carbon projects.
+
+```bash
 curl --request GET \
   --url https://api.carbonmark.com/vintages \
   --header 'Accept: application/json'
 ```
 
-You'll receive a JSON response containing an array with available vintages like this:
+Example response (trimmed for readability):
 
-```json
+```bash
 [
   "2006",
   "2007",
@@ -36,132 +42,102 @@ You'll receive a JSON response containing an array with available vintages like 
 ]
 ```
 
-Select your desired vintage(s). Next, we'll call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with our desired query parameters.
+### Step 2: Filter projects by vintage
 
-In this example, we'll search for projects with a 2020 vintage. Here's the example request:
+Once you have a valid vintage value, pass it to the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint.
+
+You can also combine `vintage` with other supported filters such as:
+
+* country
+* category
+* project name
+* project description
+
+The example below returns projects with a 2020 vintage.
 
 ```bash
-curl --request GET \
-  --url 'https://api.carbonmark.com/carbonProjects?vintage=2020' \
+curl -G https://api.carbonmark.com/carbonProjects \
+  --data-urlencode "vintage=2020" \
   --header 'Accept: application/json'
 ```
 
-The response you receive will contain a list of all carbon projects that fit your query parameters. Below is our example response for two projects:
+Example response (trimmed for readability):
 
-```json
+```bash
 [
   {
-    "key": "VCS-1418",
-    "projectID": "1418",
-    "name": "Renewable Energy Project By LNB Group",
-    "methodologies": [
-      {
-        "id": "ACM0002",
-        "category": "Renewable Energy",
-        "name": "Grid-connected electricity generation from renewable sources"
-      }
-    ],
-    "vintages": [
-      "2020"
-    ],
-    "registry": "VCS",
-    "updatedAt": "1717675704",
+    "key": "VCS-1547",
+    "projectID": "1547",
+    "name": "5MW Biomass Based Cogeneration Project At Sainsons",
     "country": "India",
     "region": "Asia",
-    "price": "1.3884013",
-    "stats": {
-      "totalBridged": 2,
-      "totalRetired": 1.1895,
-      "totalSupply": 0.8105,
-      "totalListingsSupply": 0,
-      "totalPoolsSupply": 0.8105
-    },
-    "hasSupply": true,
-    "sustainableDevelopmentGoals": [
-      "7",
-      "8",
-      "9",
-      "13"
-    ],
-    "description": "The proposed project activity involves the installation of Wind and Solar Power Projects. The total installed capacity of the project is 22.20 MW; which involves operation of 18 Wind Turbine Generators (WTGs) with total capacity of 22.20 MW & 1 Solar power plants with total capacity of 5.00 MW located at different states; Rajasthan and Maharashtra in India.",
-    "long_description": "The proposed project involves the installation of wind and solar power projects in India.\n\nKey Highlights:\n- The total installed capacity of the project is 22.20 MW.\n- The project includes 18 wind turbine generators with a total capacity of 22.20 MW.\n- The project also includes 1 solar power plant with a total capacity of 5.00 MW.\n- The wind and solar power projects are located in two different states, Rajasthan and Maharashtra.\n\nThis project is important as it will increase the production of clean energy in India, reducing the country's reliance on non-renewable energy sources. The use of wind and solar power will also contribute to the reduction of greenhouse gas emissions, helping to combat climate change. Additionally, the project will create job opportunities in the renewable energy industry, stimulating economic growth in the region.",
-    "short_description": "This project involved the installation of Wind and Solar Power Projects across Rajasthan and Maharashtra in India. With a combined capacity of 27.20 MW, it includes 18 Wind Turbine Generators and 1 Solar power plant.",
-    "location": {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [71.35, 26.56]
+    "registry": "VCS",
+    "methodologies": [
+      {
+        "id": "ACM0006",
+        "category": "Other",
+        "name": "Electricity and heat generation from biomass"
       }
+    ],
+    "vintages": ["2020"],
+    "price": "1.4",
+    "hasSupply": true,
+    "stats": {
+      "totalBridged": 3100,
+      "totalRetired": 667.831,
+      "totalSupply": 0
     },
-    "url": "https://registry.verra.org/app/projectDetail/VCS/1418",
-    "images": [],
-    "puroBatchTokenId": ""
+    "url": "https://registry.verra.org/app/projectDetail/VCS/1547"
   },
   {
-    "key": "VCS-1497",
-    "projectID": "1497",
-    "name": "VCS Grouped Project For Renewable Power Generation By Essel Mining And Industries Limited",
+    "key": "ICR-349",
+    "projectID": "349",
+    "name": "Forestal Río Aquidabán",
+    "country": "Paraguay",
+    "region": "South America",
+    "registry": "ICR",
     "methodologies": [
       {
-        "id": "ACM0002",
-        "category": "Renewable Energy",
-        "name": "Grid-connected electricity generation from renewable sources"
-      },
-      {
-        "id": "AMS-ID",
-        "category": "Renewable Energy",
-        "name": "Grid connected renewable electricity generation"
-      },
-      {
-        "id": "AMS-IF",
-        "category": "Other",
-        "name": "Renewable electricity generation for captive use and mini-grid"
+        "id": "AR-ACM0003",
+        "category": "Forestry",
+        "name": "Afforestation and reforestation of lands except wetlands"
       }
     ],
-    "vintages": [
-      "2020",
-      "2016"
-    ],
-    "registry": "VCS",
-    "updatedAt": "1705288365",
-    "country": "India",
-    "region": "Asia",
-    "price": "1.3884013",
-    "stats": {
-      "totalBridged": 942,
-      "totalRetired": 0.772,
-      "totalSupply": 941.228,
-      "totalListingsSupply": 0,
-      "totalPoolsSupply": 941.228
-    },
+    "vintages": ["2020"],
+    "price": "22.834",
     "hasSupply": true,
-    "sustainableDevelopmentGoals": [
-      "7",
-      "8",
-      "9",
-      "13"
+    "stats": {
+      "totalBridged": 255379,
+      "totalRetired": 961.886,
+      "totalSupply": 67992.856
+    },
+    "url": "https://www.carbonregistry.com/projects/forestal-rio-aquidaban-349?tab=overview"
+  }
 ]
 ```
 
-The information from this response such as "key" and "projectID" may be enough for your needs.
+For many workflows, the `key` and `projectID` fields are enough to display results or request full project details.
 
-You can retrieve the full details of a carbon project by its using the project key; [`api.carbonmark.com/carbonProjects/{id}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get). For example:
+### Step 3: Retrieve a single project by key
 
-```sh
+If you need the full details for a specific project, call `/carbonProjects/{key}` using the project `key` returned in the search response.
+
+```bash
 curl --request GET \
   --url https://api.carbonmark.com/carbonProjects/VCS-1418 \
   --header 'Accept: application/json'
 ```
 
-The response will contain the full carbon project details:
+Example response (trimmed for readability):
 
-```json
+```bash
 {
   "key": "VCS-1418",
   "projectID": "1418",
-  "registry": "VCS",
-  "country": "India",
   "name": "Renewable Energy Project By LNB Group",
+  "country": "India",
+  "region": "Asia",
+  "registry": "VCS",
   "methodologies": [
     {
       "id": "ACM0002",
@@ -169,39 +145,22 @@ The response will contain the full carbon project details:
       "name": "Grid-connected electricity generation from renewable sources"
     }
   ],
-  "region": "Asia",
-  "description": "The proposed project activity involves the installation of Wind and Solar Power Projects. The total installed capacity of the project is 22.20 MW; which involves operation of 18 Wind Turbine Generators (WTGs) with total capacity of 22.20 MW & 1 Solar power plants with total capacity of 5.00 MW located at different states; Rajasthan and Maharashtra in India.",
-  "short_description": "This project involved the installation of Wind and Solar Power Projects across Rajasthan and Maharashtra in India. With a combined capacity of 27.20 MW, it includes 18 Wind Turbine Generators and 1 Solar power plant.",
-  "long_description": "The proposed project involves the installation of wind and solar power projects in India.\n\nKey Highlights:\n- The total installed capacity of the project is 22.20 MW.\n- The project includes 18 wind turbine generators with a total capacity of 22.20 MW.\n- The project also includes 1 solar power plant with a total capacity of 5.00 MW.\n- The wind and solar power projects are located in two different states, Rajasthan and Maharashtra.\n\nThis project is important as it will increase the production of clean energy in India, reducing the country's reliance on non-renewable energy sources. The use of wind and solar power will also contribute to the reduction of greenhouse gas emissions, helping to combat climate change. Additionally, the project will create job opportunities in the renewable energy industry, stimulating economic growth in the region.",
-  "url": "https://registry.verra.org/app/projectDetail/VCS/1418",
-  "images": [],
-  "location": {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [71.35, 26.56]
-    }
-  },
+  "vintages": [],
+  "price": "0",
+  "hasSupply": false,
   "stats": {
     "totalBridged": 2,
     "totalRetired": 1.1895,
-    "totalListingsSupply": 0,
-    "totalPoolsSupply": 0.8105,
-    "totalSupply": 0.8105
+    "totalSupply": 0
   },
-  "puroBatchTokenId": "",
-  "price": "1.3914992",
-  "updatedAt": "1717675704",
-  "hasSupply": true,
-  "vintages": [
-    "2020"
-  ],
-  "sustainableDevelopmentGoals": [
-    "7",
-    "8",
-    "9",
-    "13"
-  ],
-  "listings": []
+  "sustainableDevelopmentGoals": ["7", "8", "9", "13"],
+  "url": "https://registry.verra.org/app/projectDetail/VCS/1418"
 }
 ```
+
+### Notes
+
+* Use `/vintages` first to avoid passing unsupported vintage values.
+* Use `/carbonProjects` when you want a filtered list of matching projects.
+* Use `/carbonProjects/{key}` when you need full details for a specific project.
+* Refer to the API reference for the complete list of supported parameters and response fields.
