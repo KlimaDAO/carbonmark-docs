@@ -120,7 +120,7 @@ For many workflows, the `key` and `projectID` fields are enough to display resul
 
 ### Step 3: Retrieve a single project by key
 
-If you need the full details for a specific project, call `/carbonProjects/{key}` using the project `key` returned in the search response.
+If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response.
 
 ```bash
 curl --request GET \
