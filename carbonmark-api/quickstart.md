@@ -29,7 +29,7 @@ description: >-
 [postman-quickstart-guide.md](retire-carbon/postman-quickstart-guide.md)
 {% endcontent-ref %}
 
-## Explore projects, products, and market data
+## Explore projects
 
 You can use the Carbonmark REST API to view assets, prices, supply, and other variables.
 
