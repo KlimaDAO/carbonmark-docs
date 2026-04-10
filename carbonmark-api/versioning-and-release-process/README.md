@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how Carbonmark API versioning, deprecation, and upgrade timelines work
+  so you can integrate against a stable version.
+---
+
 # Versioning & Release Process
 
 ## Versioning and breaking changes
