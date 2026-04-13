@@ -1,13 +1,37 @@
+---
+description: >-
+  Use the Checkout Service API to create hosted payment links that let users
+  purchase and retire carbon credits without building a custom payment flow.
+---
+
 # API Checkout Service (beta)
 
-The Checkout Service is a REST API that can be used to create unique payment links (powered by Stripe). These payment links allow your users to buy and retire carbon credits by entering their payment details.
+Use the Checkout Service API to create hosted payment links that let users purchase and retire carbon credits without building a custom payment flow.
 
-The developer provides a credit and a quantity, and the service will respond with a unique URL. When the user navigates to this URL and completes payment, the offset transaction is initiated.
+The Checkout Service is a REST API that creates unique checkout links powered by Stripe. Your application provides a credit and quantity, and the API returns a hosted payment URL. When the user opens that URL and completes payment, the retirement flow is initiated.
 
-This is the **fastest path** for developers who want to provide their users access to the Carbonmark supply of carbon credits without building a custom payment processing flow themselves.
+This is the fastest path for teams that want to offer carbon credit purchases and retirements without implementing their own payment processing experience.
 
-## Availability and Access
+## When to use the Checkout Service
 
-The **Carbonmark API Checkout Service** is currently a beta product (limited release) and not in general availability.&#x20;
+The Checkout Service is a good fit when you want to:
 
-If you are interested in the Checkout Service and would like to learn more about how it could be integrated with your application, please reach out to our team to [**schedule a meeting / demo**](https://www.carbonmark.com/book-a-demo). Alternatively you can send us inquiries and questions through our [**contact**](https://www.carbonmark.com/contact-us) form.&#x20;
+* offer carbon credit purchases and retirements in your application
+* avoid building and maintaining a custom payment flow
+* use a hosted checkout experience instead of collecting payment details directly
+* get to market faster with a simpler integration
+
+## How it works
+
+At a high level, the flow is:
+
+1. Your application sends a request with the credit and quantity to retire
+2. The Checkout Service returns a unique hosted payment URL
+3. The user opens the URL and completes payment
+4. The retirement flow is initiated after successful payment
+
+## Availability and access
+
+The Carbonmark API Checkout Service is currently in beta and is not generally available.
+
+If you are interested in using the Checkout Service, contact the Carbonmark team to discuss availability, onboarding, and integration requirements.
