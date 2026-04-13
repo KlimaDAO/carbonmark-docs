@@ -1,315 +1,264 @@
 ---
-description: Initiate carbon retirements via a REST endpoint
+description: >-
+  Use the Carbonmark API to create retirement quotes, submit retirement orders,
+  and confirm completion with a retirement receipt.
 ---
 
 # Retire Carbon
 
-{% hint style="warning" %}
-In the code examples below we use [api.carbonmark.com](http://api.carbonmark.com/) as the base URL, however, when consuming our API, **be sure to prefix the API URL with a version number**. For example, the base URL of version 1 would be `v1.api.carbonmark.com`.
+Use the Carbonmark API to create retirement quotes, submit retirement orders, and confirm completion with a retirement receipt.
 
-See [versioning-and-release-process](../versioning-and-release-process/ "mention") for details on latest stable and supported versions. Note that if you omit the version prefix ([https://v18.api.carbonmark.com](https://v18.api.carbonmark.com)) **your application will be exposed to breaking changes** because [api.carbonmark.com](http://api.carbonmark.com) is always routed to the latest major version.
-{% endhint %}
+This page shows the basic retirement workflow. For full parameter definitions and response schemas, see the [API reference](https://api.carbonmark.com/) for each endpoint.&#x20;
 
-Carbonmark's API offers developers a path to initiate carbon retirements via a REST endpoint. Follow the guide below to get started:
+In the examples below, we use a versioned API base URL such as `https://v1.api.carbonmark.com`. Omitting the version prefix exposes your integration to breaking changes. Use the [latest stable version](../versioning-and-release-process/) when building your integration.
 
-{% hint style="success" %}
-In this guide, you will learn to:
+### Before you begin
 
-* Get access to the Carbonmark developer dashboard and get your API Key
-* Find a project or index product to retire
-* Identify the listing details
-* Create a quote
-* Create an order
-* Confirm carbon credit retirement
-{% endhint %}
+You will need:
 
-## Retire Carbon Steps
+* a Carbonmark account
+* a sandbox or production API key
+* a project or product with a visible price
+* an `asset_price_source_id` from the `/prices` endpoint
 
-### 1. Dashboard access and create an API key
+Create a sandbox key in the [Developer Dashboard](https://developers.carbonmark.com/) for testing. Production access requires onboarding. Keep your API key secure and do not expose it in client-side code or commit it to your repository.
 
-* Create an account or login with your existing Carbonmark account on our [Developer Dashboard](https://developers.carbonmark.com/auth).
-* Once logged in, visit the [Keys](https://developers.carbonmark.com/dashboard/keys) page to generate an API key.
-* You can create **`Test API`** key's for free in a Sandbox environment. These can be used to test the API endpoints and for development access.
-* When you are ready to access paid **`Production API`** key's, [contact our Solutions team](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) to be white-listed and complete onboarding.
+### Step 1: Create an API key
 
-{% hint style="danger" %}
-The API Key is sensitive and can be used to create costly retirements on your behalf. \
-**Be careful not to expose the API Key or commit it to your repository.**\
-\
-Note that you can create a `sandbox key` for testing purposes.\
-\
-Keys are generated once and not exposed in the Developer Dashboard so you must copy them to be utilized.
-{% endhint %}
+Create an account or sign in to the Developer Dashboard.
 
-### 2. Find a project or index product to retire
+Once signed in, go to the **Keys** page and generate an API key.
 
-Use the [`carbonmark.com`](https://app.carbonmark.com/projects) marketplace or [`api.carbonmark.com/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) to identify a project. The Retirement API is compatible with any credit that has a visible price.
+* Sandbox keys are free and can be used for testing
+* Production keys require onboarding
+* Keys are shown only once, so copy and store them securely
 
-The `/carbonProjects` endpoint allows you to retrieve an array of carbon projects filtered by desired query parameters and returns project metadata and prices. Make note of the "`key`" (for example, **VCS-191**) of the project you are interested in.
+### Step 2: Choose a project to retire
 
-The `/products` endpoint allows you to retrieve an array of carbon index products filtered by desired query parameters and returns products metadata and prices. Make note of the "`id`" (for example, **mco2**) of the product you are interested in.
+Use the Carbonmark marketplace or the API to find a project with a visible listing price.
 
-You can also check out our various guides to discovering carbon projects or index products via our REST API.
+For project-based retirements, use [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) and note the project `key`.
 
-{% content-ref url="../explore-carbon-projects/" %}
-[explore-carbon-projects](../explore-carbon-projects/)
-{% endcontent-ref %}
+In this example, we use project `ICR-112`.
 
-### 3. Identify the listing details
+### Step 3: Retrieve pricing and identify an asset price source
 
-Listing details for a project or product can be returned for an array of ID's and other query parameters. For example, `api.carbonmark.com/prices?projectsIds={project key}&projectsIds={project key}`. See [`/prices`](https://api.carbonmark.com/#/paths/prices/get) endpoint for details.\
-\
-Note that a [`/prices`](https://api.carbonmark.com/#/paths/prices/get) response may include type "**listing**" (i.e. seller listing) or "**carbon\_pool**" or "**product**" depending on the query parameters used.
+Before creating a quote, call `/prices` to retrieve seller listing price sources for the project you want to retire.
 
-#### Project JSON example
+Use the `sourceId` value from the `/prices` response as the `asset_price_source_id` in the quote request.
 
-{% code overflow="wrap" %}
-```typescript
-// api.carbonmark.com/prices?projectIds=VCS-191&projectIds=VCS-1100
-// sample JSON response
+Example request:
 
-{
-    "sourceId": "listing-137-0xa6dbf88e90c12b3bf8e6fb39d08b56ceaca14b7f26648d83d4e98e12b94b9f8a",
+```bash
+curl -G https://v1.api.carbonmark.com/prices \
+  --data-urlencode "projectIds=ICR-112" \
+  --header "Accept: application/json"
+```
+
+Example response (trimmed for readability):
+
+```bash
+[
+  {
+    "sourceId": "listing-137-0xe5a7178a0c44cac6f5a00b429b3de99016194b1494e75f4ef849a81faad41504",
     "type": "listing",
-    "purchasePrice": 0.9945,
-    "baseUnitPrice": 0.765,
-    "supply": 16.995,
+    "purchasePrice": 3.08,
+    "baseUnitPrice": 2.2,
+    "supply": 0.872,
+    "liquidSupply": 0.872,
     "minFillAmount": 0.001,
     "listing": {
-      "id": "0xa6dbf88e90c12b3bf8e6fb39d08b56ceaca14b7f26648d83d4e98e12b94b9f8a",
+      "id": "0xe5a7178a0c44cac6f5a00b429b3de99016194b1494e75f4ef849a81faad41504",
       "creditId": {
-        "vintage": 2008,
-        "projectId": "VCS-191"
+        "vintage": 2019,
+        "projectId": "ICR-112"
       },
       "token": {
-        "id": "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
-        "address": "0xb139c4cc9d20a3618e9a2268d73eff18c496b991",
-        "name": "Toucan Protocol : TCO2-VCS-191-2008",
+        "id": "137-erc1155-0xd016b2acece65612b93cc9aee763bda0c2b0e4c0-1",
+        "address": "0xd016b2acece65612b93cc9aee763bda0c2b0e4c0",
+        "decimals": 18,
+        "tokenStandard": "erc1155",
+        "name": "ICR-112-2019",
         "isExAnte": false,
-        "symbol": "TCO2-VCS-191-2008",
-        "tokenId": 0
+        "symbol": "ICR-112-2019",
+        "tokenId": 1
       },
-      "sellerId": "0xcb6222f4df04385ea08e8da2a5871131ff5f6cba"
+      "sellerId": "0x6e069bd92d6d52ee6ed79753274840469dd8ec62",
+      "expiresAfter": 1894088958
     }
   },
   {
-    "sourceId": "carbon_pool-137-0x9e9b3a0208e19c44096fdaf99c09fd4991e52e73-0-bct",
-    "type": "carbon_pool",
-    "purchasePrice": 0.9536202,
-    "baseUnitPrice": 0.733554,
-    "supply": 230432.746766008,
+    "sourceId": "listing-137-0x79a431e9ea34117e57e2cc4cc483f6954ac295e8de540faa320dc8697f4a5a8b",
+    "type": "listing",
+    "purchasePrice": 3.78,
+    "baseUnitPrice": 2.7,
+    "supply": 19.361,
+    "liquidSupply": 19.361,
     "minFillAmount": 0.001,
-    "carbonPool": {
+    "listing": {
+      "id": "0x79a431e9ea34117e57e2cc4cc483f6954ac295e8de540faa320dc8697f4a5a8b",
       "creditId": {
-        "vintage": 2012,
-        "projectId": "VCS-1100"
+        "vintage": 2019,
+        "projectId": "ICR-112"
       },
       "token": {
-        "id": "0x9e9b3a0208e19c44096fdaf99c09fd4991e52e73",
-        "address": "0x9e9b3a0208e19c44096fdaf99c09fd4991e52e73",
-        "name": "Toucan Protocol : TCO2-VCS-1100-2012",
+        "id": "137-erc1155-0xd016b2acece65612b93cc9aee763bda0c2b0e4c0-1",
+        "address": "0xd016b2acece65612b93cc9aee763bda0c2b0e4c0",
+        "decimals": 18,
+        "tokenStandard": "erc1155",
+        "name": "ICR-112-2019",
         "isExAnte": false,
-        "symbol": "TCO2-VCS-1100-2012",
-        "tokenId": null
+        "symbol": "ICR-112-2019",
+        "tokenId": 1
       },
-      "isDefaultPoolCredit": false,
-      "poolName": "bct"
-    }
-  }
-```
-{% endcode %}
-
-#### Product JSON example
-
-```json
-// api.carbonmark.com/prices?productIds=mco2
-// sample JSON response
-[
-  {
-    "sourceId": "product-137-mco2",
-    "type": "product",
-    "purchasePrice": 0.568542,
-    "baseUnitPrice": 0.43734,
-    "supply": 71567.890008707,
-    "minFillAmount": 0.001,
-    "product": {
-      "id": "mco2",
-      "token": {
-        "id": "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
-        "address": "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
-        "name": "Moss Earth : MCO2",
-        "isExAnte": false,
-        "symbol": "MCO2",
-        "tokenId": null
-      }
+      "sellerId": "0x6e069bd92d6d52ee6ed79753274840469dd8ec62",
+      "expiresAfter": 1897738887
     }
   }
 ]
 ```
 
-### 4. Create a retirement quote
+For this example flow, we use the second listing because it has enough supply to support a 1 tonne retirement.
 
-The next step is to create a "**Quote**" for the listing you are interested in using the [`/quotes`](https://api.carbonmark.com/#/paths/quotes/post) endpoint . &#x20;
+### Step 4: Create a retirement quote
 
-A header is required to provide the `Authorization` bearer token. The required parameters for a quote are `asset_price_source_id` and `quantity_tonnes`.
+Create a quote using the [`/quotes`](https://api.carbonmark.com/#/paths/quotes/post) endpoint.
 
-{% code overflow="wrap" %}
-```typescript
-const url = 'https://api.carbonmark.com/quotes';
-const data = {
-  asset_price_source_id: 'carbon_pool-137-0xccacc6099debd9654c6814fcb800431ef7549b10-0-bct',
-  quantity_tonnes: 1
-};
+Required fields:
 
-const headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer cm_api_d286bc5a-9980-43b7-9507-7fc013fecca8',
-  'Content-Type': 'application/json'
-};
+* `asset_price_source_id`
+* `quantity_tonnes`
 
-fetch(url, {
-  method: 'POST',
-  headers: headers,
-  body: JSON.stringify(data)
-})
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+Example request:
+
+```bash
+curl --request POST \
+  --url https://v1.api.carbonmark.com/quotes \
+  --header "Accept: application/json" \
+  --header "Authorization: Bearer YOUR_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "asset_price_source_id": "listing-137-0x79a431e9ea34117e57e2cc4cc483f6954ac295e8de540faa320dc8697f4a5a8b",
+    "quantity_tonnes": 1
+  }'
 ```
-{% endcode %}
 
-This is a response example, note the `uuid` which will be required to generate an order.
+Example response (trimmed for readability):
 
-{% code overflow="wrap" %}
-```json
+```bash
 {
-  "asset_price_source_id": "carbon_pool-137-0xb139c4cc9d20a3618e9a2268d73eff18c496b991-0-bct",
+  "asset_price_source_id": "listing-137-0x79a431e9ea34117e57e2cc4cc483f6954ac295e8de540faa320dc8697f4a5a8b",
   "uuid": "07495f6c-8b02-465d-8fdd-4bcc2d2047e9",
-  "created_at": "2024-03-25T19:28:41.73536+00:00",
-  "updated_at": "2024-03-25T19:28:41.73536+00:00",
-  "credential_id": 93,
   "quantity_tonnes": 1,
-  "cost_usdc": 0.434118,
+  "cost_usdc": 3.78,
   "consumed": 0
 }
 ```
-{% endcode %}
 
-### 5. Create a retirement order
+Save the `uuid` from the quote response. You will need it to create the order.
 
-The next step is to create an "**Order**" for the quote generated above using the [`/orders`](https://api.carbonmark.com/#/paths/orders/post) endpoint .&#x20;
+### Step 5: Create a retirement order
 
-A header is required to provide the `Authorization` bearer token. The required parameters for an order request are `quote_uuid` (from the /quote response),  `beneficiary_name`, and `retirement message`.
+Create an order using the [`/orders`](https://api.carbonmark.com/#/paths/orders/get) endpoint.
 
-Note that some registries have specific requirements. For example, creating an order for a [Puro.earth](https://puro.earth/) registry credit requires `consumption_metadata` to be submitted in the request.
+Required fields:
 
-```typescript
-const url = 'https://api.carbonmark.com/orders';
-const data = {
-  quote_uuid: 'e632eafd-9a67-4af1-8acc-16d72f5a738f',
-  beneficiary_name: 'Mother Nature',
-  beneficiary_address: '0x6fb0e62afB345951997bd5149a313df9fcB72C2d',
-  retirement_message: 'This is a retirement message',
-  consumption_metadata: {
-    country_of_consumption_code: 'string',
-    consumption_period_start: 0,
-    consumption_period_end: 0
-  }
-};
+* `quote_uuid`
+* `beneficiary_name`
+* `retirement_message`
 
-const headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer cm_api_d286bc5a-9980-43b7-9507-7fc013fecca8',
-  'Content-Type': 'application/json'
-};
+Some registries may require additional fields. For example, certain Puro.earth retirements require `consumption_metadata`.
 
-fetch(url, {
-  method: 'POST',
-  headers: headers,
-  body: JSON.stringify(data)
-})
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+Example request:
 
+```bash
+curl --request POST \
+  --url https://v1.api.carbonmark.com/orders \
+  --header "Accept: application/json" \
+  --header "Authorization: Bearer YOUR_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "quote_uuid": "07495f6c-8b02-465d-8fdd-4bcc2d2047e9",
+    "beneficiary_name": "Mother Nature",
+    "beneficiary_address": "0x6fb0e62afB345951997bd5149a313df9fcB72C2d",
+    "retirement_message": "Retirement of 1 tonne from ICR-112"
+  }'
 ```
 
-This is a response example.
+Example response (trimmed for readability):
 
-```json
+```bash
 {
-  "created_at": "2024-03-25T22:01:23.236141+00:00",
-  "updated_at": "2024-03-25T22:01:23.236141+00:00",
   "status": "SUBMITTED",
   "transaction_hash": null,
   "polygonscan_url": null,
   "view_retirement_url": null,
   "quote": {
-    "asset_price_source_id": "listing-137-0x12dbdff6fa065abc002324b5f2c1546b06e0440b1906438669a492e1987690f4",
     "uuid": "07495f6c-8b02-465d-8fdd-4bcc2d2047e9",
-    "created_at": "2024-03-25T22:01:23.236141+00:00",
-    "updated_at": "2024-03-25T22:01:23.236141+00:00",
-    "credential_id": 93,
     "quantity_tonnes": 1,
-    "cost_usdc": 0.5,
-    "consumed": 0
+    "cost_usdc": 3.78
   },
   "consumption_metadata": {},
   "registry_specific_data": {}
 }
 ```
 
-You should receive a response containing your order details including order `status` of your order which will allow you to confirm your order has been `SUBMITTED` and will be completed shortly.
+A successful order response with `status: "SUBMITTED"` means the retirement request has been accepted and is being processed.
 
-{% hint style="info" %}
-The actual retirement transaction will be initiated instantly by our system, and broadcast to a blockchain network so the underlying credit is permanently retired and taken out of circulation.
+### Step 6: Confirm the retirement is complete
 
-It typically takes between 0.5 and 3 seconds for the retirement to be complete — this includes order creation, transaction broadcast, confirmation on the blockchain, and final retirement certificate generation.
-{% endhint %}
+To confirm completion, query `/orders` using the `quote_uuid`.
 
-### 5. Confirm your order is complete and view your retirement receipt
+Example request:
 
-To verify your order has been completed, send a request to `https://api.carbonmark.com/orders?quote_uuid=uuid`.&#x20;
+```bash
+curl -G https://v1.api.carbonmark.com/orders \
+  --data-urlencode "quote_uuid=07495f6c-8b02-465d-8fdd-4bcc2d2047e9" \
+  --header "Accept: application/json" \
+  --header "Authorization: Bearer YOUR_API_KEY"
+```
 
-Once your order `status` is `COMPLETED`, your order is complete and the carbon credit has been retired.
+Example response (trimmed for readability)
 
-You can follow the `polygonscan_url` or `view_retirement_url` URLs in the response for further confirmation that your retirement order transaction is complete.\
-\
-Alternatively, you can navigate back to the [Carbonmark Developer Dashboard](https://developers.carbonmark.com/dashboard/usage) and see the entry and the order status.
+```bash
+{
+  "status": "COMPLETED",
+  "transaction_hash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+  "polygonscan_url": "https://polygonscan.com/tx/0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+  "view_retirement_url": "https://app.carbonmark.com/retirements/0x6fb0e62afB345951997bd5149a313df9fcB72C2d/33",
+  "quote": {
+    "uuid": "07495f6c-8b02-465d-8fdd-4bcc2d2047e9",
+    "quantity_tonnes": 1,
+    "cost_usdc": 3.78
+  }
+}
+```
 
-#### View retirement receipt
+When the order status is `COMPLETED`, the carbon credit has been retired. You can also use `polygonscan_url` or `view_retirement_url` from the order response for additional confirmation.
 
-When the transaction is finalized and our system has marked the order status as “complete”, the provided URL should take you to the shareable retirement receipt.
+### Retirement receipt
 
-`https://app.carbonmark.com/retirements/{beneficiaryAddress}/{number}`
+Once the order is complete, use the `view_retirement_url` returned by the API to access the retirement receipt.
 
-For example: [https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33](https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33)
+The receipt URL follows this pattern:
 
-The order will appear in your developer dashboard as well.
+```
+https://app.carbonmark.com/retirements/{beneficiaryAddress}/{number}
+```
 
-The cost of the order will be added to your monthly invoice.
+Example:
 
-## Want to learn more?
+```
+https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5b/33
+```
 
-One of our solution specialists would be happy to answer any questions you have.
+The completed order will also appear in the Developer Dashboard, and the cost will be included in your monthly invoice.
 
-* [Book an API demo](https://www.carbonmark.com/book-a-demo)
-* [Contact us](https://www.carbonmark.com/contact-us)
+### Notes
+
+* Always use a versioned API base URL in production integrations
+* Use `/prices` to resolve a valid listing `asset_price_source_id` before creating a quote
+* Use `/quotes` to price the retirement
+* Use `/orders` to submit the retirement
+* Poll `/orders` with the `quote_uuid` until the order status is `COMPLETED`
+* Some registries may require additional order metadata
