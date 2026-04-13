@@ -14,8 +14,7 @@
   * [Find carbon projects by vintage](carbonmark-api/explore-carbon-projects/find-carbon-projects-by-vintage.md)
   * [Find carbon projects by methodology category](carbonmark-api/explore-carbon-projects/find-carbon-projects-by-methodology-category.md)
   * [Find carbon projects by project name or description](carbonmark-api/explore-carbon-projects/find-carbon-projects-by-project-name-or-description.md)
-* [Retire Carbon](carbonmark-api/retire-carbon/README.md)
-  * [Postman Quickstart Guide](carbonmark-api/retire-carbon/postman-quickstart-guide.md)
+* [Retire Carbon](carbonmark-api/retire-carbon.md)
 * [API Checkout Service (beta)](carbonmark-api/api-checkout-service-beta.md)
 * [API Reference](https://api.carbonmark.com/)
 

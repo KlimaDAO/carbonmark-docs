@@ -10,7 +10,7 @@ Use the Carbonmark API to search carbon projects by project name or description 
 
 This page shows the basic workflow. For full parameter definitions and response schemas, see the [API reference](https://api.carbonmark.com/) for each endpoint.
 
-### Step 1: Search projects using a text query
+## Step 1: Search projects using a text query
 
 Call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with the `search` query parameter to return projects whose name or description matches a text string.
 
@@ -79,7 +79,7 @@ Example response (trimmed for readability):
 
 For many list and search workflows, `key`, `projectID`, `name`, `registry`, `country`, `price`, and `hasSupply` are the most useful fields to start with.
 
-### Step 2: Retrieve a single project by key
+## Step 2: Retrieve a single project by key
 
 If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response.
 
@@ -119,7 +119,7 @@ Example response (trimmed for readability):
 }
 ```
 
-### Notes
+## Notes
 
 * Use the `search` query parameter to match text in project names and descriptions.
 * Use `/carbonProjects` when you want a filtered list of matching projects.

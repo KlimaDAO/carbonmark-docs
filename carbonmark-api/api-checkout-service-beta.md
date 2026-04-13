@@ -6,7 +6,7 @@ The developer provides a credit and a quantity, and the service will respond wit
 
 This is the **fastest path** for developers who want to provide their users access to the Carbonmark supply of carbon credits without building a custom payment processing flow themselves.
 
-### Availability and Access
+## Availability and Access
 
 The **Carbonmark API Checkout Service** is currently a beta product (limited release) and not in general availability.&#x20;
 

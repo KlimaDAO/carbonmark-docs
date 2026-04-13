@@ -8,7 +8,7 @@ description: >-
 
 This page shows the basic workflow. For full parameter definitions and response schemas, see the [API reference](https://api.carbonmark.com/) for each endpoint.
 
-### Step 1: Retrieve available countries
+## Step 1: Retrieve available countries
 
 Call the [`/countries`](https://api.carbonmark.com/#/paths/countries/get) endpoint to return the list of valid country values you can use when filtering carbon projects.
 
@@ -31,7 +31,7 @@ Example response (trimmed for readability):
 ]
 ```
 
-### Step 2: Filter projects by country
+## Step 2: Filter projects by country
 
 Once you have a valid country value, pass it to the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint.
 
@@ -109,7 +109,7 @@ Example response (trimmed for readability):
 
 For many workflows, the `key` and `projectID` fields are enough to display results or request full project details.
 
-### Step 3: Retrieve a single project by key
+## Step 3: Retrieve a single project by key
 
 If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response.
 
@@ -149,7 +149,7 @@ Example response (trimmed for readability):
 }
 ```
 
-### Notes
+## Notes
 
 * Use `/countries` first to avoid passing unsupported country values.
 * Use `/carbonProjects` when you want a filtered list of matching projects.

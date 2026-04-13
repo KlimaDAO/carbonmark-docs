@@ -10,9 +10,9 @@ Use the Carbonmark API to create retirement quotes, submit retirement orders, an
 
 This page shows the basic retirement workflow. For full parameter definitions and response schemas, see the [API reference](https://api.carbonmark.com/) for each endpoint.&#x20;
 
-In the examples below, we use a versioned API base URL such as `https://v1.api.carbonmark.com`. Omitting the version prefix exposes your integration to breaking changes. Use the [latest stable version](../versioning-and-release-process/) when building your integration.
+In the examples below, we use a versioned API base URL such as `https://v1.api.carbonmark.com`. Omitting the version prefix exposes your integration to breaking changes. Use the [latest stable version](versioning-and-release-process/) when building your integration.
 
-### Before you begin
+## Before you begin
 
 You will need:
 
@@ -23,7 +23,7 @@ You will need:
 
 Create a sandbox key in the [Developer Dashboard](https://developers.carbonmark.com/) for testing. Production access requires onboarding. Keep your API key secure and do not expose it in client-side code or commit it to your repository.
 
-### Step 1: Create an API key
+## Step 1: Create an API key
 
 Create an account or sign in to the Developer Dashboard.
 
@@ -33,7 +33,7 @@ Once signed in, go to the **Keys** page and generate an API key.
 * Production keys require onboarding
 * Keys are shown only once, so copy and store them securely
 
-### Step 2: Choose a project to retire
+## Step 2: Choose a project to retire
 
 Use the Carbonmark marketplace or the API to find a project with a visible listing price.
 
@@ -41,7 +41,7 @@ For project-based retirements, use [`/carbonProjects`](https://api.carbonmark.co
 
 In this example, we use project `ICR-112`.
 
-### Step 3: Retrieve pricing and identify an asset price source
+## Step 3: Retrieve pricing and identify an asset price source
 
 Before creating a quote, call `/prices` to retrieve seller listing price sources for the project you want to retire.
 
@@ -120,7 +120,7 @@ Example response (trimmed for readability):
 
 For this example flow, we use the second listing because it has enough supply to support a 1 tonne retirement.
 
-### Step 4: Create a retirement quote
+## Step 4: Create a retirement quote
 
 Create a quote using the [`/quotes`](https://api.carbonmark.com/#/paths/quotes/post) endpoint.
 
@@ -157,7 +157,7 @@ Example response (trimmed for readability):
 
 Save the `uuid` from the quote response. You will need it to create the order.
 
-### Step 5: Create a retirement order
+## Step 5: Create a retirement order
 
 Create an order using the [`/orders`](https://api.carbonmark.com/#/paths/orders/get) endpoint.
 
@@ -205,7 +205,7 @@ Example response (trimmed for readability):
 
 A successful order response with `status: "SUBMITTED"` means the retirement request has been accepted and is being processed.
 
-### Step 6: Confirm the retirement is complete
+## Step 6: Confirm the retirement is complete
 
 To confirm completion, query `/orders` using the `quote_uuid`.
 
@@ -236,7 +236,7 @@ Example response (trimmed for readability)
 
 When the order status is `COMPLETED`, the carbon credit has been retired. You can also use `polygonscan_url` or `view_retirement_url` from the order response for additional confirmation.
 
-### Retirement receipt
+## Retirement receipt
 
 Once the order is complete, use the `view_retirement_url` returned by the API to access the retirement receipt.
 
@@ -254,7 +254,7 @@ https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5
 
 The completed order will also appear in the Developer Dashboard, and the cost will be included in your monthly invoice.
 
-### Notes
+## Notes
 
 * Always use a versioned API base URL in production integrations
 * Use `/prices` to resolve a valid listing `asset_price_source_id` before creating a quote
