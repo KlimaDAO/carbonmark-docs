@@ -1,0 +1,55 @@
+# v19 (latest stable)
+
+### Status
+
+<mark style="color:red;">`Live`</mark>  May 11, 2026
+
+### Summary
+
+This stable release adds Klima Protocol carbon liquidity and prices to the Carbonmark API which is now multi-network aware supporting Polygon and Base.
+
+### Release notes
+
+#### **General**
+
+* Added retire support for Klima Protocol carbon class credits.
+* Removed legacy Polygon-specific explorer URL fields from order and retirement payload models, standardizing on chain-agnostic explorer URLs.
+* Updated API info limits to be chain-specific instead of a single shared value.
+
+#### **Endpoints removed**
+
+* None
+
+#### **Endpoints updated**
+
+**GET** `/info`
+
+* \[⚠️BREAKING CHANGE] Response shape changed:
+  * Removed `MAX_USDC`
+  * Added `POLYGON_MAX_USDC`
+  * Added `BASE_MAX_USDC`
+
+**POST** `/orders` ; **GET** `/orders` ; **GET** `/orders/:id`&#x20;
+
+* \[⚠️BREAKING CHANGE] Removed `polygonscan_url` from order response model
+* Use `on_chain_explorer_url` instead for both Polygon and Base transactions
+
+**GET** `/retirements` ; **GET** `/retirements/:id`
+
+* \[⚠️BREAKING CHANGE] Removed `polygonscanUrl` from retirement response model
+* Use `onChainExplorerUrl` instead for both Polygon and Base transactions
+
+#### **Endpoints added**
+
+* None
+
+### Migration Path
+
+* **Order response**
+  * If you were using `polygonscan_url`, migrate to `on_chain_explorer_url`
+* **Retirement response**
+  * If you were using `polygonscanUrl`, migrate to `onChainExplorerUrl`
+* `/info`&#x20;
+  * Replace reads of `MAX_USDC` with chain-specific handling:
+    * `POLYGON_MAX_USDC` for Polygon retirements
+    * `BASE_MAX_USDC` for Base retirements
