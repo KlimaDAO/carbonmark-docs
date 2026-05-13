@@ -21,6 +21,16 @@ With the Carbonmark API, you can:
 * Access public retirement records and certificates
 * Test your integration for free using sandbox API keys
 
+## Supported networks
+
+The Carbonmark API is multi-network aware and supports carbon credit discovery, pricing, orders, and retirements across Polygon and Base.
+
+<table><thead><tr><th width="147.15625">Network</th><th width="121.73828125">Status</th><th>Supported activity</th></tr></thead><tbody><tr><td>Polygon</td><td>Supported</td><td>Carbon credit discovery, pricing, orders, retirements, and public retirement records</td></tr><tr><td>Base</td><td>Supported</td><td>Klima Protocol carbon class liquidity, pricing, retirements, and public retirement records</td></tr></tbody></table>
+
+Network availability may vary by credit, listing, and liquidity source. API responses include network-aware fields so your integration can determine which chain a price, order, or retirement is associated with.
+
+For transaction links, use the chain-agnostic explorer fields returned by the API instead of network-specific explorer URL fields.
+
 ## Common use cases
 
 The API is commonly used to:
