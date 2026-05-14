@@ -43,7 +43,7 @@ This stable release adds Klima Protocol carbon liquidity and prices to the Carbo
 
 * None
 
-#### New optional query parameters
+#### **New optional query parameters**
 
 * GET `/carbonProjects`
   * assetPriceType
