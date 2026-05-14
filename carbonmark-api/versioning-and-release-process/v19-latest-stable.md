@@ -43,6 +43,18 @@ This stable release adds Klima Protocol carbon liquidity and prices to the Carbo
 
 * None
 
+#### New optional query parameters
+
+* GET `/carbonProjects`
+  * assetPriceType
+* GET `/carbonProjects/:id`
+  * assetPriceType
+* `GET /prices`
+  * minPriceUSD
+  * assetPriceType
+
+The `assetPriceType` filter lets you narrow results to projects with specific pricing sources. Accepted values are `listing` (seller listings on Carbonmark) and `klimaprotocol` (Klima protocol pool prices).&#x20;
+
 ### Migration Path
 
 * **Order response**

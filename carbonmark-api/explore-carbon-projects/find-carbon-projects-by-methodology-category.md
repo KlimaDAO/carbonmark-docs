@@ -46,6 +46,9 @@ You can also combine `category` with other supported filters such as:
 * vintage
 * project name
 * project description
+* assetPriceType
+
+The `assetPriceType` filter lets you narrow results to projects with specific pricing sources. Accepted values are `listing` (seller listings on Carbonmark) and `klimaprotocol` (Klima protocol pool prices).
 
 The example below returns projects in the `Forestry` methodology category from Indonesia.
 
@@ -115,7 +118,7 @@ For many workflows, the `key` and `projectID` fields are enough to display resul
 
 ## Step 3: Retrieve a single project by key
 
-If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response.
+If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response. You can also filter the returned asset prices by type using the `assetPriceType` parameter.
 
 ```bash
 curl --request GET \

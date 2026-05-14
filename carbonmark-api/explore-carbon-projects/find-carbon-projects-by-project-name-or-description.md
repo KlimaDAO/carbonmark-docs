@@ -12,7 +12,9 @@ This page shows the basic workflow. For full parameter definitions and response 
 
 ## Step 1: Search projects using a text query
 
-Call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with the `search` query parameter to return projects whose name or description matches a text string.
+Call the [`/carbonProjects`](https://api.carbonmark.com/#/paths/carbonProjects/get) endpoint with the `search` query parameter to return projects whose name or description matches a text string.&#x20;
+
+The `assetPriceType` filter lets you narrow results to projects with specific pricing sources. Accepted values are `listing` (seller listings on Carbonmark) and `klimaprotocol` (Klima protocol pool prices).
 
 The example below searches for projects containing the string `REDD+`.
 
@@ -81,7 +83,7 @@ For many list and search workflows, `key`, `projectID`, `name`, `registry`, `cou
 
 ## Step 2: Retrieve a single project by key
 
-If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response.
+If you need the full details for a specific project, call [`/carbonProjects/{key}`](https://api.carbonmark.com/#/paths/carbonProjects-id/get) using the project `key` returned in the search response. You can also filter the returned asset prices by type using the `assetPriceType` parameter.
 
 ```bash
 curl --request GET \

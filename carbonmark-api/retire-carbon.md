@@ -43,7 +43,7 @@ In this example, we use project `ICR-112`.
 
 ## Step 3: Retrieve pricing and identify an asset price source
 
-Before creating a quote, call `/prices` to retrieve seller listing price sources for the project you want to retire.
+Before creating a quote, call `/prices` to retrieve seller listing price sources for the project you want to retire. The `assetPriceType` filter lets you narrow results to projects with specific pricing sources. Accepted values are `listing` (seller listings on Carbonmark) and `klimaprotocol` (Klima protocol pool prices).
 
 Use the `sourceId` value from the `/prices` response as the `asset_price_source_id` in the quote request.
 
