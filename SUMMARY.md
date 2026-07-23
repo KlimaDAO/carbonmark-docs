@@ -19,6 +19,14 @@
 * [API Checkout Service](carbonmark-api/api-checkout-service.md)
 * [API Reference](https://api.carbonmark.com/)
 
+## CARBONMARK x402 ENDPOINT <a href="#carbonmark-x402" id="carbonmark-x402"></a>
+
+* [Introduction to Carbonmark's x402 Endpoint](carbonmark-x402/readme.md)
+* [Retire carbon with x402](carbonmark-x402/retire-carbon-with-x402.md)
+* [Gasless retirement (paid relay)](carbonmark-x402/gasless-retirement-paid-relay.md)
+* [Use x402 from an AI agent](carbonmark-x402/use-x402-from-an-ai-agent.md)
+* [x402 Reference](carbonmark-x402/x402-reference.md)
+
 ## Carbonmark Direct
 
 * [Direct Credit Issuance](carbonmark-direct/direct-credit-issuance.md)
