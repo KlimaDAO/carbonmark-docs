@@ -31,9 +31,23 @@ With the x402 Endpoint, you can:
 | POST base URL | `https://x402.klimalabs.com/api` |
 | Chain | Base mainnet (`chainId=8453`) |
 | Auth | Free GET or POST — on-chain protocol fee only |
+| Current version | **v1** — pin `https://v1.x402.klimalabs.com` to stay on it |
 | Agent manifest | [`/.well-known/x402.json`](https://x402.klimalabs.com/.well-known/x402.json) |
 
 All HTTP calls are free. Use **GET** with query parameters on action paths (`/discover`, `/quote`, and so on), or **POST** JSON to `/api` with an `action` field. Both return the same responses.
+
+## Versioning and releases
+
+These docs describe **v1**. The API is versioned by host, and the major version is the compatibility contract:
+
+* `x402.klimalabs.com` always serves the **latest** release, so a future major bump moves it.
+* `v1.x402.klimalabs.com` serves **v1 and every future 1.x release**, and never moves to v2.
+
+If a breaking change reaching you unannounced would be a problem, **pin the `v1.` host**. That is the whole mechanism; there is no version header or query parameter.
+
+Pinning does not freeze you out of new features. Additive work (new actions, new optional fields, new response fields) ships in minor releases and rolls into `v1` automatically. Only genuinely breaking changes, a request that used to succeed now failing, are held back and bundled into a single major bump so that you migrate once per major instead of continuously. When a new major ships, the previous one keeps answering at its own `v<major>` host during migration.
+
+Every release is recorded in the machine-readable [changelog](https://x402.klimalabs.com/.well-known/x402-changelog.json), and each breaking one carries a `migration` string saying concretely what to change. Full detail is in the [reference](./x402-reference.md#versioning).
 
 ## Two ways to retire
 

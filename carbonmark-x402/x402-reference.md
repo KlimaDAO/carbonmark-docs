@@ -30,7 +30,9 @@ All HTTP calls are free. Use **GET** with query parameters or **POST** JSON to `
 
 ## Versioning
 
-The API is versioned by host.
+The API carries a semantic version, published as `apiVersion`. The **major** is the compatibility contract, and the **host** is how you pin it.
+
+### Pinning a major
 
 | Host | Serves |
 | --- | --- |
@@ -38,7 +40,27 @@ The API is versioned by host.
 | `v1.x402.klimalabs.com` | the **v1 major** and every future 1.x minor and patch. Never moves to v2. |
 | `v0.x402.klimalabs.com` | the previous major, kept reachable for callers that have not migrated. |
 
-These docs describe v1. Pin `v1.x402.klimalabs.com` if you want the bare host's future major bump not to reach you. `/.well-known/x402.json` and `/.well-known/x402-changelog.json` both publish `apiVersion` and a `versionedHosts` object, and the changelog carries a `migration` string on every breaking release.
+These docs describe v1. **Pin `v1.x402.klimalabs.com`** if you do not want the bare host's future major bump to reach you. Pinning is the whole mechanism — there is no version header, query parameter, or `Accept` negotiation.
+
+Resolve it programmatically instead of hard-coding: `/.well-known/x402.json` and `/.well-known/x402-changelog.json` both publish `apiVersion` and a `versionedHosts` object (`latest`, `current`, and a `note`), so an agent can find its major's host without reading this table.
+
+### What lands in a major
+
+Releases bundle by compatibility, not by date or size:
+
+| Bump | Contains | Reaches a pinned caller? |
+| --- | --- | --- |
+| **Patch** (1.0.0 → 1.0.1) | Fixes that leave the request and response contract intact. | Yes — rolls into `v1` automatically. |
+| **Minor** (1.0 → 1.1) | Additive only: new actions, new optional request fields, new response fields. | Yes — rolls into `v1` automatically. |
+| **Major** (1.x → 2.0) | Anything a working caller could notice as a break. | **No** — `v1` stays where it is. |
+
+Breaking means: a request that succeeded before now fails, or a response field is removed, renamed, or changes meaning. Newly *required* fields and stricter validation both count — the two breaking releases so far were a newly required attribution field and a body that stopped silently discarding unknown top-level keys.
+
+Additive work does **not** wait for the next major. It ships in a minor and reaches every 1.x caller, so pinning `v1` does not freeze you out of new features — it only protects you from `v2`.
+
+Everything that accumulates as breaking is held until one deliberate major bump rather than trickling out, so you migrate once per major. Each release appears in the changelog with a `breaking` boolean, and every breaking one carries a `migration` string stating concretely what a caller must change. **The changelog is the machine-readable record of that bundling** — poll `/.well-known/x402-changelog.json` and read `migration` rather than diffing responses.
+
+When a new major ships, the previous one keeps answering at its own `v<major>` host. It is not extended, only kept reachable, so treat it as a migration window and not a long-term target.
 
 ## Inputs and contracts (Base mainnet)
 
