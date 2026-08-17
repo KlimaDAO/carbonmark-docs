@@ -1,20 +1,21 @@
-# v19 (latest stable)
+# v20 (latest stable)
 
 ### Status
 
-<mark style="color:red;">`Live`</mark>  May 11, 2026
+<mark style="color:red;">`Live`</mark> August 17, 2026
 
 ### Summary
 
-This stable release adds Klima Protocol carbon liquidity and prices to the Carbonmark API which is now multi-network aware supporting Polygon and Base.
+This API release extends marketplace support to Base alongside Polygon: teams now hold multi-chain wallets, and Base listings, quotes, orders, holdings (including native USDC and carbon credits), and Circle wallets are fully supported. Holdings can also be fetched for multiple wallet addresses in a single request, and Toucan certificates now work on both chains, with native ICR certificates supported.
 
 ### Release notes
 
 #### **General**
 
-* Added retire support for Klima Protocol carbon class credits.
-* Removed legacy Polygon-specific explorer URL fields from order and retirement payload models, standardizing on chain-agnostic explorer URLs.
-* Updated API info limits to be chain-specific instead of a single shared value.
+* Extended Base support: Base marketplace listings, holdings, listing quotes/orders, and Circle wallets
+* Teams now support multi-chain wallets (Polygon + Base) instead of a single wallet
+* Holdings can be fetched for multiple wallet addresses in one request, including Base native USDC and Base carbon credits
+* Toucan certificates work across Polygon and Base; native ICR certificates are supported
 
 #### **Endpoints removed**
 
@@ -22,46 +23,49 @@ This stable release adds Klima Protocol carbon liquidity and prices to the Carbo
 
 #### **Endpoints updated**
 
-**GET** `/info`
+**GET** `/holdings/:address`
 
-* \[⚠️BREAKING CHANGE] Response shape changed:
-  * Removed `MAX_USDC`
-  * Added `POLYGON_MAX_USDC`
-  * Added `BASE_MAX_USDC`
+* Now also returns Base chain holdings (native USDC and carbon credits)
+* \[⚠️BREAKING CHANGE] Polygon bridged USDC (`usdc`) holdings are no longer returned — only native USDC per chain
 
-**POST** `/orders` ; **GET** `/orders` ; **GET** `/orders/:id`&#x20;
+**GET** `/listings`
 
-* \[⚠️BREAKING CHANGE] Removed `polygonscan_url` from order response model
-* Use `on_chain_explorer_url` instead for both Polygon and Base transactions
+* Now returns listings from both Polygon and Base marketplaces
+* Added `sellerWallets` query parameter (array of addresses)
+* \[⚠️DEPRECATED] `sellerWallet` is deprecated; prefer `sellerWallets`
 
-**GET** `/retirements` ; **GET** `/retirements/:id`
+**GET** `/listings/:id`
 
-* \[⚠️BREAKING CHANGE] Removed `polygonscanUrl` from retirement response model
-* Use `onChainExplorerUrl` instead for both Polygon and Base transactions
+* Added optional `network` query parameter (`polygon` | `base`; defaults to searching both)
+
+**GET** `/teams/:id`
+
+* Added optional `poll` query parameter (`true` syncs wallets states)
+
+**POST** `/quotes`
+
+* Supports Base marketplace listing `asset_price_source_id` values (e.g. `listing-8453-<listingId>`)
+
+**POST** `/orders`
+
+* Supports Base marketplace listings
+
+**GET** `/retirements/:id/certificate`
+
+* Certificate generation supports Base Toucan and native ICR retirements
 
 #### **Endpoints added**
 
-* None
+**GET** `/holdings`
+
+* Get holdings for one or more wallet addresses via the `addresses` query parameter
+* Returns Polygon and Base native USDC plus carbon credit holdings
 
 #### **New optional query parameters**
 
-* GET `/carbonProjects`
-  * assetPriceType
-* GET `/carbonProjects/:id`
-  * assetPriceType
-* `GET /prices`
-  * minPriceUSD
-  * assetPriceType
-
-The `assetPriceType` filter lets you narrow results to projects with specific pricing sources. Accepted values are `listing` (seller listings on Carbonmark) and `klimaprotocol` (Klima protocol pool prices).&#x20;
+* None
 
 ### Migration Path
 
-* **Order response**
-  * If you were using `polygonscan_url`, migrate to `on_chain_explorer_url`
-* **Retirement response**
-  * If you were using `polygonscanUrl`, migrate to `onChainExplorerUrl`
-* `/info`&#x20;
-  * Replace reads of `MAX_USDC` with chain-specific handling:
-    * `POLYGON_MAX_USDC` for Polygon retirements
-    * `BASE_MAX_USDC` for Base retirements
+* **Listings**
+  * Replace the `sellerWallet` parameter with `sellerWallets`

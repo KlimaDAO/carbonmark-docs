@@ -1,8 +1,8 @@
-# v18 (deprecated)
+# v18 (retired)
 
 ### Status
 
-<mark style="color:red;">`Deprecated`</mark>  May 11, 2026; will become <mark style="color:red;">`Retired`</mark>  August 11, 2026
+`Retired` August 11, 2026
 
 ### Summary
 
@@ -32,7 +32,7 @@ This stable release streamlines the API around seller listing based orders, unif
 
 **GET** `/retirements/:beneficiaryAddress/:retirementIndex/provenance`
 
-* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id/provenance`. See  [#endpoints-added](v18-deprecated.md#endpoints-added "mention") for more info.
+* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id/provenance`. See [#endpoints-added](v18-deprecated.md#endpoints-added "mention") for more info.
 
 **GET** `/prices`
 
