@@ -24,15 +24,15 @@ This stable release streamlines the API around seller listing based orders, unif
 
 **GET** `/retirements/:beneficiaryAddress/:retirementIndex`
 
-* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id`. The new endpoint uses a unified retirement ID format (e.g., `84532-0x1ee2facc42147cc6f6cd1fcdca4e3748d2b41b089fafac46515318bbce4f633c-0`) that works across chains. See [#endpoints-added](v18-deprecated.md#endpoints-added "mention") for more info.
+* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id`. The new endpoint uses a unified retirement ID format (e.g., `84532-0x1ee2facc42147cc6f6cd1fcdca4e3748d2b41b089fafac46515318bbce4f633c-0`) that works across chains. See [#endpoints-added](v18-retired.md#endpoints-added "mention") for more info.
 
 **GET** `/retirements/:beneficiaryAddress/:retirementIndex/certificate`
 
-* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id/certificate`. See [#endpoints-added](v18-deprecated.md#endpoints-added "mention") for more info.
+* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id/certificate`. See [#endpoints-added](v18-retired.md#endpoints-added "mention") for more info.
 
 **GET** `/retirements/:beneficiaryAddress/:retirementIndex/provenance`
 
-* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id/provenance`. See [#endpoints-added](v18-deprecated.md#endpoints-added "mention") for more info.
+* \[⚠️ BREAKING CHANGE] This endpoint has been replaced by **GET** `/retirements/:id/provenance`. See [#endpoints-added](v18-retired.md#endpoints-added "mention") for more info.
 
 **GET** `/prices`
 
