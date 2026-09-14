@@ -24,15 +24,25 @@ See [x402 reference](./x402-reference.md) for input token addresses, amount rule
 
 ## Step 1: Discover what's retirable
 
-Call `/discover` to list carbon classes and credits. Each class returns a **reference USDC/tonne price**, the credits inside it (registry, vintage, token, available liquidity), supported input tokens, and contract addresses.
+Call `/discover` to see everything retirable. It returns two arrays, one per supply source, plus supported input tokens and contract addresses:
 
-Filters are optional and AND-combined — for example, `maxUsdcPricePerTonne=20` returns only classes at or below $20/tonne. `chainId` is **not** accepted on this endpoint.
+* `carbonClasses[]` — pooled protocol supply. Each class carries a **reference USDC/tonne price** and the credits inside it (registry, vintage, token, available liquidity).
+* `marketplaceListings[]` — one entry per open marketplace listing: the seller, the exact credit, a firm `priceUsdcPerTonne`, and how much of it you can take (`leftToSell`, `minFill`, `expiration`). Sellers and asks are per listing, so two listings of the same credit are two entries, not one.
+
+Every entry in either array is tagged with `source` (`"protocol"` or `"marketplace"`), and `marketplaceEnabled` tells you whether marketplace supply was searched at all — so an empty `marketplaceListings[]` means "nothing listed", not "turned off".
+
+Filters are optional and AND-combined, and apply to **both** arrays: `source`, `carbonClass`, `creditToken`, `project`, `vintage`, `country`, `category`, `methodology`, `maxUsdcPricePerTonne`. For example, `maxUsdcPricePerTonne=20` returns only supply at or below $20/tonne from either source, and `source=marketplace` returns listings alone. A per-credit filter also trims a matched class down to its matching credits. `chainId` is **not** accepted on this endpoint.
+
+Project metadata (country, category, methodologies) is joined per **credit**, not per class — a class spans projects, so its own attributes are an aggregate. Both arrays therefore carry the same attribute set, and every filter resolves against it.
 
 Example request:
 
 ```bash
-# List carbon classes (optional filters)
+# List everything retirable (optional filters)
 curl "https://x402.klimalabs.com/api/discover?maxUsdcPricePerTonne=15"
+
+# Marketplace listings only
+curl "https://x402.klimalabs.com/api/discover?source=marketplace"
 ```
 
 The POST equivalent sends the same optional filters:
@@ -53,10 +63,28 @@ Call `/quote` with your input token, carbon class, and amount to get the real co
 
 * `chainId` (`8453`)
 * `inputToken`
-* `carbonClass`
 * `amount` (decimal tonne string)
+* exactly one supply source: `carbonClass` **or** `listingId`
 
 **Optional parameters:** `creditToken`, `vintage`, `tokenId`. When you do not pin a specific credit, the API selects the most liquid credit in the class that can cover the requested `amount`.
+
+### Two supply sources
+
+`discover` returns both, each entry tagged with `source`. They are addressed differently and the choice belongs in the request:
+
+| | `carbonClass` (`source: "protocol"`) | `listingId` (`source: "marketplace"`) |
+| --- | --- | --- |
+| What it is | Pooled supply, priced by the protocol AMM | One seller's fixed ask for one credit |
+| Which credit | The API picks the most liquid in the class, or you pin one | Fixed by the listing |
+| Price | Moves with the pool; quotes carry a slippage buffer | `unitPrice` exactly, or the fill reverts |
+| `suggestedMaxInput` | `total` plus 4% slippage | `total` exactly, no buffer |
+| Input token | USDC or kVCM | USDC only |
+| Amount limits | The class's liquidity | The listing's `minFill` and `leftToSell` |
+| Quote lifetime | Authorizations valid up to an hour | Authorizations capped at 5 minutes |
+
+Pass one or the other, never both: a listing already names its credit, so there is no class to route through. Sending both, or neither, returns `400 schema_validation`.
+
+A listing fill can fail in ways pooled supply cannot, because the seller controls the terms and other buyers compete for the same supply: `listing_not_found`, `listing_expired`, `below_min_fill`, `insufficient_listing_supply`. Each is documented in the error reference with the field to adjust.
 
 Example request:
 
@@ -66,7 +94,15 @@ curl "https://x402.klimalabs.com/api/quote?chainId=8453\
 &carbonClass=0xf4699531e0a5f6e9351a36de3753deaad329bf45&amount=1.5"
 ```
 
-The response returns the retirement price, the on-chain `fee`, the `total` (price + fee), a `suggestedMaxInput` (total plus 4% slippage), a `humanSummary`, the `resolvedCredit` the server selected, and any `alternatives`.
+The response returns the retirement price, the on-chain `fee`, the `total` (price + fee), a `suggestedMaxInput` (total plus 4% slippage on the protocol path; exactly `total` for a listing, which has no price impact to buffer against), a `humanSummary`, the `resolvedCredit` the server selected, and any `alternatives`. A listing quote returns an empty `alternatives`: it is one seller's ask, so there is nothing to offer instead.
+
+To quote a marketplace listing, swap `carbonClass` for a `listingId` from `discover.marketplaceListings[]`:
+
+```bash
+curl "https://x402.klimalabs.com/api/quote?chainId=8453\
+&inputToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\
+&listingId=0x1f0c...&amount=1.5"
+```
 
 Example response (trimmed for readability):
 

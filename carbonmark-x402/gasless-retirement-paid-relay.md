@@ -85,7 +85,16 @@ Sign `typedData` in your wallet with `signTypedData`. This is the only signing s
 
 ## How the signed budget works
 
-The signed budget (`authValue`) covers the retirement, the protocol fee, and the executor's gas reimbursement, with a slippage buffer. The signer needs only an input-token balance (USDC or kVCM) — no ETH. Send the `actionsRetireRequest` body **verbatim** so that `from`, `to`, and (on USDC) `salt` match the signed authorization.
+The signed budget (`authValue`) covers the retirement, the protocol fee, and the executor's gas reimbursement, with a slippage buffer on protocol supply (a marketplace listing fills at a fixed price, so it gets none). The signer needs only an input-token balance (USDC or kVCM) — no ETH. Send the `actionsRetireRequest` body **verbatim** so that `from`, `to`, and (on USDC) `salt` match the signed authorization.
+
+## Filling a marketplace listing
+
+The relay path fills marketplace listings as well as protocol supply — pass `listingId` instead of `carbonClass` at `prepare-auth` and everything else is unchanged. Two differences are worth knowing before you sign:
+
+* **USDC only.** A listing is denominated in USDC and the marketplace will not take anything else. `prepare-auth` with `inputToken` set to kVCM returns `400 marketplace_requires_usdc` rather than letting it revert on-chain.
+* **The authorization expires in 5 minutes**, not the usual hour, and a longer `timeToLiveSeconds` is clamped down rather than honoured. The listing belongs to a third party who can reprice or cancel it, and someone else can buy it out first, so a long-lived signature against it is a signature against supply that may no longer exist. Sign and submit promptly; if you are too slow, re-run `prepare-auth`.
+
+The signed budget is also tighter: a listing fills at the seller's fixed `unitPrice` or it reverts, so there is no slippage buffer to absorb a price move. If the seller reprices between your quote and your submission, the retirement reverts rather than costing you more than you agreed.
 
 ## `actions/retire` responses
 
@@ -113,4 +122,5 @@ See [x402 reference](./x402-reference.md) for the full error registry.
 * Name a beneficiary (`details.beneficiaryAddress` or `beneficiaryIsPayer: true`) before signing.
 * Re-run `prepare-auth` and re-sign if you hit `insufficient_authorized_value`; do not blind-retry.
 * Send the `actionsRetireRequest` body verbatim (including `salt` on USDC) to keep the signature valid.
+* A marketplace listing (`listingId`) settles in USDC only, and its authorization is capped at 5 minutes.
 * Retirement is irreversible once the transaction confirms.
