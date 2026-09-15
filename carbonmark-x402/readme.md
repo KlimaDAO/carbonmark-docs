@@ -16,7 +16,7 @@ The endpoint is built for the x402 agent-payments ecosystem and plugs directly i
 
 With the x402 Endpoint, you can:
 
-* Discover retirable carbon classes, credits, and reference prices on Base
+* Discover retirable supply from both the Klima Protocol catalog and the Carbonmark marketplace
 * Retrieve live, on-chain quotes for a given tonnage in USDC or kVCM
 * Receive unsigned `approve` + `retire` calldata to submit from your own wallet
 * Retire gaslessly through a relay by signing a single token authorization
@@ -49,6 +49,23 @@ Pinning does not freeze you out of new features. Additive work (new actions, new
 
 Every release is recorded in the machine-readable [changelog](https://x402.klimalabs.com/.well-known/x402-changelog.json), and each breaking one carries a `migration` string saying concretely what to change. Full detail is in the [reference](./x402-reference.md#versioning).
 
+## Two supply sources
+
+Every retirement draws on one of two surfaces. `discover` returns both, and every item it returns carries a `source` tag saying which one it came from.
+
+| | Klima Protocol (`source: "protocol"`) | Marketplace (`source: "marketplace"`) |
+| --- | --- | --- |
+| Listed under | `carbonClasses[]` | `marketplaceListings[]` |
+| You address it by | `carbonClass` | `listingId` |
+| Priced by | the on-chain AMM, so the quote moves with size | one seller's fixed ask per tonne |
+| Quoted price is | indicative — `suggestedMaxInput` carries a slippage buffer | firm — no buffer; the fill is at `unitPrice` or it reverts |
+| Available size | the class's pooled liquidity | that listing's remaining supply, at or above its minimum fill |
+| Settles in | USDC or kVCM | USDC only |
+
+Every call that names supply — `quote`, `prepare/retire`, `prepare-auth`, `actions/retire` — takes **exactly one** of `carbonClass` or `listingId`. Sending both, or neither, is a schema error rather than a silent preference: a listing already names its own credit, so there is no class left to route it through.
+
+Marketplace supply is real inventory held by a third party. A listing can be repriced, cancelled, or bought out by someone else between your quote and your retirement, so relay authorizations against a listing expire in 5 minutes rather than the usual hour.
+
 ## Two ways to retire
 
 The endpoint supports two integration paths. Choose based on whether you want to submit the transaction yourself or have a relay do it for you.
@@ -63,8 +80,8 @@ The endpoint supports two integration paths. Choose based on whether you want to
 
 | Action | How to call | Moves funds? | What it does |
 | --- | --- | --- | --- |
-| `discover` | `GET /api/discover` or `POST /api` | No | Lists carbon classes, credits, reference USDC/tonne prices, supported input tokens |
-| `quote` | `GET /api/quote` or `POST /api` | No | Live on-chain price for a tonnage (retirement cost + protocol fee + slippage buffer) |
+| `discover` | `GET /api/discover` or `POST /api` | No | Lists both supply sources — protocol `carbonClasses[]` and `marketplaceListings[]` — with prices, credits, and supported input tokens |
+| `quote` | `GET /api/quote` or `POST /api` | No | Live price for a tonnage (retirement cost + protocol fee), by `carbonClass` or `listingId` |
 | `prepare/retire` | `GET /api/prepare/retire` or `POST /api` | No (you broadcast) | Unsigned `[approve, retire]` batch for self-submit |
 | `prepare-auth` | `GET /api/prepare-auth` or `POST /api` | No | EIP-712 `typedData` + ready `actionsRetireRequest` for the relay path |
 | `actions/retire` | `POST /api` | Yes (relayed) | Executor submits the retirement; requires signed `authPayload` |
@@ -81,7 +98,7 @@ The typical build-your-own flow is:
 {% step %}
 #### Discover what's retirable
 
-Call `/discover` to list carbon classes, credits, reference prices, and supported input tokens.
+Call `/discover` to list carbon classes, marketplace listings, reference prices, and supported input tokens.
 {% endstep %}
 
 {% step %}
