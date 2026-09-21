@@ -85,7 +85,7 @@ Sign `typedData` in your wallet with `signTypedData`. This is the only signing s
 
 ## How the signed budget works
 
-The signed budget (`authValue`) covers the retirement, the protocol fee, and the executor's gas reimbursement, with a slippage buffer on protocol supply (a marketplace listing fills at a fixed price, so it gets none). The signer needs only an input-token balance (USDC or kVCM) — no ETH. Send the `actionsRetireRequest` body **verbatim** so that `from`, `to`, and (on USDC) `salt` match the signed authorization.
+The signed budget (`authValue`) covers the retirement, the fee, and the executor's gas reimbursement, with a slippage buffer on protocol supply (a marketplace listing fills at a fixed price, so it gets none). The signer needs only an input-token balance (USDC or kVCM) — no ETH. Send the `actionsRetireRequest` body **verbatim** so that `from`, `to`, and (on USDC) `salt` match the signed authorization.
 
 ## Filling a marketplace listing
 

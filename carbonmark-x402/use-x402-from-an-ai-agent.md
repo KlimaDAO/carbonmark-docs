@@ -6,9 +6,9 @@
 
 # Use x402 from an AI agent
 
-Wire the x402 Endpoint into any Base MCP–capable AI agent so it can discover, quote, prepare, and submit a carbon retirement from a plain-language request.
+Wire the x402 Carbon Retirement API into any Base MCP–capable AI agent so it can discover, quote, prepare, and submit a carbon retirement from a plain-language request.
 
-The x402 Endpoint is built for the x402 agent-payments ecosystem and plugs directly into Base MCP. The fastest path is the Klima Base MCP plugin, which connects the endpoint to agents such as Claude Code.
+The x402 Carbon Retirement API is built for the x402 agent-payments ecosystem and plugs directly into Base MCP. The fastest path is the Klima Base MCP plugin, which connects the endpoint to agents such as Claude Code.
 
 ## Setup
 

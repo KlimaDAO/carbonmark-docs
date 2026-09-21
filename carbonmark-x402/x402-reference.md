@@ -6,7 +6,7 @@
 
 # x402 Reference
 
-Contract addresses, input tokens, amount rules, fees, endpoints, and the full error code reference for the x402 Endpoint on Base mainnet.
+Contract addresses, input tokens, amount rules, fees, endpoints, and the full error code reference for the x402 Carbon Retirement API on Base mainnet.
 
 This page is shared reference material for both the [build-your-own](./retire-carbon-with-x402.md) and [gasless relay](./gasless-retirement-paid-relay.md) paths.
 
@@ -18,15 +18,16 @@ This page is shared reference material for both the [build-your-own](./retire-ca
 | Action | How to call | Moves funds? | What it does |
 | --- | --- | --- | --- |
 | `discover` | `GET /api/discover` or `POST /api` | No | Lists both supply sources — protocol `carbonClasses[]` and `marketplaceListings[]` — with prices, credits, and supported input tokens |
-| `quote` | `GET /api/quote` or `POST /api` | No | Live price for a tonnage (retirement cost + protocol fee), by `carbonClass` or `listingId` |
+| `quote` | `GET /api/quote` or `POST /api` | No | Live price for a tonnage (retirement cost + fee), by `carbonClass` or `listingId` |
 | `prepare/retire` | `GET /api/prepare/retire` or `POST /api` | No (you broadcast) | Unsigned `[approve, retire]` batch for self-submit |
 | `prepare-auth` | `GET /api/prepare-auth` or `POST /api` | No | EIP-712 `typedData` + ready `actionsRetireRequest` for the relay path |
-| `actions/retire` | `POST /api` | Yes (relayed) | Executor submits the retirement; requires signed `authPayload` |
+| `actions/retire` | `POST /api/actions/retire` or `POST /api` | Yes (relayed) | Executor submits the retirement; requires signed `authPayload` |
 | `certificate` | `GET /api/certificate` or `POST /api` | No | Resolves Carbonmark certificate URL(s) for a `txHash` |
+| `catalog` | `GET /api/catalog` | Yes ($0.001 x402 payment) | Paid snapshot: endpoint directory plus the top 3 carbon classes and marketplace listings by liquidity |
 
 <!-- /generated:endpoints -->
 
-All HTTP calls are free. Use **GET** with query parameters or **POST** JSON to `/api` with an `action` field. Both return the same responses. Live schemas and per-action `errorCodes` are in the [discovery manifest](https://x402.klimalabs.com/.well-known/x402.json).
+Discover, quote and certificate are free. Retiring is paid: each retirement costs the credit price plus a fee (and executor gas when relayed through `actions/retire`). `GET /api/catalog` is a $0.001 x402 snapshot of the most liquid supply. Use **GET** with query parameters or **POST** JSON to `/api` with an `action` field. Both return the same responses. Live schemas and per-action `errorCodes` are in the [discovery manifest](https://x402.klimalabs.com/.well-known/x402.json).
 
 ## Versioning
 
@@ -87,7 +88,9 @@ Prefer reading the Settlement Contract from each `prepare` / `prepare-auth` resp
 
 ## Fees
 
-API calls are free. Each retirement bakes in a protocol fee, computed and collected on-chain by the Settlement Contract:
+Discover, quote and certificate are free. Each retirement costs the credit price plus a fee, computed and collected on-chain by the Settlement Contract, and a relayed retirement also reimburses executor gas. `GET /api/catalog` costs $0.001 per call (standard x402 `exact` USDC on Base).
+
+The fee (current values, subject to change; always read the live fee from `quote.fee`):
 
 * The fee is `max(floor, feeBps% of cost)`.
 * Marketplace listing fills use their own schedule: 5% of the fill cost, with a 0.05 USDC minimum.
@@ -132,7 +135,7 @@ plus code-specific context (`issues` on `schema_validation`, `expectedNonce` / `
 | `payment_required` | 402 | authorization | no | Not a failure: the x402 challenge returned when `actions/retire` is posted without an `authPayload`. The body carries the EIP-712 `typedData` to sign and a ready-to-send `actionsRetireRequest`. Identical in shape to a `prepare-auth` 200. Sign `typedData` with the payer wallet, set `authPayload.signature` (or `v`/`r`/`s`), and POST `actionsRetireRequest` back — verbatim, including `salt` on the USDC path. |
 | `attribution_required` | 400 | authorization | no | A relayed retirement named no beneficiary. The beneficiary is indexed on-chain as a permanent grouping key and cannot be changed once the retirement confirms, so it is not defaulted silently. Set `details.beneficiaryAddress` to the party the retirement is for, or set `beneficiaryIsPayer: true` to credit the paying wallet deliberately. |
 | `invalid_auth_payload` | 400 | authorization | no | The authorization is structurally wrong for this request: `authPayload.from` is not the request `from`, `authPayload.to` is not the settlement contract, the payload shape doesn't match the input token's scheme (EIP-3009 for USDC, EIP-2612 for kVCM), or a USDC payload arrived without its top-level `salt`. Post the `actionsRetireRequest` from `prepare-auth` (or the 402 challenge) verbatim, adding only the signature. Do not rebuild the payload by hand. |
-| `insufficient_authorized_value` | 400 | authorization | no | The signed `authPayload.value` no longer covers retirement + protocol fee + executor gas, usually because price or gas moved after signing. Relaying it would revert on-chain. Re-run `prepare-auth` (or re-request the 402 challenge) to size a fresh budget of at least `requiredMinimum`, then re-sign. The old authorization is unusable, not merely stale. |
+| `insufficient_authorized_value` | 400 | authorization | no | The signed `authPayload.value` no longer covers retirement + fee + executor gas, usually because price or gas moved after signing. Relaying it would revert on-chain. Re-run `prepare-auth` (or re-request the 402 challenge) to size a fresh budget of at least `requiredMinimum`, then re-sign. The old authorization is unusable, not merely stale. |
 | `params_mismatch` | 400 | authorization | no | The submitted retirement is not the one that was authorized. On the USDC path `authPayload.nonce` is keccak256 of the retirement plus `salt`, so the signature binds the credit, amount, and attribution — not just the spend value. The rebuilt struct hashed to something else. Re-post `actionsRetireRequest` verbatim including `creditToken`, `tokenId`, `details`, and `salt`, or re-run `prepare-auth` and re-sign. A salt is single-use; one from an earlier authorization will not reproduce the nonce. The error echoes `expectedNonce`, `receivedNonce`, and the `submitted` values to diff against. |
 | `contract_revert` | 422 | settlement | yes | A contract call reverted during simulation, so nothing was broadcast and no funds moved. `selector` and `decoded.errorName` identify the revert; `contract`, `function`, and `args` give the call context. Read `decoded.errorName`. Liquidity and slippage reverts are worth retrying with a fresh quote; validation and permission reverts are not. |
 | `transaction_reverted` | 422 | settlement | yes | The relayed transaction mined but reverted, typically from a state change between simulation and inclusion. No retirement was recorded. Inspect `transactionHash` on a block explorer, then re-run `prepare-auth` and re-sign. The old authorization's nonce may already be consumed. |

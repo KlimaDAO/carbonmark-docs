@@ -4,17 +4,17 @@
   Edit the source file and open a PR there instead.
 -->
 
-# x402 Endpoint
+# x402 Carbon Retirement API
 
 Retire tokenized carbon credits on Base directly from an AI agent or any HTTP client, with no inventory to manage and no SDK required.
 
-The Klima x402 Endpoint is co-developed by Carbonmark. It exposes carbon retirement on the Base blockchain through the Klima Protocol Retirement Aggregator as plain HTTP calls: it discovers carbon liquidity, returns live price quotes, hands back unsigned `[approve, retire]` calldata, and resolves the public Carbonmark certificate once the transaction confirms.
+The x402 Carbon Retirement API is co-developed by Carbonmark. It exposes carbon retirement on the Base blockchain through the Klima Protocol Retirement Aggregator as plain HTTP calls: it discovers carbon liquidity, returns live price quotes, hands back unsigned `[approve, retire]` calldata, and resolves the public Carbonmark certificate once the transaction confirms.
 
 The endpoint is built for the x402 agent-payments ecosystem and plugs directly into Base MCP, so an agent can read the catalog, prepare a retirement, and submit it through the user's Base Account wallet in a single approval.
 
 ## What you can do
 
-With the x402 Endpoint, you can:
+With the x402 Carbon Retirement API, you can:
 
 * Discover retirable supply from both the Klima Protocol catalog and the Carbonmark marketplace
 * Retrieve live, on-chain quotes for a given tonnage in USDC or kVCM
@@ -30,11 +30,11 @@ With the x402 Endpoint, you can:
 | GET base URL | `https://x402.klimalabs.com/api/...` |
 | POST base URL | `https://x402.klimalabs.com/api` |
 | Chain | Base mainnet (`chainId=8453`) |
-| Auth | Free GET or POST — on-chain protocol fee only |
+| Cost | Reads are free; each retirement pays the credit price plus fee (returned as `quote.fee`) |
 | Current version | **v1** — pin `https://v1.x402.klimalabs.com` to stay on it |
 | Agent manifest | [`/.well-known/x402.json`](https://x402.klimalabs.com/.well-known/x402.json) |
 
-All HTTP calls are free. Use **GET** with query parameters on action paths (`/discover`, `/quote`, and so on), or **POST** JSON to `/api` with an `action` field. Both return the same responses.
+Discover, quote and certificate are free. Retiring is paid: each retirement costs the credit price plus a fee (and executor gas when relayed through `actions/retire`). `GET /api/catalog` is a $0.001 x402 snapshot of the most liquid supply and current live endpoints. Use **GET** with query parameters on action paths (`/discover`, `/quote`, and so on), or **POST** JSON to `/api` with an `action` field. Both return the same responses.
 
 ## Versioning and releases
 
@@ -70,7 +70,7 @@ Marketplace supply is real inventory held by a third party. A listing can be rep
 
 The endpoint supports two integration paths. Choose based on whether you want to submit the transaction yourself or have a relay do it for you.
 
-* **Build-your-own** — `discover` → `quote` → `prepare/retire` hands back unsigned `[approve, retire]` calldata that **you** submit. Reads are free; you pay gas and broadcast the batch yourself.
+* **Build-your-own** — `discover` → `quote` → `prepare/retire` hands back unsigned `[approve, retire]` calldata that **you** submit. Reads are free; the batch you broadcast pays the credit price plus a fee.
 * **Paid relay** — `prepare-auth` → sign one EIP-712 token authorization → `actions/retire`. A Klima executor relays the retirement on-chain and pays the gas, reimbursed from your signed budget. No native ETH and no Base Account required.
 
 ## The endpoints
@@ -81,11 +81,12 @@ The endpoint supports two integration paths. Choose based on whether you want to
 | Action | How to call | Moves funds? | What it does |
 | --- | --- | --- | --- |
 | `discover` | `GET /api/discover` or `POST /api` | No | Lists both supply sources — protocol `carbonClasses[]` and `marketplaceListings[]` — with prices, credits, and supported input tokens |
-| `quote` | `GET /api/quote` or `POST /api` | No | Live price for a tonnage (retirement cost + protocol fee), by `carbonClass` or `listingId` |
+| `quote` | `GET /api/quote` or `POST /api` | No | Live price for a tonnage (retirement cost + fee), by `carbonClass` or `listingId` |
 | `prepare/retire` | `GET /api/prepare/retire` or `POST /api` | No (you broadcast) | Unsigned `[approve, retire]` batch for self-submit |
 | `prepare-auth` | `GET /api/prepare-auth` or `POST /api` | No | EIP-712 `typedData` + ready `actionsRetireRequest` for the relay path |
-| `actions/retire` | `POST /api` | Yes (relayed) | Executor submits the retirement; requires signed `authPayload` |
+| `actions/retire` | `POST /api/actions/retire` or `POST /api` | Yes (relayed) | Executor submits the retirement; requires signed `authPayload` |
 | `certificate` | `GET /api/certificate` or `POST /api` | No | Resolves Carbonmark certificate URL(s) for a `txHash` |
+| `catalog` | `GET /api/catalog` | Yes ($0.001 x402 payment) | Paid snapshot: endpoint directory plus the top 3 carbon classes and marketplace listings by liquidity |
 
 <!-- /generated:endpoints -->
 
@@ -104,7 +105,7 @@ Call `/discover` to list carbon classes, marketplace listings, reference prices,
 {% step %}
 #### Get a live quote
 
-Call `/quote` for the true cost of your tonnage, including the on-chain fee and slippage-buffered maximum input.
+Call `/quote` for the true cost of your tonnage, including the fee and slippage-buffered maximum input.
 {% endstep %}
 
 {% step %}
