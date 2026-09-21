@@ -6,9 +6,9 @@
 
 # Retire carbon with x402
 
-Use the x402 Endpoint to discover carbon, retrieve a live quote, submit an unsigned `approve` + `retire` batch from your own wallet, and resolve the public certificate.
+Use the x402 Carbon Retirement API to discover carbon, retrieve a live quote, submit an unsigned `approve` + `retire` batch from your own wallet, and resolve the public certificate.
 
-This page walks through the **build-your-own** path: reads are free, and you sign and broadcast the retirement transaction yourself on Base mainnet. If you would rather have a relay submit the transaction and pay gas for you, see [Gasless retirement (paid relay)](./gasless-retirement-paid-relay.md).
+This page walks through the **build-your-own** path: reads are free, and the retirement is paid in the transaction you sign and broadcast yourself on Base mainnet. If you would rather have a relay submit the transaction and pay gas for you, see [Gasless retirement (paid relay)](./gasless-retirement-paid-relay.md).
 
 All requests target Base mainnet (`chainId=8453`). Every action endpoint accepts **GET** with query parameters or **POST** JSON to `/api` with an `action` field; both return the same responses.
 
@@ -156,7 +156,7 @@ The `to` field and `approvalInstructions.spender` in the response are both the S
 
 ## Step 4: Submit the batch
 
-Submit the returned `approve` + `retire` batch atomically from your wallet on Base. API calls are free; the protocol fee is settled on-chain inside this transaction, and the contract refunds any unused slippage budget in the same transaction.
+Submit the returned `approve` + `retire` batch atomically from your wallet on Base. This transaction pays for the retirement: the credit price plus a fee, settled on-chain, and the contract refunds any unused slippage budget in the same transaction.
 
 ## Step 5: Resolve the certificate
 
