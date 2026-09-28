@@ -32,12 +32,16 @@
 
 * [Direct Credit Issuance](carbonmark-direct/direct-credit-issuance.md)
 
-## Transfer Credits
+## Registry Integrations
 
-* [Transfer Credits to/from Carbonmark](transfer-credits/transfer-credits-to-from-carbonmark/README.md)
-  * [ICR: Import Credits to Carbonmark](transfer-credits/transfer-credits-to-from-carbonmark/icr-import-credits-to-carbonmark.md)
-  * [ICR: Export Credits to ICR](transfer-credits/transfer-credits-to-from-carbonmark/icr-export-credits-to-icr.md)
-  * [Puro Bridge Integration Guide](transfer-credits/transfer-credits-to-from-carbonmark/puro-bridge-integration-guide.md)
+* [Registry Integrations](registry-integrations/registry-integrations.md)
+* [Data Attributes](registry-integrations/data-attributes.md)
+* [Transfer Credits to/from Carbonmark](registry-integrations/transfer-credits-to-from-carbonmark/README.md)
+  * [ICR: Import Credits to Carbonmark](registry-integrations/transfer-credits-to-from-carbonmark/icr-import-credits-to-carbonmark.md)
+  * [ICR: Export Credits to ICR](registry-integrations/transfer-credits-to-from-carbonmark/icr-export-credits-to-icr.md)
+  * [Puro Bridge Integration Guide](registry-integrations/transfer-credits-to-from-carbonmark/puro-bridge-integration-guide.md)
+  * [EcoRegistry (Cercarbono): Import Credits to Carbonmark](registry-integrations/transfer-credits-to-from-carbonmark/ecoregistry-cercarbono-import-credits-to-carbonmark.md)
+  * [EcoRegistry (Cercarbono): Export Credits to EcoRegistry](registry-integrations/transfer-credits-to-from-carbonmark/ecoregistry-cercarbono-export-credits-to-ecoregistry.md)
 
 ## OFFRAMP TO BANK
 
