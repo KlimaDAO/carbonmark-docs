@@ -42,6 +42,7 @@
   * [Puro Bridge Integration Guide](registry-integrations/transfer-credits-to-from-carbonmark/puro-bridge-integration-guide.md)
   * [EcoRegistry (Cercarbono): Import Credits to Carbonmark](registry-integrations/transfer-credits-to-from-carbonmark/ecoregistry-cercarbono-import-credits-to-carbonmark.md)
   * [EcoRegistry (Cercarbono): Export Credits to EcoRegistry](registry-integrations/transfer-credits-to-from-carbonmark/ecoregistry-cercarbono-export-credits-to-ecoregistry.md)
+* [Retirement Certificate Support](registry-integrations/retirement-certificate-support.md)
 
 ## OFFRAMP TO BANK
 
