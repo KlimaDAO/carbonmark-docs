@@ -56,10 +56,10 @@ You can create sandbox keys and test your integration at any time, before or aft
 
 ## Adding funds
 
-* **Amounts.** Each purchase must meet your plan's minimum and the $50 card payment minimum. Your plan's maximum per purchase is shown on the Billing page.
+* **Amounts.** The minimum purchase is $50. Your plan's maximum per purchase is shown on the Billing page.
 * **Processing fee.** A card processing fee is added to each purchase and shown before you pay. Your balance increases by the amount you chose; the fee is not added to your balance.
 * **Card verification.** Purchases with a total card charge above $1,000 require extra verification from your card issuer (3D Secure). Cards issued in some countries may not be accepted.
-* **Pending purchases.** A purchase that is waiting for payment counts toward your limits until it is paid or closes unpaid. If you close the checkout tab, select **`Continue to Checkout`** in Purchase History to finish paying.
+* **Pending purchases.** A purchase that is waiting for payment counts toward your limits until it is paid or closes unpaid. If you close the checkout tab, select **Continue to Checkout** in Purchase History to finish paying.
 * **Receipts.** Every payment and its receipt appears in Purchase History on the Billing page.
 
 Purchase History shows one of these statuses for each payment:
