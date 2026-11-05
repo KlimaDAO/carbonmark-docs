@@ -20,6 +20,10 @@ The Checkout Service is a good fit when you want to:
 * use a hosted checkout experience instead of collecting payment details directly
 * get to market faster with a simpler integration
 
+{% hint style="info" %}
+The Checkout Service is different from adding funds to your own API account. With the Checkout Service, **your users** pay by card for each retirement they make. With [prepaid billing](billing-and-production-access.md), **you** add funds to your Carbonmark account in the Developer Dashboard, and your API retirements are paid from that balance.
+{% endhint %}
+
 ## How it works
 
 At a high level, the flow is:

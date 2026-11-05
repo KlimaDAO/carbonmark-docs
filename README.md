@@ -21,16 +21,6 @@ With the Carbonmark API, you can:
 * Access public retirement records and certificates
 * Test your integration for free using sandbox API keys
 
-## Supported networks
-
-The Carbonmark API is multi-network aware and supports carbon credit discovery, pricing, orders, and retirements across Polygon and Base.
-
-<table><thead><tr><th width="147.15625">Network</th><th width="121.73828125">Status</th><th>Supported activity</th></tr></thead><tbody><tr><td>Polygon</td><td>Supported</td><td>Carbon credit discovery, pricing, orders, retirements, and public retirement records</td></tr><tr><td>Base</td><td>Supported</td><td>Klima Protocol carbon class liquidity, pricing, retirements, and public retirement records</td></tr></tbody></table>
-
-Network availability may vary by credit, listing, and liquidity source. API responses include network-aware fields so your integration can determine which chain a price, order, or retirement is associated with.
-
-For transaction links, use the chain-agnostic explorer fields returned by the API instead of network-specific explorer URL fields.
-
 ## Common use cases
 
 The API is commonly used to:
@@ -72,8 +62,12 @@ To complete your first integration:
 2. Generate a free sandbox API key
 3. Follow the [Quickstart](carbonmark-api/quickstart.md) guide to complete your first test retirement
 4. Review the API reference for available endpoints
-5. [Contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) when you are ready for production access and onboarding
+5. When you are ready for production, choose a billing option on the **Billing** page. With prepaid billing, you add funds by card and create production keys yourself. With postpaid billing, [contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) to set up invoicing and production access.
 
 {% content-ref url="carbonmark-api/quickstart.md" %}
 [quickstart.md](carbonmark-api/quickstart.md)
+{% endcontent-ref %}
+
+{% content-ref url="carbonmark-api/billing-and-production-access.md" %}
+[billing-and-production-access.md](carbonmark-api/billing-and-production-access.md)
 {% endcontent-ref %}
