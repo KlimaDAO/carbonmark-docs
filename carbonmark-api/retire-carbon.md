@@ -240,7 +240,7 @@ https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5
 
 ## Billing
 
-Completed production orders appear in the Developer Dashboard. How you pay for them depends on your billing option:
+Completed production orders appear in the Developer Dashboard. How you pay for them depends on your account type:
 
 * **Self-serve:** the order's cost is charged to your balance when the retirement completes.
 * **Enterprise:** the order's cost is included in your monthly invoice.

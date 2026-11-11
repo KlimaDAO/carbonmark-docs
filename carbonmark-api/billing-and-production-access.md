@@ -8,7 +8,7 @@ description: >-
 
 Sandbox keys are free and never billed. Production retirements are paid for in one of two ways: a **Self-serve** account, where you add funds by card before you retire, or an **Enterprise** account, where you are invoiced monthly under an agreement with Carbonmark.
 
-## Choose a billing option
+## Choose an account type
 
 You choose an account type on the **Billing** page of the [Developer Dashboard](https://developers.carbonmark.com/dashboard/billing).
 
