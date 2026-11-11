@@ -62,7 +62,7 @@ To complete your first integration:
 2. Generate a free sandbox API key
 3. Follow the [Quickstart](carbonmark-api/quickstart.md) guide to complete your first test retirement
 4. Review the API reference for available endpoints
-5. When you are ready for production, choose a billing option on the **Billing** page. With prepaid billing, you add funds by card and create production keys yourself. With postpaid billing, [contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) to set up invoicing and production access.
+5. When you are ready for production, choose an account type on the **Billing** page. With a Self-serve account, you add funds by card and create production keys yourself. With an Enterprise account, [contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr) to set up invoicing and production access.
 
 {% content-ref url="carbonmark-api/quickstart.md" %}
 [quickstart.md](carbonmark-api/quickstart.md)

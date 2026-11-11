@@ -32,7 +32,7 @@ Create an account or sign in to the Developer Dashboard.
 Once signed in, go to the **Keys** page and generate an API key.
 
 * Sandbox keys are free and can be used for testing
-* Production keys are available once you set up billing. With prepaid billing, you create them yourself after completing business setup and adding funds. With postpaid billing, they are available after Carbonmark approves your account.
+* Production keys are available once you set up billing. With a Self-serve account, you create them yourself after completing business setup and adding funds. With an Enterprise account, they are available after Carbonmark approves your account.
 * Keys are shown only once, so copy and store them securely
 
 ## Step 2: Choose a project to retire
@@ -144,7 +144,7 @@ Required fields:
 
 Some registries may require additional fields. For example, certain Puro.earth retirements require `consumption_metadata`.
 
-We recommend sending an `Idempotency-Key` header with every order. For production keys on prepaid accounts, retrying a request with the same key returns the original order instead of creating a second one. See [Retrying orders safely](errors.md#retrying-orders-safely).
+We recommend sending an `Idempotency-Key` header with every order. For production keys on Self-serve accounts, retrying a request with the same key returns the original order instead of creating a second one. See [Retrying orders safely](errors.md#retrying-orders-safely).
 
 Example request:
 
@@ -183,7 +183,7 @@ Example response (trimmed for readability):
 
 A successful order response with `status: "SUBMITTED"` means the retirement request has been accepted and is being processed.
 
-On a prepaid account, a production order reserves its `cost_usdc` from your available balance when it is accepted. If your balance or a spend limit does not cover the order, you get an error instead of an order. See [Errors](errors.md).
+On a self-serve account, a production order reserves its `cost_usdc` from your available balance when it is accepted. If your balance or a spend limit does not cover the order, you get an error instead of an order. See [Errors](errors.md).
 
 ## Step 6: Confirm the retirement is complete
 
@@ -216,7 +216,7 @@ Example response (trimmed for readability)
 
 When the order status is `COMPLETED`, the carbon credit has been retired. You can also use `on_chain_explorer_url` or `view_retirement_url` from the order response for additional confirmation.
 
-If the status is `FAILED`, the retirement did not happen. On a prepaid account, the reserved amount is released back to your available balance.
+If the status is `FAILED`, the retirement did not happen. On a self-serve account, the reserved amount is released back to your available balance.
 
 ## Retirement receipt
 
@@ -242,8 +242,8 @@ https://app.carbonmark.com/retirements/0xab5b7b5849784279280188b556af3c179f31dc5
 
 Completed production orders appear in the Developer Dashboard. How you pay for them depends on your billing option:
 
-* **Prepaid:** the order's cost is charged to your balance when the retirement completes.
-* **Postpaid:** the order's cost is included in your monthly invoice.
+* **Self-serve:** the order's cost is charged to your balance when the retirement completes.
+* **Enterprise:** the order's cost is included in your monthly invoice.
 
 Sandbox orders are never billed. See [Billing and production access](billing-and-production-access.md).
 

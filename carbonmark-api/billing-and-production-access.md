@@ -6,25 +6,25 @@ description: >-
 
 # Billing and production access
 
-Sandbox keys are free and never billed. Production retirements are paid for in one of two ways: **prepaid**, where you add funds by card before you retire, or **postpaid**, where you are invoiced monthly under an agreement with Carbonmark.
+Sandbox keys are free and never billed. Production retirements are paid for in one of two ways: a **Self-serve** account, where you add funds by card before you retire, or an **Enterprise** account, where you are invoiced monthly under an agreement with Carbonmark.
 
 ## Choose a billing option
 
-You choose a billing option on the **Billing** page of the [Developer Dashboard](https://developers.carbonmark.com/dashboard/billing).
+You choose an account type on the **Billing** page of the [Developer Dashboard](https://developers.carbonmark.com/dashboard/billing).
 
-|                 | Prepaid                                                                               | Postpaid                                          |
+|                 | Self-serve                                                                            | Enterprise                                        |
 | --------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | How you pay     | Add funds by card in the Developer Dashboard. Retirements are paid from your balance. | Monthly invoice, arranged with Carbonmark sales.  |
-| Production keys | Self-serve once business setup is complete and your first payment is credited.        | Available after Carbonmark approves your account. |
+| Production keys | Available once business setup is complete and your first payment is credited.         | Available after Carbonmark approves your account. |
 | Good fit for    | Getting to production quickly without a sales conversation.                           | Larger or contracted volumes.                     |
 
-To change your billing option after you have chosen one, [contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr).
+To change your account type after you have chosen one, [contact Carbonmark](https://share-eu1.hsforms.com/1RWJWvyrHT1C_an4cZOHH3gfhhlr).
 
-## Set up prepaid billing
+## Set up a Self-serve account
 
-### Step 1: Choose Prepaid
+### Step 1: Choose Self-serve
 
-Sign in to the [Developer Dashboard](https://developers.carbonmark.com/login), open **Billing**, and select **Prepaid**.
+Sign in to the [Developer Dashboard](https://developers.carbonmark.com/login), open **Billing**, and select **Choose self-serve**.
 
 ### Step 2: Complete business setup
 
@@ -51,7 +51,7 @@ Open **Keys**, create a key, and select **Production**. Set a weekly spending li
 Keys are shown only once, so copy and store yours securely.
 
 {% hint style="info" %}
-You can create sandbox keys and test your integration at any time, before or after choosing a billing option. Sandbox retirements never use your balance.
+You can create sandbox keys and test your integration at any time, before or after choosing an account type. Sandbox retirements never use your balance.
 {% endhint %}
 
 ## Adding funds
@@ -86,7 +86,7 @@ When you submit an order with a production key, the order's cost (`cost_usdc` fr
 
 ## Limits
 
-Prepaid accounts have spending and funding limits. Your current limits and how much of each you have used are shown on the Dashboard and Billing pages.
+Self-serve accounts have spending and funding limits. Your current limits and how much of each you have used are shown on the Dashboard and Billing pages.
 
 | Limit              | What it controls                                             |
 | ------------------ | ------------------------------------------------------------ |

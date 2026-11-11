@@ -18,7 +18,7 @@ Most errors use this format:
 }
 ```
 
-Requests from accounts on [prepaid billing](billing-and-production-access.md) can also return errors with a stable `code` and a `recovery` object:
+Requests from [self-serve accounts](billing-and-production-access.md) can also return errors with a stable `code` and a `recovery` object:
 
 ```json
 {
@@ -50,9 +50,9 @@ Limit and balance errors can include these fields:
 
 <table data-search="false"><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td><code>requested_amount</code></td><td>The amount the request needed, in USD.</td></tr><tr><td><code>available_balance</code></td><td>Your available balance, in USD.</td></tr><tr><td><code>limit</code></td><td>The limit that was reached, in USD.</td></tr><tr><td><code>used</code></td><td>How much of the limit has been used, in USD.</td></tr><tr><td><code>remaining</code></td><td>How much of the limit is left, in USD.</td></tr><tr><td><code>window_hours</code></td><td>The length of the limit's rolling period, in hours.</td></tr><tr><td><code>next_available_at</code></td><td>When enough capacity returns for this request (ISO 8601, UTC), or <code>null</code> if it will not return on its own.</td></tr></tbody></table>
 
-## Prepaid error codes
+## Self-serve error codes
 
-These codes are returned by `POST /quotes` and `POST /orders` for prepaid accounts.
+These codes are returned by `POST /quotes` and `POST /orders` for Self-serve accounts. Their names start with `PREPAID_`, the API's name for Self-serve billing.
 
 | Code                           | HTTP status | Meaning                                                              | Recovery                                                          |
 | ------------------------------ | ----------- | -------------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -65,11 +65,11 @@ These codes are returned by `POST /quotes` and `POST /orders` for prepaid accoun
 | `IDEMPOTENCY_CONFLICT`         | 409         | This idempotency key was already used with a different request.      | Use a new key for a new order.                                    |
 | `PREPAID_RESTRICTED`           | 403         | Your account is restricted.                                          | `contact_support`                                                 |
 | `EXECUTION_UNAVAILABLE`        | 503         | There is not enough liquidity to fill the order right now.           | Retry later, or try a smaller quantity or another listing.        |
-| `PREPAID_UNAVAILABLE`          | 503         | Prepaid billing is temporarily unavailable.                          | Retry later.                                                      |
+| `PREPAID_UNAVAILABLE`          | 503         | Self-serve billing is temporarily unavailable.                       | Retry later.                                                      |
 
 ## Retrying orders safely
 
-For production keys on prepaid accounts, `POST /orders` is idempotent. If a request times out or you do not receive a response, send the same request again with the same `Idempotency-Key`. You will get back the original order instead of a second one, and you are charged only once.
+For production keys on self-serve accounts, `POST /orders` is idempotent. If a request times out or you do not receive a response, send the same request again with the same `Idempotency-Key`. You will get back the original order instead of a second one, and you are charged only once.
 
 ```bash
 curl --request POST \
