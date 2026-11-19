@@ -1,3 +1,7 @@
+---
+description: "Walkthrough for the self-submit path: discover credits, get a live quote, prepare the approve and retire batch, send it from your wallet and fetch the certificate."
+---
+
 <!--
   DO NOT EDIT. Published automatically from Carbonmark/x402-klima-RA-new/api/docs/2_retire-carbon.md.
   Changes made here will be overwritten by the next docs sync.
@@ -28,6 +32,8 @@ Call `/discover` to see everything retirable. It returns two arrays, one per sup
 
 * `carbonClasses[]` — pooled protocol supply. Each class carries a **reference USDC/tonne price** and the credits inside it (registry, vintage, token, available liquidity).
 * `marketplaceListings[]` — one entry per open marketplace listing: the seller, the exact credit, a firm `priceUsdcPerTonne`, and how much of it you can take (`leftToSell`, `minFill`, `expiration`). Sellers and asks are per listing, so two listings of the same credit are two entries, not one.
+
+Each class is identified by `carbonClassId`; pass that value as the `carbonClass` parameter on later calls. It also carries `minRetirementTonnes`, the smallest amount that class retires.
 
 Every entry in either array is tagged with `source` (`"protocol"` or `"marketplace"`), and `marketplaceEnabled` tells you whether marketplace supply was searched at all — so an empty `marketplaceListings[]` means "nothing listed", not "turned off".
 
@@ -157,6 +163,30 @@ The `to` field and `approvalInstructions.spender` in the response are both the S
 ## Step 4: Submit the batch
 
 Submit the returned `approve` + `retire` batch atomically from your wallet on Base. This transaction pays for the retirement: the credit price plus a fee, settled on-chain, and the contract refunds any unused slippage budget in the same transaction.
+
+The response's `transactions[]` array holds the calls in order, each with `to`, `data` and `value`. A smart wallet can send them as one atomic batch (Base MCP `send_calls`, or `wallet_sendCalls`). From a standard wallet, send them one after another and wait for each to confirm:
+
+```ts
+import { createPublicClient, createWalletClient, http } from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+import { base } from "viem/chains";
+
+const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
+const wallet = createWalletClient({ account, chain: base, transport: http() });
+const client = createPublicClient({ chain: base, transport: http() });
+
+// `prepared` is the JSON returned by /prepare/retire in step 3.
+let txHash: `0x${string}` | undefined;
+for (const tx of prepared.transactions) {
+  txHash = await wallet.sendTransaction({
+    to: tx.to,
+    data: tx.data,
+    value: BigInt(tx.value),
+  });
+  await client.waitForTransactionReceipt({ hash: txHash });
+}
+// The last transaction is the retirement; pass its hash to /certificate.
+```
 
 ## Step 5: Resolve the certificate
 
