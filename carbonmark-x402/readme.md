@@ -1,3 +1,7 @@
+---
+description: "Carbonmark's x402 endpoint lets AI agents and HTTP clients retire carbon credits on Base with USDC. Base URL, costs, minimums and the two ways to retire."
+---
+
 <!--
   DO NOT EDIT. Published automatically from Carbonmark/x402-klima-RA-new/api/docs/1_intro.md.
   Changes made here will be overwritten by the next docs sync.
@@ -6,9 +10,9 @@
 
 # x402 Carbon Retirement API
 
-Retire tokenized carbon credits on Base directly from an AI agent or any HTTP client, with no inventory to manage and no SDK required.
+Retire tokenized carbon credits on Base directly from an AI agent or any HTTP client, with no API key, no inventory to manage and no SDK required. A small TypeScript client is available if you want one.
 
-The x402 Carbon Retirement API is co-developed by Carbonmark. It exposes carbon retirement on the Base blockchain through the Klima Protocol Retirement Aggregator as plain HTTP calls: it discovers carbon liquidity, returns live price quotes, hands back unsigned `[approve, retire]` calldata, and resolves the public Carbonmark certificate once the transaction confirms.
+The x402 Carbon Retirement API is operated by Carbonmark and co-developed with Klima Protocol. It exposes carbon retirement on the Base blockchain through the Klima Protocol Retirement Aggregator as plain HTTP calls: it discovers carbon liquidity, returns live price quotes, hands back unsigned `[approve, retire]` calldata, and resolves the public Carbonmark certificate once the transaction confirms.
 
 The endpoint is built for the x402 agent-payments ecosystem and plugs directly into Base MCP, so an agent can read the catalog, prepare a retirement, and submit it through the user's Base Account wallet in a single approval.
 
@@ -29,8 +33,12 @@ With the x402 Carbon Retirement API, you can:
 | --- | --- |
 | GET base URL | `https://x402.klimalabs.com/api/...` |
 | POST base URL | `https://x402.klimalabs.com/api` |
-| Chain | Base mainnet (`chainId=8453`) |
-| Cost | Reads are free; each retirement pays the credit price plus fee (returned as `quote.fee`) |
+| Chain | Base mainnet (`chainId=8453`) only. There is no testnet |
+| Authentication | None. No API key or account |
+| Payment | USDC on Base. Protocol supply also accepts kVCM |
+| Minimum retirement | 0.001 t (1 kg) for most classes; 1 t for classes whose credits retire in whole tonnes. `discover` returns `minRetirementTonnes` per class |
+| Cost | Reads are free; each retirement pays the credit price plus fee (returned as `quote.fee`; see [fees](./x402-reference.md#fees)) |
+| Testing | `discover`, `quote` and `prepare-auth` are free and move no funds, so the flow can be exercised up to the signature at no cost |
 | Current version | **v1** — pin `https://v1.x402.klimalabs.com` to stay on it |
 | Agent manifest | [`/.well-known/x402.json`](https://x402.klimalabs.com/.well-known/x402.json) |
 
@@ -126,9 +134,14 @@ You do not need to pre-purchase or hold inventory to get started.
 
 ## Getting started
 
-1. Review the Endpoint basics above and confirm you are targeting Base mainnet (`chainId=8453`).
-2. Follow the build-your-own walkthrough to complete your first retirement, or use the gasless relay path.
-3. To integrate with an AI agent, connect the Klima Base MCP plugin.
+1. Run the [quickstart](./quickstart.md): two free `curl` calls, then one script that retires 1 kg.
+2. Review the Endpoint basics above and confirm you are targeting Base mainnet (`chainId=8453`).
+3. Follow the build-your-own walkthrough to complete your first retirement, or use the gasless relay path.
+4. To integrate with an AI agent, connect the Klima Base MCP plugin.
+
+{% content-ref url="./quickstart.md" %}
+[Quickstart](./quickstart.md)
+{% endcontent-ref %}
 
 {% content-ref url="./retire-carbon-with-x402.md" %}
 [Retire carbon with x402](./retire-carbon-with-x402.md)
@@ -155,4 +168,6 @@ Retirement is irreversible. A confirmed retirement permanently burns the carbon 
 * [x402 protocol](https://www.x402.org/) — the HTTP 402 Payment Required protocol this endpoint implements
 * [Base MCP](https://docs.base.org/ai-agents/quickstart) — wallet-connected AI agents on Base mainnet
 * [Agent plugin + setup docs](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation) — Base MCP setup guide, klima-retire plugin, and full integration docs
+* [TypeScript SDK and runnable examples](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation#typescript-sdk--examples) — one `retire()` call, plus read-only and end-to-end scripts
+* [OpenAPI spec](https://x402.klimalabs.com/openapi.json) — every endpoint with its parameters and response schemas
 * [Discovery manifest](https://x402.klimalabs.com/.well-known/x402.json) — the public `x402.json` that agent crawlers index automatically
