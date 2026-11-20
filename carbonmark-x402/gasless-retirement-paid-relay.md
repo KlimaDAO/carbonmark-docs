@@ -1,5 +1,5 @@
 ---
-description: "Retire carbon without ETH or a prior approval: sign one USDC or kVCM authorization and a Klima executor submits the retirement on Base for you."
+description: "Retire carbon without ETH or a prior approval: sign one USDC or kVCM authorization and the API's executor submits the retirement on Base for you."
 ---
 
 <!--
@@ -10,9 +10,9 @@ description: "Retire carbon without ETH or a prior approval: sign one USDC or kV
 
 # Gasless retirement (paid relay)
 
-Retire carbon without holding native ETH, without a prior token approval, and without a Base Account — sign a single token authorization and a Klima executor submits the transaction for you.
+Retire carbon without holding native ETH, without a prior token approval, and without a Base Account — sign a single token authorization and the API's executor submits the transaction for you.
 
-The relay path lets any wallet or agent retire carbon by signing **one** standard EIP-712 token authorization. A Klima executor submits the on-chain transaction and is reimbursed for gas out of your signed budget. For the path where you submit the transaction yourself, see [Retire carbon with x402](./retire-carbon-with-x402.md).
+The relay path lets any wallet or agent retire carbon by signing **one** standard EIP-712 token authorization. The API's executor submits the on-chain transaction and is reimbursed for gas out of your signed budget. For the path where you submit the transaction yourself, see [Retire carbon with x402](./retire-carbon-with-x402.md).
 
 ## What you sign
 
@@ -62,7 +62,7 @@ Sign `typedData` in your wallet with `signTypedData`. This is the only signing s
 {% step %}
 #### Submit the retirement
 
-`POST /api` with `actions/retire`, sending the request body plus your signature. A Klima executor relays the transaction on-chain.
+`POST /api` with `actions/retire`, sending the request body plus your signature. The API's executor relays the transaction on-chain.
 {% endstep %}
 
 {% step %}
@@ -119,8 +119,8 @@ See [x402 reference](./x402-reference.md) for the full error registry.
 ## Reference clients
 
 * **Quickstart** — a complete script for this path, with a dry-run switch: [Quickstart](./quickstart.md).
-* **SDK** — zero-dependency TypeScript client [`sdk/x402-retire.ts`](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation/blob/main/sdk/x402-retire.ts). One `retire()` call runs prepare-auth → sign → submit → poll certificate. Pass `beneficiaryIsPayer: true` or `details.beneficiaryAddress`.
-* **Examples** — runnable scripts under [`examples/`](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation/tree/main/examples) (`retire/retire-sdk.ts`, `retire/paid-retire.ts`, `retire/retire-raw.ts`).
+* **SDK** — zero-dependency TypeScript client [`sdk/x402-retire.ts`](https://github.com/Carbonmark/x402-retire-sdk/blob/main/sdk/x402-retire.ts). One `retire()` call runs prepare-auth → sign → submit → poll certificate. Pass `beneficiaryIsPayer: true` or `details.beneficiaryAddress`.
+* **Examples** — runnable scripts under [`examples/`](https://github.com/Carbonmark/x402-retire-sdk/tree/main/examples) (`retire/retire-sdk.ts`, `retire/paid-retire.ts`, `retire/retire-raw.ts`).
 
 ## Notes
 

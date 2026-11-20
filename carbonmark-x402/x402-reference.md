@@ -31,7 +31,7 @@ This page is shared reference material for both the [build-your-own](./retire-ca
 
 <!-- /generated:endpoints -->
 
-Discover, quote and certificate are free. Retiring is paid: each retirement costs the credit price plus a fee (and executor gas when relayed through `actions/retire`). `GET /api/catalog` is a $0.001 x402 snapshot of the most liquid supply. Use **GET** with query parameters or **POST** JSON to `/api` with an `action` field. Both return the same responses. Live schemas and per-action `errorCodes` are in the [discovery manifest](https://x402.klimalabs.com/.well-known/x402.json).
+Discover, quote and certificate are free. Retiring is paid: each retirement costs the credit price plus a fee (and executor gas when relayed through `actions/retire`). `GET /api/catalog` is a $0.001 x402 snapshot of the most liquid supply. Use **GET** with query parameters or **POST** JSON to `/api` with an `action` field. Both return the same responses. Live schemas and per-action `errorCodes` are in the [discovery manifest](https://x402.carbonmark.com/.well-known/x402.json).
 
 ## Versioning
 
@@ -41,11 +41,13 @@ The API carries a semantic version, published as `apiVersion`. The **major** is 
 
 | Host | Serves |
 | --- | --- |
-| `x402.klimalabs.com` | the **latest** release. A breaking release moves it to the new major. |
-| `v1.x402.klimalabs.com` | the **v1 major** and every future 1.x minor and patch. Never moves to v2. |
-| `v0.x402.klimalabs.com` | the previous major, kept reachable for callers that have not migrated. |
+| `x402.carbonmark.com` | the **latest** release. A breaking release moves it to the new major. |
+| `v1.x402.carbonmark.com` | the **v1 major** and every future 1.x minor and patch. Never moves to v2. |
+| `v0.x402.klimalabs.com` | the previous major, kept reachable for callers that have not migrated. Served on the klimalabs host only. |
 
-These docs describe v1. **Pin `v1.x402.klimalabs.com`** if you do not want the bare host's future major bump to reach you. Pinning is the whole mechanism — there is no version header, query parameter, or `Accept` negotiation.
+The same API also answers at `x402.klimalabs.com` and `v1.x402.klimalabs.com`, which follow the same rules as their carbonmark counterparts.
+
+These docs describe v1. **Pin `v1.x402.carbonmark.com`** if you do not want the bare host's future major bump to reach you. Pinning is the whole mechanism — there is no version header, query parameter, or `Accept` negotiation.
 
 Resolve it programmatically instead of hard-coding: `/.well-known/x402.json` and `/.well-known/x402-changelog.json` both publish `apiVersion` and a `versionedHosts` object (`latest`, `current`, and a `note`), so an agent can find its major's host without reading this table.
 
@@ -175,14 +177,14 @@ Every action can additionally return: `invalid_json`, `unknown_action`, `not_fou
 
 <!-- /generated:error-codes-by-action -->
 
-The same data is served live at [`/.well-known/x402-errors.json`](https://x402.klimalabs.com/.well-known/x402-errors.json) (GET alias `/api/errors`) — build error handling against that document rather than against this page.
+The same data is served live at [`/.well-known/x402-errors.json`](https://x402.carbonmark.com/.well-known/x402-errors.json) (GET alias `/api/errors`) — build error handling against that document rather than against this page.
 
 For relay-specific `actions/retire` status values (`settled`, `pending_index`), see [Gasless retirement (paid relay)](./gasless-retirement-paid-relay.md).
 
 ## Resources
 
-* [Paid-retire examples](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation/tree/main/examples) — runnable end-to-end relay clients (USDC + kVCM)
-* [TypeScript SDK](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation/blob/main/sdk/x402-retire.ts) — zero-dependency `retire()` client
-* [Klima Retirement Aggregator USAGE](https://github.com/KlimaDAO/retirement-aggregator/blob/main/USAGE.md) — direct on-chain access for callers who do not want the HTTP layer
-* [Discovery manifest](https://x402.klimalabs.com/.well-known/x402.json) — public `x402.json` for agent directories
-* [Changelog](https://x402.klimalabs.com/.well-known/x402-changelog.json) — machine-readable release history
+* [Paid-retire examples](https://github.com/Carbonmark/x402-retire-sdk/tree/main/examples) — runnable end-to-end relay clients (USDC + kVCM)
+* [TypeScript SDK](https://github.com/Carbonmark/x402-retire-sdk/blob/main/sdk/x402-retire.ts) — zero-dependency `retire()` client
+* [Retirement Aggregator USAGE](https://github.com/KlimaDAO/retirement-aggregator/blob/main/USAGE.md) — direct on-chain access for callers who do not want the HTTP layer
+* [Discovery manifest](https://x402.carbonmark.com/.well-known/x402.json) — public `x402.json` for agent directories
+* [Changelog](https://x402.carbonmark.com/.well-known/x402-changelog.json) — machine-readable release history
