@@ -19,13 +19,13 @@ Both calls are free and need no wallet. Each block holds one command, so it runs
 List everything retirable: pooled credit classes and marketplace listings.
 
 ```bash
-curl -s https://x402.klimalabs.com/api/discover
+curl -s https://x402.carbonmark.com/api/discover
 ```
 
 Get a live price for 1 kg (0.001 tonnes), paying in USDC on Base. The `carbonClass` value is a `carbonClassId` from the first response.
 
 ```bash
-curl -s "https://x402.klimalabs.com/api/quote?chainId=8453&inputToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913&amount=0.001&carbonClass=0x0008f35758a4318942ecb5d5414116ce7b1ede2d"
+curl -s "https://x402.carbonmark.com/api/quote?chainId=8453&inputToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913&amount=0.001&carbonClass=0x0008f35758a4318942ecb5d5414116ce7b1ede2d"
 ```
 
 In Windows PowerShell 5, type `curl.exe` in place of `curl`.
@@ -54,7 +54,7 @@ Save this as `retire.mjs`, run `npm i viem`, then run it with a private key in `
 //         $env:DRY_RUN=$null; node retire.mjs                           (retires for real; irreversible)
 import { privateKeyToAccount } from "viem/accounts";
 
-const API = "https://x402.klimalabs.com/api";
+const API = "https://x402.carbonmark.com/api";
 const USDC = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"; // USDC on Base mainnet
 const account = privateKeyToAccount(process.env.PRIVATE_KEY); // wallet holding USDC on Base; no ETH needed
 
@@ -109,7 +109,7 @@ What the script does:
 
 1. **Discover.** Picks the cheapest pooled class whose minimum is 1 kg. Some classes retire in whole tonnes only, and `discover` reports each class's minimum as `minRetirementTonnes`.
 2. **Prepare.** `prepare-auth` re-prices the retirement and returns `typedData`, the EIP-712 object to sign. It moves no funds. `beneficiaryIsPayer: true` credits the paying wallet; a relayed retirement must name its beneficiary, or the call returns `400 attribution_required`.
-3. **Sign and submit.** The only signature is a standard USDC authorization (EIP-3009). Posting `actionsRetireRequest` back with the signature has a Klima executor submit the retirement on-chain.
+3. **Sign and submit.** The only signature is a standard USDC authorization (EIP-3009). Posting `actionsRetireRequest` back with the signature has the API's executor submit the retirement on-chain.
 4. **Certificate.** The response carries the public Carbonmark certificate URL, or the script polls `/certificate` until the retirement is indexed.
 
 {% hint style="warning" %}
@@ -143,4 +143,4 @@ The smallest retirement is 1 kg, and every retirement carries a minimum fee. To 
 * [Gasless retirement (paid relay)](./gasless-retirement-paid-relay.md): what you sign, the responses and their error codes.
 * [Retire carbon with x402](./retire-carbon-with-x402.md): submit the transaction from your own wallet instead.
 * [Use x402 from an AI agent](./use-x402-from-an-ai-agent.md): connect the endpoint to a wallet-connected agent.
-* [TypeScript SDK](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation/blob/main/sdk/x402-retire.ts): one `retire()` call that wraps the same four steps.
+* [TypeScript SDK](https://github.com/Carbonmark/x402-retire-sdk/blob/main/sdk/x402-retire.ts): one `retire()` call that wraps the same four steps.

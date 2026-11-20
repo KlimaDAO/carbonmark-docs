@@ -12,7 +12,7 @@ description: "Carbonmark's x402 endpoint lets AI agents and HTTP clients retire 
 
 Retire tokenized carbon credits on Base directly from an AI agent or any HTTP client, with no API key, no inventory to manage and no SDK required. A small TypeScript client is available if you want one.
 
-The x402 Carbon Retirement API is operated by Carbonmark and co-developed with Klima Protocol. It exposes carbon retirement on the Base blockchain through the Klima Protocol Retirement Aggregator as plain HTTP calls: it discovers carbon liquidity, returns live price quotes, hands back unsigned `[approve, retire]` calldata, and resolves the public Carbonmark certificate once the transaction confirms.
+The x402 Carbon Retirement API is operated by Carbonmark. It exposes carbon retirement on the Base blockchain as plain HTTP calls, drawing on two sources of liquidity: the Carbonmark marketplace, where sellers list tokenized carbon credits, and Klima Protocol, a market maker for certain tokenized carbon credits. It discovers carbon liquidity, returns live price quotes, hands back unsigned `[approve, retire]` calldata, and resolves the public Carbonmark certificate once the transaction confirms.
 
 The endpoint is built for the x402 agent-payments ecosystem and plugs directly into Base MCP, so an agent can read the catalog, prepare a retirement, and submit it through the user's Base Account wallet in a single approval.
 
@@ -20,27 +20,27 @@ The endpoint is built for the x402 agent-payments ecosystem and plugs directly i
 
 With the x402 Carbon Retirement API, you can:
 
-* Discover retirable supply from both the Klima Protocol catalog and the Carbonmark marketplace
+* Discover retirable supply from both the Carbonmark marketplace and Klima Protocol
 * Retrieve live, on-chain quotes for a given tonnage in USDC or kVCM
 * Receive unsigned `approve` + `retire` calldata to submit from your own wallet
 * Retire gaslessly through a relay by signing a single token authorization
 * Resolve the public Carbonmark certificate for any confirmed retirement
-* Integrate carbon retirement into AI agents via the Klima Base MCP plugin
+* Integrate carbon retirement into AI agents via the Carbonmark x402 Base MCP plugin
 
 ## Endpoint basics
 
 | Property | Value |
 | --- | --- |
-| GET base URL | `https://x402.klimalabs.com/api/...` |
-| POST base URL | `https://x402.klimalabs.com/api` |
+| GET base URL | `https://x402.carbonmark.com/api/...` |
+| POST base URL | `https://x402.carbonmark.com/api` |
 | Chain | Base mainnet (`chainId=8453`) only. There is no testnet |
 | Authentication | None. No API key or account |
-| Payment | USDC on Base. Protocol supply also accepts kVCM |
+| Payment | USDC on Base. Klima Protocol supply also accepts kVCM, Klima Protocol's token |
 | Minimum retirement | 0.001 t (1 kg) for most classes; 1 t for classes whose credits retire in whole tonnes. `discover` returns `minRetirementTonnes` per class |
 | Cost | Reads are free; each retirement pays the credit price plus fee (returned as `quote.fee`; see [fees](./x402-reference.md#fees)) |
 | Testing | `discover`, `quote` and `prepare-auth` are free and move no funds, so the flow can be exercised up to the signature at no cost |
-| Current version | **v1** — pin `https://v1.x402.klimalabs.com` to stay on it |
-| Agent manifest | [`/.well-known/x402.json`](https://x402.klimalabs.com/.well-known/x402.json) |
+| Current version | **v1** — pin `https://v1.x402.carbonmark.com` to stay on it |
+| Agent manifest | [`/.well-known/x402.json`](https://x402.carbonmark.com/.well-known/x402.json) |
 
 Discover, quote and certificate are free. Retiring is paid: each retirement costs the credit price plus a fee (and executor gas when relayed through `actions/retire`). `GET /api/catalog` is a $0.001 x402 snapshot of the most liquid supply and current live endpoints. Use **GET** with query parameters on action paths (`/discover`, `/quote`, and so on), or **POST** JSON to `/api` with an `action` field. Both return the same responses.
 
@@ -48,20 +48,25 @@ Discover, quote and certificate are free. Retiring is paid: each retirement cost
 
 These docs describe **v1**. The API is versioned by host, and the major version is the compatibility contract:
 
-* `x402.klimalabs.com` always serves the **latest** release, so a future major bump moves it.
-* `v1.x402.klimalabs.com` serves **v1 and every future 1.x release**, and never moves to v2.
+* `x402.carbonmark.com` always serves the **latest** release, so a future major bump moves it.
+* `v1.x402.carbonmark.com` serves **v1 and every future 1.x release**, and never moves to v2.
+
+The same API also answers at `x402.klimalabs.com` and `v1.x402.klimalabs.com`, which follow the same rules.
 
 If a breaking change reaching you unannounced would be a problem, **pin the `v1.` host**. That is the whole mechanism; there is no version header or query parameter.
 
 Pinning does not freeze you out of new features. Additive work (new actions, new optional fields, new response fields) ships in minor releases and rolls into `v1` automatically. Only genuinely breaking changes, a request that used to succeed now failing, are held back and bundled into a single major bump so that you migrate once per major instead of continuously. When a new major ships, the previous one keeps answering at its own `v<major>` host during migration.
 
-Every release is recorded in the machine-readable [changelog](https://x402.klimalabs.com/.well-known/x402-changelog.json), and each breaking one carries a `migration` string saying concretely what to change. Full detail is in the [reference](./x402-reference.md#versioning).
+Every release is recorded in the machine-readable [changelog](https://x402.carbonmark.com/.well-known/x402-changelog.json), and each breaking one carries a `migration` string saying concretely what to change. Full detail is in the [reference](./x402-reference.md#versioning).
 
 ## Two supply sources
 
-Every retirement draws on one of two surfaces. `discover` returns both, and every item it returns carries a `source` tag saying which one it came from.
+Every retirement draws on one of two sources. `discover` returns both, and every item it returns carries a `source` tag saying which one it came from.
 
-| | Klima Protocol (`source: "protocol"`) | Marketplace (`source: "marketplace"`) |
+* **The Carbonmark marketplace**, where sellers list tokenized carbon credits. Each listing is one seller's fixed ask.
+* **Klima Protocol**, a market maker for certain tokenized carbon credits. It holds them in pools and prices them automatically.
+
+| | Klima Protocol (`source: "protocol"`) | Carbonmark marketplace (`source: "marketplace"`) |
 | --- | --- | --- |
 | Listed under | `carbonClasses[]` | `marketplaceListings[]` |
 | You address it by | `carbonClass` | `listingId` |
@@ -79,7 +84,7 @@ Marketplace supply is real inventory held by a third party. A listing can be rep
 The endpoint supports two integration paths. Choose based on whether you want to submit the transaction yourself or have a relay do it for you.
 
 * **Build-your-own** — `discover` → `quote` → `prepare/retire` hands back unsigned `[approve, retire]` calldata that **you** submit. Reads are free; the batch you broadcast pays the credit price plus a fee.
-* **Paid relay** — `prepare-auth` → sign one EIP-712 token authorization → `actions/retire`. A Klima executor relays the retirement on-chain and pays the gas, reimbursed from your signed budget. No native ETH and no Base Account required.
+* **Paid relay** — `prepare-auth` → sign one EIP-712 token authorization → `actions/retire`. The API's executor relays the retirement on-chain and pays the gas, reimbursed from your signed budget. No native ETH and no Base Account required.
 
 ## The endpoints
 
@@ -137,7 +142,7 @@ You do not need to pre-purchase or hold inventory to get started.
 1. Run the [quickstart](./quickstart.md): two free `curl` calls, then one script that retires 1 kg.
 2. Review the Endpoint basics above and confirm you are targeting Base mainnet (`chainId=8453`).
 3. Follow the build-your-own walkthrough to complete your first retirement, or use the gasless relay path.
-4. To integrate with an AI agent, connect the Klima Base MCP plugin.
+4. To integrate with an AI agent, connect the Carbonmark x402 Base MCP plugin.
 
 {% content-ref url="./quickstart.md" %}
 [Quickstart](./quickstart.md)
@@ -167,7 +172,7 @@ Retirement is irreversible. A confirmed retirement permanently burns the carbon 
 
 * [x402 protocol](https://www.x402.org/) — the HTTP 402 Payment Required protocol this endpoint implements
 * [Base MCP](https://docs.base.org/ai-agents/quickstart) — wallet-connected AI agents on Base mainnet
-* [Agent plugin + setup docs](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation) — Base MCP setup guide, klima-retire plugin, and full integration docs
-* [TypeScript SDK and runnable examples](https://github.com/KlimaDAO/Klima-Protocol-x402-MCP-documentation#typescript-sdk--examples) — one `retire()` call, plus read-only and end-to-end scripts
-* [OpenAPI spec](https://x402.klimalabs.com/openapi.json) — every endpoint with its parameters and response schemas
-* [Discovery manifest](https://x402.klimalabs.com/.well-known/x402.json) — the public `x402.json` that agent crawlers index automatically
+* [Agent plugin + setup docs](https://github.com/Carbonmark/x402-retire-sdk) — Base MCP setup guide, carbonmark-x402 plugin, and full integration docs
+* [TypeScript SDK and runnable examples](https://github.com/Carbonmark/x402-retire-sdk#typescript-sdk--examples) — one `retire()` call, plus read-only and end-to-end scripts
+* [OpenAPI spec](https://x402.carbonmark.com/openapi.json) — every endpoint with its parameters and response schemas
+* [Discovery manifest](https://x402.carbonmark.com/.well-known/x402.json) — the public `x402.json` that agent crawlers index automatically

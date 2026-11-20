@@ -45,10 +45,10 @@ Example request:
 
 ```bash
 # List everything retirable (optional filters)
-curl "https://x402.klimalabs.com/api/discover?maxUsdcPricePerTonne=15"
+curl "https://x402.carbonmark.com/api/discover?maxUsdcPricePerTonne=15"
 
 # Marketplace listings only
-curl "https://x402.klimalabs.com/api/discover?source=marketplace"
+curl "https://x402.carbonmark.com/api/discover?source=marketplace"
 ```
 
 The POST equivalent sends the same optional filters:
@@ -95,7 +95,7 @@ A listing fill can fail in ways pooled supply cannot, because the seller control
 Example request:
 
 ```bash
-curl "https://x402.klimalabs.com/api/quote?chainId=8453\
+curl "https://x402.carbonmark.com/api/quote?chainId=8453\
 &inputToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\
 &carbonClass=0xf4699531e0a5f6e9351a36de3753deaad329bf45&amount=1.5"
 ```
@@ -105,7 +105,7 @@ The response returns the retirement price, the on-chain `fee`, the `total` (pric
 To quote a marketplace listing, swap `carbonClass` for a `listingId` from `discover.marketplaceListings[]`:
 
 ```bash
-curl "https://x402.klimalabs.com/api/quote?chainId=8453\
+curl "https://x402.carbonmark.com/api/quote?chainId=8453\
 &inputToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\
 &listingId=0x1f0c...&amount=1.5"
 ```
@@ -133,7 +133,7 @@ Optional parameters include `maxInputTokenIn` and `details` (a URL-encoded JSON 
 Example request:
 
 ```bash
-curl "https://x402.klimalabs.com/api/prepare/retire?chainId=8453\
+curl "https://x402.carbonmark.com/api/prepare/retire?chainId=8453\
 &inputToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\
 &carbonClass=0xf4699531e0a5f6e9351a36de3753deaad329bf45&amount=1.5\
 &details=%7B%22beneficiaryString%22%3A%22Acme%20Corp%22%7D"
@@ -197,7 +197,7 @@ Use the optional `index` parameter to select one retirement out of a multi-retir
 Example request:
 
 ```bash
-curl "https://x402.klimalabs.com/api/certificate?txHash=0xYOUR_RETIRE_TX_HASH"
+curl "https://x402.carbonmark.com/api/certificate?txHash=0xYOUR_RETIRE_TX_HASH"
 ```
 
 Example response (trimmed for readability):
